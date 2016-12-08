@@ -1,6 +1,9 @@
-# Protocode v2.0#
+# Protocode v3.0#
 
 Protocode is a web application that helps you to prototype iOS and Android mobile apps. Thanks to its model-driven approach, you can create a prototype app once for different operating systems.
+## What's new in v3.0 ##
+
+* __Data editor__: now protocode lets you model also the data you want to store for your application
 
 ## What's new in v2.0 ##
 
