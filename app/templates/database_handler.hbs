@@ -1,0 +1,22 @@
+<div class='col-md-12'>
+  <div class='df_header'>
+      <div class='df_title'>
+        {{#if model}}
+            Add entities/relationship to the DB
+        {{else}}
+            Enable a SQLite DB in your app
+        {{/if}}
+      </div>
+      <div class='switch_button'>
+        {{#if model}}
+            <button type="button" class="btn btn-danger" {{action 'disableDP'}}>Delete SQLite</button>
+        {{else}}
+            <button type="button" class="btn btn-success" {{action 'enableDP'}}>Enable SQLite</button>
+        {{/if}}
+      </div>
+  </div>
+  <hr id='header_hr'>
+  {{#if model}}
+    {{outlet}}
+  {{/if}}
+</div>

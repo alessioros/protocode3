@@ -1,6 +1,5 @@
 App.PreferenceHandlerRoute = Ember.Route.extend({
 
-
         model: function(){
 
             return this.store.find('dataHandler','dH1').then(
@@ -9,7 +8,6 @@ App.PreferenceHandlerRoute = Ember.Route.extend({
 
               });
         },
-
 
         actions: {
 

@@ -1,4 +1,14 @@
-var App = window.App = Ember.Application.create();
+var App = window.App = Ember.Application.create({
+  LOG_TRANSITIONS_INTERNAL:  true,
+  LOG_ACTIVE_GENERATION:     true,
+  LOG_VIEW_LOOKUPS:          true,
+  LOG_RESOLVER:              true,
+});
+
+Ember.run.backburner.DEBUG            = true;
+Ember.ENV.RAISE_ON_DEPRECATION        = true;
+Ember.LOG_STACKTRACE_ON_DEPRECATION   = true;
+Ember.LOG_BINDINGS                    = true;
 
 /* Order and include as you please. */
 require('scripts/mixins/*');

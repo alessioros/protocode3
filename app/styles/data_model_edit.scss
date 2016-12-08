@@ -3,6 +3,7 @@
 $font-title: 20px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $font-menu: 16px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $font-header: 16px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+$font-presentation: 20px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $menu-hover-color: #2C7BB2;
 $menu-background: white;
 $border-color: #CCCCCC;
@@ -72,13 +73,24 @@ $border-color: #CCCCCC;
     float: right;
 }
 
-.df_header{
-  margin-top: 30px;
-  margin-bottom: 30px;
-  display: inline-block;
+.data_presentation{
+
+    display: block;
+    margin-top: 40px;
+    margin-bottom:40px;
+    font: $font-presentation;
+    text-align: center;
 }
 
-.df_title{
+.df_header{
+  margin-top: 30px;
+  margin-bottom: 20px;
+  padding: 10px;
+  display: inline-block;
+  width: 100%;
+}
+
+.df_header .df_title{
 
     font: $font-header;
     float: left;
@@ -88,10 +100,10 @@ $border-color: #CCCCCC;
 
 }
 
-.switch_button{
+.df_header .switch_button{
 
     float:  right;
-    margin-right: 10px;
+    margin-right: 15px;
 }
 
 .storage-selection{

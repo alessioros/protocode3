@@ -5,5 +5,4 @@ App.DataModelEditorRoute = Ember.Route.extend({
       return this.store.find('dataHandler','dH1');
 
   }
-
 });
