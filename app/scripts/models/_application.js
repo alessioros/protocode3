@@ -1,5 +1,6 @@
 App.Application = DS.Model.extend({
     name:             DS.attr('string', {defaultValue: 'newApp'}),
+    companyIdentifier: DS.attr('string',{defaultValue: 'it.polimi'}),
 
     menu:             DS.belongsTo('menu'),
 
@@ -39,7 +40,7 @@ App.Application = DS.Model.extend({
             appModel.setAttribute('xmlns:metamodel', 'http://metamodel/1.0');
             appModel.setAttribute('xsi:schemaLocation', 'http://metamodel/1.0 ../metamodel/metamodel.ecore');
             appModel.setAttribute('name', self.get('name'));
-            appModel.setAttribute('companyIdentifier', 'it.polimi');
+            appModel.setAttribute('companyIdentifier', self.get('companyIdentifier'));
 
             var viewControllers = self.get('viewControllers');
             var watchControllers = self.get('watchControllers');

@@ -19,7 +19,9 @@ App.DataHandler = DS.Model.extend({
       var elem = xmlDoc.createElement('dataHandler');
       var prefHandler = this.get('prefHandler');
 
-      elem.appendChild(prefHandler.toXml(xmlDoc));
+      if(prefHandler){
+        elem.appendChild(prefHandler.toXml(xmlDoc));
+      }
 
       return elem;
     }

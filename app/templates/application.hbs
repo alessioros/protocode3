@@ -40,7 +40,12 @@
                 {{input value=name class="form-control input-sm" placeholder="name" type="text" focus-out="acceptChanges" insert-newline="acceptChanges"}}
               </div>
             </div>
-            <div class="col-md-4"></div>
+            <div class="col-md-4">
+              <div class="input-group">
+                <span class="input-group-addon input-sm">Company Identifier</span>
+                {{input value=companyIdentifier class="form-control input-sm" placeholder="companyId" type="text" focus-out="acceptChanges" insert-newline="acceptChanges"}}
+              </div>
+            </div>
             <div class="col-md-4">
               <div class="pull-right">
                 <button class="btn btn-default btn-sm" {{action 'generateAppModel'}}>
