@@ -1,0 +1,106 @@
+/*============ SIDEBAR ============*/
+
+$font-title: 20px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+$font-menu: 16px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+$font-header: 16px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+$menu-hover-color: #2C7BB2;
+$menu-background: white;
+$border-color: #CCCCCC;
+
+.sidebar {
+
+  background-color: $menu-background;
+  color: $menu-hover-color;
+  border-style: solid;
+  border-color: $border-color;
+  border-width: 1px;
+  padding: 0px;
+  padding-top: 15px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  font: $font-title;
+}
+
+.sidebar .sidetitle{
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.sidebar .sidemenu{
+
+  padding-top:20px;
+  padding:0px;
+  list-style-type: none;
+
+}
+
+.sidebar .sidemenu .sideitem{
+
+  padding:10px;
+  padding-left: 50px;
+  font: $font-menu;
+}
+
+.sidebar .sidemenu .sideitem:hover{
+
+  background-color: $menu-hover-color;
+  color: $menu-background;
+
+}
+
+.sidebar .sidemenu .sideitem a:active{
+
+  background-color: $menu-hover-color;
+  color: $menu-background;
+
+}
+
+.sidebar .sidemenu .sideitem a{
+
+  text-decoration: none;
+  color: $menu-hover-color;
+}
+
+.sidebar .sidemenu .sideitem:hover a{
+
+  color: $menu-background;
+}
+
+.sidebar .sidemenu .sideitem .sideicon{
+
+    padding-right:30px;
+    float: right;
+}
+
+.df_header{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: inline-block;
+}
+
+.df_title{
+
+    font: $font-header;
+    float: left;
+    margin-top:5px;
+    margin-left:30px;
+    min-width: 150px;
+
+}
+
+.switch_button{
+
+    float:  right;
+    margin-right: 10px;
+}
+
+.storage-selection{
+
+    background-color: $menu-background;
+    border-style: solid;
+    border-color: $border-color;
+    border-width: 1px;
+    border-radius: 5px;
+    min-height: 600px;
+    margin-left:20px;
+}

@@ -1,0 +1,22 @@
+<div class='col-md-12'>
+  <div class='df_header'>
+      <div class='df_title'>
+        {{#if model}}
+            Add key/value records to the default preferences
+        {{else}}
+            Enable the default preferences in your app
+        {{/if}}
+      </div>
+      <div class='switch_button'>
+        {{#if model}}
+            <button type="button" class="btn btn-danger" {{action 'disableDP'}}>Delete default preferences</button>
+        {{else}}
+            <button type="button" class="btn btn-success" {{action 'enableDP'}}>Enable default preferences</button>
+        {{/if}}
+      </div>
+  </div>
+  <hr>
+  {{#if model}}
+    {{outlet}}
+  {{/if}}
+</div>

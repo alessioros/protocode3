@@ -1,0 +1,59 @@
+<table class='table table-hover table-bordered'>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Type</th>
+        <th>Key</th>
+        <th>Value</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each item in controller item-controller="PreferenceRecords" }}
+      <tr>
+        <th>{{_view.contentIndex}}</th>
+        <th>{{item.type}}</th>
+        <th>{{item.key}}</th>
+        <th>{{item.value}}</th>
+        <th></th>
+      </tr>
+      {{/each}}
+      {{#if isCreating}}
+      <tr>
+        <th>{{_view.contentIndex}}</th>
+        <th>
+          {{view Ember.Select
+            content=types
+            class="form-control input-sm"
+            value=typePreferenceRecord
+          }}
+        </th>
+        <th>{{focus-input value=keyPreferenceRecord class="form-control input-sm"}}</th>
+        <th>{{focus-input value=valuePreferenceRecord class="form-control input-sm"}}</th>
+        <th>
+          <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-sm" {{action "createPrefRecord"}}>
+                  <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+              </button>
+              <button type="button" class="btn btn-default btn-sm" {{action "setCreating" false}}>
+                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+              </button>
+          </span>
+        </th>
+      </tr>
+      {{/if}}
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>
+          <div class="btn-group">
+            <button type="button" class="btn btn-default btn-sm" {{action "setCreating" true}}>
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </button>
+          </div>
+        </th>
+      </tr>
+    </tbody>
+</table>

@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col-md-3">
+        <ul class="nav nav-tabs nav-justified">
+            <li role="presentation" class="active">
+                {{#link-to ""}}Smartphone{{/link-to}}
+            </li>
+            <li role="presentation">
+                {{#link-to "watchControllers"}}Smartwatch{{/link-to}}
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <div class="panel-group">
+            <div id="view-controllers-panel" class="panel panel-default">
+                <div class="panel-heading" data-toggle="collapse" data-target="#collapse-views">
+                    <h3 class="panel-title">ViewControllers</h3>
+                </div>
+                <ul class="list-group" id="collapse-views" class="collapse in">
+                    {{#each item in controller item-controller="viewController" }}
+                    <li class="list-group-item">
+                        {{#link-to "viewController" item}}
+                            {{#if item.launcher}}
+                            <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                            {{/if}}
+                            {{item.name}}
+                        {{/link-to}}
+                    </li>
+                    {{/each}}
+                    {{#if isCreating}}
+                    <li class="list-group-item">
+                        <div class="input-group">
+                            {{focus-input value=newNameViewController class="form-control input-sm" focus-out="createViewController" insert-newline="createViewController"}}
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default btn-sm" {{action "createViewController"}}>
+                                    <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+                                </button>
+                                <button type="button" class="btn btn-default btn-sm" {{action "setCreating" false}}>
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                </button>
+                            </span>
+                        </div>
+                    </li>
+                    {{/if}}
+                </ul>
+                <div class="panel-footer">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default btn-sm" {{action "setCreating" true}}>
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-target="#collapse-ui-phone-control" style="cursor:pointer">
+                    UIPhoneControls (Drag and drop) <span style="float:right">&#9660;</span>
+                </div>
+                <div class="panel-body collapse" id="collapse-ui-phone-control">
+                    {{#each controllers.uiPhoneControlTemplates itemController="uiPhoneControlTemplate" }}
+                        {{view App.UiPhoneControlTemplateView}}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{outlet}}
+</div>

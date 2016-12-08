@@ -1,0 +1,129 @@
+@import "font-awesome/scss/font-awesome";
+@import "variables";
+
+/*============ IOS ============*/
+
+.app-menu.ios {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  align-items: flex-end;
+  background-color: rgb(247,247,247);
+  width: 100%;
+  //(px = points iphone)
+  height: 48px; // +1 border top
+  border-top: solid 1px rgb(247,247,247);
+  bottom: 0;
+}
+
+.Nexus6P .app-menu {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  align-items: flex-end;
+  background-color: #3F51B5;
+  width: 100%;
+  //(px = points iphone)
+  height: 48px; // +1 border top
+  top: 93px;
+}
+
+.Nexus5 .app-menu {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  align-items: flex-end;
+  background-color: #3F51B5;
+  width: 100%;
+  //(px = points iphone)
+  height: 48px; // +1 border top
+  top: 79px;
+}
+
+.app-menu-item.ios {
+  position: relative;
+  color: $ios-color;
+  flex: 0 1 auto;
+  align-self: auto;
+  min-width: 0;
+  min-height: auto;
+  font-size: 11px;
+  cursor:pointer;
+}
+
+.app-menu-item.android {
+  position: relative;
+  color: #ffffff;
+  text-transform : uppercase;
+  flex: 0 1 auto;
+  align-self: auto;
+  min-width: 0;
+  min-height: auto;
+  font-size: 14px;
+  //width: 100%;
+  text-align: center;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #3F51B5;
+  cursor:pointer;
+  //overflow: hidden;
+  //margin: 0px 4px;
+}
+
+.app-menu-item.android .control-content {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+/*============ ANDROID ============*/
+/*
+.app-menu.android:before {
+  content: $fa-var-ellipsis-v;
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  color: #FFF;
+  display: block;
+  position: absolute;
+  right: 0;
+  text-decoration: inherit;
+  padding-right: 10px;
+  padding-left: 10px;
+  height: 40px;
+  width: 40px;
+  text-align: right;
+}
+
+.app-menu.android {
+  display: block;
+  position: absolute;
+  right: 5px;
+  width: auto;
+  height: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.app-menu-item.android {
+  display: none;
+  position: relative;
+  min-width: 225px;
+  min-height: auto;
+  background-color: #FFFFFF;
+  border-bottom: solid 1px #FFFFFF;
+  cursor:pointer;
+}
+
+.app-menu-item.android:last-child {
+  border-bottom: none;
+}
+
+.app-menu.android:hover .app-menu-item.android {
+  display: block;
+}
+
+.app-menu-item.android:hover {
+  display: block;
+}
+*/

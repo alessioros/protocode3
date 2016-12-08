@@ -1,0 +1,18 @@
+<div class="control-content">
+  <div id="play-button" class="ember-view control-button">
+    <div class="control-content">
+      <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+    </div>
+  </div>
+  <div id="pause-button" class="ember-view control-button">
+    <div class="control-content">
+      <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+    </div>
+  </div>
+  <div id="stop-button" class="ember-view control-button">
+    <div class="control-content">
+      <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
+    </div>
+  </div>
+</div>
+{{#link-to "controlAudioPlayer" this tagName="div" class="inner-control"}}{{/link-to}}

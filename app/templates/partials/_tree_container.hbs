@@ -1,0 +1,11 @@
+{{#each uiPhoneControls}}
+  {{#if uiPhoneControls}}
+    <li><span><i class="fa fa-plus-square-o"></i> {{#link-to 'dispatchUiPhoneControl' this}}{{name}}{{/link-to}}</span>
+      <ul>
+        {{partial "partials/tree_container"}}
+      </ul>
+    </li>
+  {{else}}
+    <li>{{#link-to 'dispatchUiPhoneControl' this}}{{name}}{{/link-to}}</li>
+  {{/if}}
+{{/each}}

@@ -1,0 +1,33 @@
+<div class="form-group">
+  <label class="col-sm-5" style="padding:8px 10px;text-align:right">Align with parent</label>
+  <div class="col-sm-7">
+    <div class="btn-group btn-group-justified">
+      <label {{bind-attr class=":btn :btn-default :btn-sm alignParentStart:active"}}>
+        {{input type="checkbox" checked=alignParentStart class="hidden"}} <i class="fa fa-chevron-left"></i>
+      </label>
+      <label {{bind-attr class=":btn :btn-default :btn-sm alignParentTop:active"}}>
+        {{input type="checkbox" checked=alignParentTop class="hidden"}} <i class="fa fa-chevron-up"></i>
+      </label>
+      <label {{bind-attr class=":btn :btn-default :btn-sm alignParentBottom:active"}}>
+        {{input type="checkbox" checked=alignParentBottom class="hidden"}} <i class="fa fa-chevron-down"></i>
+      </label>
+      <label {{bind-attr class=":btn :btn-default :btn-sm alignParentEnd:active"}}>
+        {{input type="checkbox" checked=alignParentEnd class="hidden"}} <i class="fa fa-chevron-right"></i>
+      </label>
+    </div>
+  </div>
+</div>
+
+<!-- Align -->
+{{input-select label="Align with top" content=siblings optionLabelPath="content.name" optionValuePath="content" selection=alignTop prompt="Select sibling"}}
+{{input-select label="Align with bottom" content=siblings optionLabelPath="content.name" optionValuePath="content" selection=alignBottom prompt="Select sibling"}}
+{{input-select label="Align with start" content=siblings optionLabelPath="content.name" optionValuePath="content" selection=alignStart prompt="Select sibling"}}
+{{input-select label="Align with end" content=siblings optionLabelPath="content.name" optionValuePath="content" selection=alignEnd prompt="Select sibling"}}
+<!-- Relative position -->
+{{input-select label="Above to" content=siblings optionLabelPath="content.name" optionValuePath="content" selection=above prompt="Select sibling"}}
+{{input-select label="Below to" content=siblings optionLabelPath="content.name" optionValuePath="content" selection=below prompt="Select sibling"}}
+{{input-select label="To start of" content=siblings optionLabelPath="content.name" optionValuePath="content" selection=toStartOf prompt="Select sibling"}}
+{{input-select label="To end of" content=siblings optionLabelPath="content.name" optionValuePath="content" selection=toEndOf prompt="Select sibling"}}
+<!-- Position -->
+{{input-number label="Position X" min="0" value=posX action='acceptChanges'}}
+{{input-number label="Position Y" min="0" value=posY action='acceptChanges'}}
