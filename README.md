@@ -47,5 +47,5 @@ In order to deploy the web application we need:
 6. If you want only minified and compressed version of this web application, just execute in the root of the project `grunt build`. Now you have in `/PROJECT_PATH/dist` the web application ready for distribution.
 
 ## External Links ##
-
-[Protocode v1.0](https://github.com/deib-polimi/protocode/)
+* [Protocode v2.0](https://github.com/aldopolimi/protocode/)
+* [Protocode v1.0](https://github.com/deib-polimi/protocode/)
