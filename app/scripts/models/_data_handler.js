@@ -3,9 +3,9 @@ App.DataHandler = DS.Model.extend({
     application:      DS.belongsTo('application'),
 
     prefHandler:      DS.belongsTo('prefHandler'),
-    /*
 
-    databaseHandler: belongsTo('databaseHandler'),
+    databaseHandler:  DS.belongsTo('databaseHandler'),
+    /*
 
     filesHandler: belongsTo('filesHandler'),
 
@@ -16,7 +16,8 @@ App.DataHandler = DS.Model.extend({
 
     toXml: function(xmlDoc) {
 
-      var elem = xmlDoc.createElement('dataHandler');
+      var self = this;
+      var elem = xmlDoc.createElement(self.get('xmlName'));
       var prefHandler = this.get('prefHandler');
 
       if(prefHandler){

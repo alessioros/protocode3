@@ -1,7 +1,48 @@
-App.databaseHandlerRoute = Ember.Route.extend({
+App.DatabaseHandlerRoute = Ember.Route.extend({
 
-    model: {
+    model: function(){
 
-      
+      return this.store.find('dataHandler','dH1').then(
+        function(dataHandler){
+          return dataHandler.get('databaseHandler');
+
+        });
+    },
+
+    actions: {
+
+        enableDB: function(){
+
+            var self = this
+            this.store.createRecord('databaseHandler', {id: 'dbH1'}).save().then(
+              function(dbHandler){
+                  self.store.find('dataHandler','dH1').then(
+                    function(dataHandler){
+                        dataHandler.set('databaseHandler', dbHandler);
+                        dataHandler.save();
+                        dbHandler.save();
+                    });
+              });
+
+              this.refresh();
+              this.transitionTo('/data_model_editor/database_handler/');
+
+        },
+
+        disableDB: function(){
+
+            this.store.find('databaseHandler','dbH1').then(
+              function(dbHandler){
+
+                dbHandler.deleteRecord();
+                dbHandler.save();
+              }
+            );
+
+            this.refresh();
+            this.transitionTo('/data_model_editor/database_handler/');
+        }
+
+
     }
 });

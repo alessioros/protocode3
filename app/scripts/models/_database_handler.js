@@ -1,20 +1,23 @@
-App.PrefHandler = DS.Model.extend({
+App.DatabaseHandler = DS.Model.extend({
 
       dataHandler:  DS.belongsTo('dataHandler'),
 
-      prefRecords:  DS.hasMany('prefRecord', { async: true}),
+      entities:     DS.hasMany('entity'),
 
-      xmlName: 'prefHandler',
+      xmlName: 'DBHandler',
 
       toXml: function(xmlDoc) {
 
           var self = this;
+
           var elem = xmlDoc.createElement(self.get('xmlName'));
 
-          this.get('prefRecords').map(function(item) {
+          this.get('entities').map(function(item) {
               elem.appendChild(item.toXml(xmlDoc));
           });
 
           return elem;
       }
+
+
 });
