@@ -196,6 +196,22 @@ App.ApplicationRoute = Ember.Route.extend({
       }).save();
 
       this.store.createRecord('smartphone', {
+        name: 'GooglePixel',
+        label: 'Android (387x641) Google Pixel ',
+        platform: 'android',
+        //Altezza status bar(30) + toolbar(64) in dp
+        viewTop: 93,
+        //Altezza schermo (731) - altezza command bar(55) in dp
+        viewBottom: 675,
+        //Dimensioni in dp
+        screenWidth: 387,
+        screenHeight: 641,
+        //Dimensioni in px - padding css
+        cssWidth: 387,
+        cssHeight: 641
+      }).save();
+
+      this.store.createRecord('smartphone', {
         name: 'Nexus6P',
         label: 'Android (411x731) Nexus 6P ',
         platform: 'android',

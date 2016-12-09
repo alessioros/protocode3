@@ -206,6 +206,69 @@
 
 }
 
+/*============ Google Pixel ============*/
+
+.smartphone-view.GooglePixel {
+  //Padding per centrare lo schermo
+  //dimensione schermo in pixel = dimensione in dp 387x641
+  padding: 154px 61px 166px 63px;
+  background-image: url("../img/smartphones/android/google_pixel.png");
+}
+
+.GooglePixel {
+  /*
+	.app-menu.android {
+	  top: 33px;
+	}
+
+	.app-menu.android:before {
+	  font-size : 22px;
+	  top: 16px;
+	}
+
+	.app-menu-item.android {
+	  padding: 20px;
+	}
+  */
+	.action-bar {
+	  top: 29px;
+	  height: 64px;
+	  line-height: 64px;
+	}
+
+	.action-bar .bar-content {
+	  margin-left: 10px;
+	  background-size: auto 93%;
+	  color: #FFFFFF;
+	  font-size: 22px;
+	}
+
+	.status-bar {
+	  //Altezza status bar in pixel = altezza in points
+	  //411 X 30
+	  height: 30px;
+	  background-image: url("../img/ui_phone_controls/android/status_bar6p.png");
+	}
+
+	.command-bar {
+	  //411 X 55
+	  height: 55px;
+	  background-image: url("../img/ui_phone_controls/android/command_bar_pixel.png");
+	}
+
+	.control-grid-view-cell,
+	.control-grid-view-cell .grid-image,
+	.control-grid-view-cell .grid-image-empty {
+	  height: 203px;
+	  width: 203px;
+	}
+
+	.control-card .card-image {
+	  height : 222px;
+	}
+
+}
+
 /*============ NEXUS 6P ============*/
 
 .smartphone-view.Nexus6P {
