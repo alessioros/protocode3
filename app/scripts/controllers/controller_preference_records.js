@@ -95,12 +95,19 @@ App.PreferenceRecordsController = Ember.ArrayController.extend({
 
           deletePRecord: function(key){
 
-                this.store.find('prefRecord', key).then(
+            var self = this
+
+            this.store.find('prefHandler','pH1').then(
+              function(prefHandler){
+                self.store.find('prefRecord', key).then(
                   function(pRecord){
 
                     pRecord.deleteRecord();
+                    prefHandler.get('prefRecords').removeObject(pRecord);
+                    prefHandler.save();
                     pRecord.save();
                 });
+            });
           }
 
       }

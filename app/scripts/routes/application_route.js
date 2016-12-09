@@ -4,7 +4,6 @@ App.ApplicationRoute = Ember.Route.extend({
 
           return dataArray.objectAt(0);
       });
-
   },
 
   actions: {
