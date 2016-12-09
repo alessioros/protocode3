@@ -31,9 +31,20 @@ App.PreferenceHandlerRoute = Ember.Route.extend({
 
             disableDP: function(){
 
+                var self = this
                 this.store.find('prefHandler','pH1').then(
                   function(prefHandler){
 
+                    self.store.findAll('prefRecord').then(
+                      function(array){
+                        array.forEach(function (data) {
+                          Ember.run.once(self, function () {
+                            data.deleteRecord();
+                            data.save();
+                          });
+                        });
+                      }
+                    );
                     prefHandler.deleteRecord();
                     prefHandler.save();
                   }

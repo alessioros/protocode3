@@ -1,4 +1,4 @@
 /*
  templates/data_model_editor.hbs
 */
-App.DataModelEditorController = Ember.ObjectController.extend(App.Saveable, {});
+App.DataModelEditorController = Ember.ObjectController.extend();

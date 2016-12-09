@@ -2,16 +2,28 @@
   <div class='df_header'>
       <div class='df_title'>
         {{#if model}}
-            Add key/value records to the default preferences
+            Default preferences enabled
         {{else}}
             Enable the default preferences in your app
         {{/if}}
       </div>
       <div class='switch_button'>
         {{#if model}}
-            <button type="button" class="btn btn-danger" {{action 'disableDP'}}>Delete default preferences</button>
+          {{#link-to 'preference_records'}}
+            <button type="button" class="btn btn-info" id="edbutton" >
+              Edit records
+              <i class="fa fa-pencil-square-o" id="but_icon" aria-hidden="true"></i>
+            </button>
+          {{/link-to}}
+            <button type="button" class="btn btn-danger" id="edbutton" {{action 'disableDP'}}>
+              Disable
+              <i class="fa fa-trash-o" id="but_icon" aria-hidden="true"></i>
+            </button>
         {{else}}
-            <button type="button" class="btn btn-success" {{action 'enableDP'}}>Enable default preferences</button>
+            <button type="button" class="btn btn-success" id="edbutton" {{action 'enableDP'}}>
+              Enable default preferences
+              <i class="fa fa-floppy-o" id="but_icon" aria-hidden="true"></i>
+            </button>
         {{/if}}
       </div>
   </div>

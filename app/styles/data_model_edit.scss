@@ -4,6 +4,9 @@ $font-title: 20px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $font-menu: 16px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $font-header: 16px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $font-presentation: 20px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+$font-error: 14px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+$font-table-header: 14px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+$font-table: 13px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $menu-hover-color: #2C7BB2;
 $menu-background: white;
 $border-color: #CCCCCC;
@@ -73,6 +76,17 @@ $border-color: #CCCCCC;
     float: right;
 }
 
+.storage-selection{
+
+    background-color: $menu-background;
+    border-style: solid;
+    border-color: $border-color;
+    border-width: 1px;
+    border-radius: 5px;
+    min-height: 600px;
+    margin-left:20px;
+}
+
 .data_presentation{
 
     display: block;
@@ -105,14 +119,43 @@ $border-color: #CCCCCC;
     float:  right;
     margin-right: 15px;
 }
+.df_header .switch_button #edbutton{
 
-.storage-selection{
+    min-width: 150px;
 
-    background-color: $menu-background;
-    border-style: solid;
-    border-color: $border-color;
-    border-width: 1px;
-    border-radius: 5px;
-    min-height: 600px;
-    margin-left:20px;
+}
+
+.df_header .switch_button #but_icon{
+
+    margin-left: 10px;
+}
+
+#rec_controls{
+
+    text-align: center;
+    vertical-align: middle;
+    color: #ff4444;
+    font: $font-error;
+}
+
+#record_header th{
+
+    font: $font-table-header;
+    font-weight: bold;
+}
+
+#record_row th{
+
+    font: $font-table;
+    font-weight: normal;
+}
+
+#del_record_button{
+
+  visibility: hidden;
+}
+
+#record_row :hover #del_record_button {
+
+  visibility: visible;;
 }
