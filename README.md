@@ -5,6 +5,8 @@ Protocode is a web application that helps you to prototype iOS and Android mobil
 
 * __Data editor__: now protocode lets you model also the data you want to store for your application
 
+* __New devices__: iPhone 7, 7 Plus for iOS 10.
+
 ## What's new in v2.0 ##
 
 * __New devices__: Nexus 6P for Android M and iPhone 6, 6 Plus for iOS 9.
