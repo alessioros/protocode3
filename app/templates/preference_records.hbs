@@ -10,13 +10,13 @@
     </thead>
     <tbody>
       {{#each item in controller item-controller="PreferenceRecords" }}
-      <tr id='record_row'>
+      <tr class='record_row'>
         <th class='col-md-1'>{{_view.contentIndex}}</th>
         <th class='col-md-3'>{{item.type}}</th>
         <th class='col-md-3'>{{item.key}}</th>
         <th class='col-md-3'>{{item.value}}</th>
         <th class='col-md-2' id='rec_controls'>
-          <button type="button" class="btn btn-default btn-sm" {{action "deletePRecord" item.key }}>
+          <button type="button" class="btn btn-default btn-sm" id='del_record_button' {{action "deletePRecord" item.key }}>
               <i class="fa fa-trash-o" aria-hidden="true"></i>
           </button>
         </th>
@@ -33,29 +33,33 @@
           }}
         </th>
         <th class='col-md-3'>{{focus-input value=keyPreferenceRecord class="form-control input-sm"}}</th>
-        {{#if isTypeRec}}
         <th class='col-md-3'>
-          {{view Ember.Select
-            content=booleanOptions
-            class="form-control input-sm"
-            value=valuePreferenceRecord
-          }}
+          {{#if isBooleanRec}}
+            {{view Ember.Select
+              content=booleanOptions
+              class="form-control input-sm"
+              value=valuePreferenceRecord
+            }}
+          {{else}}
+            {{focus-input value=valuePreferenceRecord class="form-control input-sm"}}
+          {{/if}}
         </th>
-        {{else}}
-        <th class='col-md-3'>{{focus-input value=valuePreferenceRecord class="form-control input-sm"}}</th>
-        {{/if}}
         <th class='col-md-2' id='rec_controls'>
         {{#if isKeyValid}}
-          <span class="input-group-btn">
-              <button type="button" class="btn btn-default btn-sm" {{action "createPrefRecord"}}>
-                  <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
-              </button>
-              <button type="button" class="btn btn-default btn-sm" {{action "setCreating" false}}>
-                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-              </button>
-          </span>
+            {{#if isValidType}}
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default btn-sm" {{action "createPrefRecord"}}>
+                    <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="btn btn-default btn-sm" {{action "setCreating" false}}>
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
+            </span>
+            {{else}}
+             invalid value
+            {{/if}}
         {{else}}
-        invalid key
+          invalid key
         {{/if}}
         </th>
       </tr>

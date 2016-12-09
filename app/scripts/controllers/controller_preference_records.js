@@ -7,7 +7,7 @@ App.PreferenceRecordsController = Ember.ArrayController.extend({
       types: ['string','boolean','int','float'],
       booleanOptions: ['true','false'],
 
-      isTypeRec: function(){
+      isBooleanRec: function(){
 
         if(this.get('typePreferenceRecord') === 'boolean'){
 
@@ -18,20 +18,52 @@ App.PreferenceRecordsController = Ember.ArrayController.extend({
         if(this.get('typePreferenceRecord') === 'string'){
 
           this.set('valuePreferenceRecord','newStringValue');
+          return false;
         }
 
         if(this.get('typePreferenceRecord') === 'int'){
 
           this.set('valuePreferenceRecord','0');
+          return false;
         }
 
         if(this.get('typePreferenceRecord') === 'float'){
 
           this.set('valuePreferenceRecord','0.0');
+          return false;
         }
 
-        return false;
+        if(this.get('typePreferenceRecord') === 'string'){
+
+          this.set('valuePreferenceRecord','newStringValue');
+          return false;
+        }
+
       }.property('typePreferenceRecord'),
+
+      isValidType: function(){
+
+        var intReg = new RegExp('^[-+]?[0-9]*$');
+        var floatReg = new RegExp('^[-+]?[0-9]*\.?[0-9]+$');
+
+        if(this.get('typePreferenceRecord') === 'int'){
+
+          return this.get('valuePreferenceRecord').match(intReg);
+        }
+
+        if(this.get('typePreferenceRecord') === 'float'){
+
+          return this.get('valuePreferenceRecord').match(floatReg);
+        }
+
+        return true;
+
+      }.property('valuePreferenceRecord'),
+
+      isNumeric(n) {
+        //return !isNaN(parseFloat(n)) && isFinite(n);
+        return true;
+      },
 
       isKeyValid: function(){
 
@@ -86,7 +118,7 @@ App.PreferenceRecordsController = Ember.ArrayController.extend({
 
                 this.set('isCreating', false);
                 this.set('keyPreferenceRecord','newKey');
-                this.set('valuePreferenceRecord','newValue');
+                this.set('valuePreferenceRecord','newStringValue');
                 this.set('typePreferenceRecord','string');
 
               }
