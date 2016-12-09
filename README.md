@@ -5,6 +5,14 @@ Protocode is a web application that helps you to prototype iOS and Android mobil
 
 * __Data editor__: now protocode lets you model also the data you want to store for your application
 
+* __Default Preferences Handler__: you can now add default preferences to your app
+
+* __Database Handler__: you can now add an SQLite DB to your app
+
+* __Cloud Handler__: you can now add cloud storage to your app
+
+* __File Handler__: you can now add files to your app
+
 * __New devices__: Google Pixel for Android 7 Nugat, iPhone 7, 7 Plus for iOS 10.
 
 ## What's new in v2.0 ##
