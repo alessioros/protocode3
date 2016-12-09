@@ -51,6 +51,68 @@
   width: 41%;
 }
 
+/*============ IPHONE 7 PLUS ============*/
+
+.smartphone-view.iPhone7Plus {
+  //Padding per centrare lo schermo
+  //dimensione schermo in pixel = dimensione in dp 414x736
+  padding: 120px 48px 134px 37px;
+  background-image: url("../img/smartphones/ios/iPhone_7plus.png");
+}
+
+.iPhone7Plus {
+
+	.smartphone-screen-view .status-bar {
+	  background-image: url("../img/ui_phone_controls/ios/status_bar6plus.png");
+	  //Altezza status bar in pixel = altezza in points
+	  height: 63px; //+1 border bottom
+	  border-bottom: solid 1px rgb(247,247,247);
+	}
+
+	.control-grid-view-cell,
+	.control-grid-view-cell .grid-image,
+	.control-grid-view-cell .grid-image-empty {
+	  height: 205px;
+	  width: 205px;
+	}
+
+	.control-card .card-buttons {
+	  padding-top : 24px;
+	}
+
+}
+
+/*============ IPHONE 7 ============*/
+
+.smartphone-view.iPhone7 {
+  //Padding per centrare lo schermo
+  //dimensione schermo in pixel = dimensione in dp 375x667
+  padding: 171px 60px 162px 65px;
+  background-image: url("../img/smartphones/ios/iPhone_7.png");
+}
+
+.iPhone7 {
+
+	.smartphone-screen-view .status-bar {
+	  background-image: url("../img/ui_phone_controls/ios/status_bar7.png");
+	  //Altezza status bar in pixel = altezza in points
+	  height: 64px; //+1 border bottom
+	  border-bottom: solid 1px #ccc;
+	}
+
+	.control-grid-view-cell,
+	.control-grid-view-cell .grid-image,
+	.control-grid-view-cell .grid-image-empty {
+	  height: 185px;
+	  width: 185px;
+	}
+
+	.control-card .card-buttons {
+	  padding-top : 18px;
+	}
+
+}
+
 /*============ IPHONE 6 PLUS ============*/
 
 .smartphone-view.iPhone6Plus {

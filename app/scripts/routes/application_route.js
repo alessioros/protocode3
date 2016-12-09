@@ -49,8 +49,8 @@ App.ApplicationRoute = Ember.Route.extend({
       var self = this;
 
       this.store.createRecord('smartphone', {
-        name: 'iPhone6Plus',
-        label: 'iOS (414x736) iPhone 6 Plus',
+        name: 'iPhone7Plus',
+        label: 'iOS (414x736) iPhone 7 Plus',
         platform: 'ios',
         //Altezza status bar in points
         viewTop: 64,
@@ -130,6 +130,38 @@ App.ApplicationRoute = Ember.Route.extend({
           }
         );
       });
+
+      this.store.createRecord('smartphone', {
+        name: 'iPhone7',
+        label: 'iOS (375x667) iPhone 7',
+        platform: 'ios',
+        //Altezza status bar in points
+        viewTop: 65,
+        //Altezza schermo in points
+        viewBottom: 667,
+        //Dimensioni in points
+        screenWidth: 375,
+        screenHeight: 667,
+        //Dimensioni in px - padding css
+        cssWidth: 375,
+        cssHeight: 667
+      }).save();
+
+      this.store.createRecord('smartphone', {
+        name: 'iPhone6Plus',
+        label: 'iOS (414x736) iPhone 6 Plus',
+        platform: 'ios',
+        //Altezza status bar in points
+        viewTop: 64,
+        //Altezza schermo in points
+        viewBottom: 736,
+        //Dimensioni in points
+        screenWidth: 414,
+        screenHeight: 736,
+        //Dimensioni in px - padding css
+        cssWidth: 414,
+        cssHeight: 736
+      }).save();
 
       this.store.createRecord('smartphone', {
         name: 'iPhone6',
