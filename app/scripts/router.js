@@ -120,7 +120,9 @@ App.Router.map(function() {
         this.resource('preference_handler', function() {
             this.resource('preference_records', function(){});
         });
-        this.resource('database_handler', function() {});
+        this.resource('database_handler', function() {
+            this.resource('entities', function(){});
+        });
     });
     this.resource('uiPhoneControls');
     this.resource('uiWatchControls');

@@ -6,8 +6,8 @@ App.Application = DS.Model.extend({
 
     dataHandler:      DS.belongsTo('dataHandler'),
 
-    watchControllers: DS.hasMany('watchController', {inverse: 'application'}),
-    viewControllers:  DS.hasMany('viewController', {inverse: 'application'}),
+    watchControllers: DS.hasMany('watchController', {inverse: 'application', async: true}),
+    viewControllers:  DS.hasMany('viewController', {inverse: 'application',  async: true}),
 
     deleteRecord: function() {
         this.get('watchControllers').forEach(function(watchController) {

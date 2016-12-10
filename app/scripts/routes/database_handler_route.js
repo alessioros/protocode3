@@ -25,7 +25,7 @@ App.DatabaseHandlerRoute = Ember.Route.extend({
               });
 
               this.refresh();
-              this.transitionTo('/data_model_editor/database_handler/');
+              this.transitionTo('/data_model_editor/database_handler/entities');
 
         },
 

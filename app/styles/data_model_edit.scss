@@ -10,126 +10,174 @@ $menu-hover-color: #2C7BB2;
 $menu-background: white;
 $border-color: #CCCCCC;
 
-.sidebar {
-    background-color: $menu-background;
-    color: $menu-hover-color;
-    border-style: solid;
-    border-color: $border-color;
-    border-width: 1px;
-    padding: 15px 0 5px;
-    border-radius: 5px;
-    font: $font-title;
-}
+/*============ SIDEBAR ============*/
 
-.sidebar .sidetitle {
+.sidebar {
+  background-color: $menu-background;
+  color: $menu-hover-color;
+  border-style: solid;
+  border-color: $border-color;
+  border-width: 1px;
+  padding: 15px 0 5px;
+  border-radius: 5px;
+  font: $font-title;
+
+  .sidetitle {
     margin-left: 20px;
     margin-bottom: 20px;
-}
+  }
 
-.sidebar .sidemenu {
+  .sidemenu {
     padding: 0;
     list-style-type: none;
+
+    .sideitem {
+      padding: 10px 10px 10px 50px;
+      font: $font-menu;
+
+      a:active {
+        background-color: $menu-hover-color;
+        color: $menu-background;
+      }
+
+      .sideicon {
+        padding-right: 30px;
+        float: right;
+      }
+    }
+
+    .sideitem:hover {
+      background-color: $menu-hover-color;
+      color: $menu-background;
+
+      a {
+        color: $menu-background;
+      }
+    }
+  }
 }
 
-.sidebar .sidemenu .sideitem {
-    padding: 10px 10px 10px 50px;
-    font: $font-menu;
-}
-
-.sidebar .sidemenu .sideitem:hover {
-    background-color: $menu-hover-color;
-    color: $menu-background;
-}
-
-.sidebar .sidemenu .sideitem a:active {
-    background-color: $menu-hover-color;
-    color: $menu-background;
-}
-
-.sidebar .sidemenu .sideitem a {
-    text-decoration: none;
-    color: $menu-hover-color;
-}
-
-.sidebar .sidemenu .sideitem:hover a {
-    color: $menu-background;
-}
-
-.sidebar .sidemenu .sideitem .sideicon {
-    padding-right: 30px;
-    float: right;
-}
+/*============ RIGHT PANEL CONTAINER ============*/
 
 .storage-selection {
-    background-color: $menu-background;
-    border-style: solid;
-    border-color: $border-color;
-    border-width: 1px;
-    border-radius: 5px;
-    min-height: 600px;
-    margin-left: 20px;
+  background-color: $menu-background;
+  border-style: solid;
+  border-color: $border-color;
+  border-width: 1px;
+  border-radius: 5px;
+  padding: 0;
+  min-height: 700px;
+  margin-left: 10px;
+  margin-right: 10px;
+
+  .col-md-12{
+    padding: 0;
+  }
 }
 
 .data_presentation {
-    display: block;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    font: $font-presentation;
-    text-align: center;
+  display: block;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font: $font-presentation;
+  text-align: center;
 }
+
+/*============ STORAGE HEADER ============*/
 
 .df_header {
-    margin-top: 30px;
-    margin-bottom: 10px;
-    padding: 10px;
-    display: inline-block;
-    width: 100%;
-}
+  margin-top: 20px;
+  padding: 10px;
+  display: inline-block;
+  width: 100%;
 
-.df_header .df_title {
+  .df_title {
     font: $font-header;
     float: left;
     margin-top: 5px;
-    margin-left: 30px;
+    margin-left: 35px;
     min-width: 150px;
-}
+  }
 
-.df_header .switch_button {
+  hr #header_hr{
+    padding: 0;
+    margin: 0;
+  }
+
+  .switch_button {
     float: right;
-    margin-right: 15px;
+    margin-right: 20px;
+
+    #edbutton {
+      min-width: 150px;
+    }
+
+    #but_icon {
+      margin-left: 10px;
+    }
+  }
 }
 
-.df_header .switch_button #edbutton {
-    min-width: 150px;
+/*============ DEFAULT PREFERENCES ============*/
+
+.table-container{
+
+    padding-left: 15px;
+    padding-right: 15px;
+
+    #record_header th {
+      font: $font-table-header;
+      font-weight: bold;
+      background-color: #b7daf2;
+    }
+
+    .record_row th {
+      font: $font-table;
+      font-weight: normal;
+    }
+
+    #del_record_button {
+      visibility: hidden;
+      background-color: #ffffff;
+    }
+
+    .record_row:hover #del_record_button {
+      visibility: visible;
+    }
+
+    #rec_controls {
+      text-align: center;
+      vertical-align: middle;
+      color: #ff4444;
+      font: $font-error;
+    }
 }
 
-.df_header .switch_button #but_icon {
-    margin-left: 10px;
-}
+/*============ SQLITE DATABASE ============*/
 
-#rec_controls {
-    text-align: center;
-    vertical-align: middle;
-    color: #ff4444;
-    font: $font-error;
-}
+.database_editor{
+  padding: 0;
+  margin-top: -20px;
 
-#record_header th {
-    font: $font-table-header;
-    font-weight: bold;
-    background-color: #b7daf2;
-}
+  .col-md-3{
+    padding: 0;
 
-.record_row th {
-    font: $font-table;
-    font-weight: normal;
-}
+    .entity_panel{
+      border-right: 1px solid $border-color;
+      border-top-width: 0;
+      border-left-width: 0;
+      border-bottom-width: 0;
+      background: white;
+      width: 100%;
+      min-height: 600px;
+      padding-left:20px;
+      padding-top: 20px;
 
-#del_record_button {
-    visibility: hidden;
-    background-color: #ffffff;
-}
+      .entities_title{
 
-.record_row:hover #del_record_button {
-    visibility: visible;
+        font: $font-header;
+        margin-left:20px;
+      }
+    }
+  }
 }
