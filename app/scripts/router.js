@@ -121,9 +121,14 @@ App.Router.map(function() {
             this.resource('preference_records', function(){});
         });
         this.resource('database_handler', function() {
-            this.resource('entities', function(){});
+            this.resource('entities', function() {
+                this.resource('entity', {
+                  path: '/entity/:entity_id'
+                }, function() {});
+            });
         });
     });
+
     this.resource('uiPhoneControls');
     this.resource('uiWatchControls');
     this.resource('about');

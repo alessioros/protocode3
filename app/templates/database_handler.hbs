@@ -9,6 +9,12 @@
       </div>
       <div class='switch_button'>
         {{#if model}}
+          {{#link-to 'entities'}}
+            <button type="button" class="btn btn-info" id="edbutton" >
+              Edit entities
+              <i class="fa fa-pencil-square-o" id="but_icon" aria-hidden="true"></i>
+            </button>
+          {{/link-to}}
             <button type="button" class="btn btn-danger" {{action 'disableDB'}}>Delete SQLite</button>
         {{else}}
             <button type="button" class="btn btn-success" {{action 'enableDB'}}>Enable SQLite</button>

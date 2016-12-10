@@ -2,7 +2,7 @@ App.DatabaseHandler = DS.Model.extend({
 
       dataHandler:  DS.belongsTo('dataHandler'),
 
-      entities:     DS.hasMany('entity'),
+      entities:     DS.hasMany('entity', { async: true}),
 
       xmlName: 'DBHandler',
 

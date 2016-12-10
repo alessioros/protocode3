@@ -31,9 +31,21 @@ App.DatabaseHandlerRoute = Ember.Route.extend({
 
         disableDB: function(){
 
+            var self = this
+            
             this.store.find('databaseHandler','dbH1').then(
               function(dbHandler){
 
+                self.store.findAll('entity').then(
+                  function(array){
+                    array.forEach(function (data) {
+                      Ember.run.once(self, function () {
+                        data.deleteRecord();
+                        data.save();
+                      });
+                    });
+                  }
+                );
                 dbHandler.deleteRecord();
                 dbHandler.save();
               }

@@ -8,6 +8,8 @@ App.Entity = DS.Model.extend({
 
     entityRelationships: DS.hasMany('entityRelationship'),
 
+    databaseHandler:    DS.belongsTo('databaseHandler'),
+
     xmlName: 'entity',
 
     toXml: function(xmlDoc) {
