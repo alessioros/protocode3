@@ -1,4 +1,4 @@
-App.EntitiesController = Ember.ArrayController.extend({
+App.EntitiesController = Ember.ArrayController.extend(App.Saveable, {
 
   isCreating: false,
   entityName: 'newName',
@@ -57,26 +57,8 @@ App.EntitiesController = Ember.ArrayController.extend({
             this.set('isCreating', false);
             this.set('entityName','newName');
             this.set('entityPrimaryKey','newPrimaryKey');
-
+            
           }
-
-      },
-
-      deleteEntity: function(name){
-
-        var self = this
-
-        this.store.find('databaseHandler','dbH1').then(
-          function(databaseHandler){
-            self.store.find('entity', name).then(
-              function(entity){
-
-                entity.deleteRecord();
-                databaseHandler.get('entities').removeObject(entity);
-                databaseHandler.save();
-                entity.save();
-            });
-        });
       }
 
   }

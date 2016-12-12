@@ -11,8 +11,9 @@
         {{/link-to}}
         {{/each}}
         {{#if isCreating}}
-        <li class="entities-list-item">
-            <div class="input-group">
+        <li class="entities-list-edit">
+            <div class='col-md-1'></div>
+            <div class="input-group col-md-10">
                 {{focus-input value=entityName class="form-control input-sm"}}
                 <span class="input-group-btn">
                     <button type="button" class="btn btn-default btn-sm" {{action "createEntity"}}>
@@ -23,6 +24,7 @@
                     </button>
                 </span>
             </div>
+            <div class='col-md-1'></div>
         </li>
         {{/if}}
     </ul>

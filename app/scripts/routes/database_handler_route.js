@@ -32,7 +32,7 @@ App.DatabaseHandlerRoute = Ember.Route.extend({
         disableDB: function(){
 
             var self = this
-            
+
             this.store.find('databaseHandler','dbH1').then(
               function(dbHandler){
 

@@ -1,8 +1,22 @@
 <div class="sidebar col-md-3">
     <div class="sidetitle">Storage options</div><hr>
     <ul class="sidemenu">
-        <li class="sideitem">{{#link-to 'preference_handler'}}Default preferences{{/link-to}}<span class="sideicon fa fa-cogs"></span></li>
-        <li class="sideitem">{{#link-to 'database_handler'}}SQLite Database{{/link-to}}<span class="sideicon fa fa-database" aria-hidden="true"></span></li>
+        <li class="sideitem">
+          {{#if model.prefHandler}}
+            {{#link-to 'preference_records'}}Default preferences{{/link-to}}
+          {{else}}
+            {{#link-to 'preference_handler'}}Default preferences{{/link-to}}
+          {{/if}}
+          <span class="sideicon fa fa-cogs"></span>
+        </li>
+        <li class="sideitem">
+          {{#if model.databaseHandler}}
+            {{#link-to 'entities'}}SQLite Database{{/link-to}}
+          {{else}}
+            {{#link-to 'database_handler'}}SQLite Database{{/link-to}}
+          {{/if}}
+          <span class="sideicon fa fa-database" aria-hidden="true"></span>
+        </li>
         <li class="sideitem">File storage<span class="sideicon fa fa-file-text-o"></span></li>
         <li class="sideitem">Cloud storage<span class="sideicon fa fa-cloud"></span></li>
     </ul>

@@ -9,5 +9,4 @@ App.EntitiesRoute = Ember.Route.extend({
             }
           );
       }
-
 });

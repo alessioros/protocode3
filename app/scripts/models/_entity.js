@@ -4,7 +4,7 @@ App.Entity = DS.Model.extend({
 
     primaryKey: DS.attr('string'),
 
-    entityAttributes: DS.hasMany('entityAttribute'),
+    entityAttributes: DS.hasMany('entityAttribute', {async: true}),
 
     entityRelationships: DS.hasMany('entityRelationship'),
 
@@ -22,14 +22,13 @@ App.Entity = DS.Model.extend({
 
       entity.setAttribute('primaryKey', self.get('primaryKey'));
 
-      this.get('entityAttributes').map(function(item) {
-          elem.appendChild(item.toXml(xmlDoc));
+      self.get('entityAttributes').map(function(item) {
+          entity.appendChild(item.toXml(xmlDoc));
       });
 
-      this.get('entityRelationships').map(function(item) {
-          elem.appendChild(item.toXml(xmlDoc));
+      self.get('entityRelationships').map(function(item) {
+          entity.appendChild(item.toXml(xmlDoc));
       });
-
 
       return entity;
     }

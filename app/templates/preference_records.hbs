@@ -47,7 +47,7 @@
           </th>
           <th class='col-md-2' id='rec_controls'>
           {{#if isKeyValid}}
-              {{#if isValidType}}
+              {{#if isValueValid}}
               <span class="input-group-btn">
                   <button type="button" class="btn btn-default btn-sm" {{action "createPrefRecord"}}>
                       <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
@@ -66,11 +66,11 @@
         </tr>
         {{/if}}
         <tr>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th id='rec_controls'>
+          <th class='col-md-1'></th>
+          <th class='col-md-3'></th>
+          <th class='col-md-3'></th>
+          <th class='col-md-3'></th>
+          <th class='col-md-2' id='rec_controls'>
             <div class="btn-group">
               <button type="button" class="btn btn-default btn-sm" {{action "setCreating" true}}>
                   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>

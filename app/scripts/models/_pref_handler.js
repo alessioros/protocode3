@@ -2,7 +2,7 @@ App.PrefHandler = DS.Model.extend({
 
       dataHandler:  DS.belongsTo('dataHandler'),
 
-      prefRecords:  DS.hasMany('prefRecord', { async: true}),
+      prefRecords:  DS.hasMany('prefRecord', {async: true}),
 
       xmlName: 'prefHandler',
 

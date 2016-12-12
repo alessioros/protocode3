@@ -41,7 +41,7 @@ App.PreferenceRecordsController = Ember.ArrayController.extend({
 
       }.property('typePreferenceRecord'),
 
-      isValidType: function(){
+      isValueValid: function(){
 
         var intReg = new RegExp('^[-+]?[0-9]*$');
         var floatReg = new RegExp('^[-+]?[0-9]*\.?[0-9]+$');
@@ -59,11 +59,6 @@ App.PreferenceRecordsController = Ember.ArrayController.extend({
         return true;
 
       }.property('valuePreferenceRecord'),
-
-      isNumeric(n) {
-        //return !isNaN(parseFloat(n)) && isFinite(n);
-        return true;
-      },
 
       isKeyValid: function(){
 
@@ -140,6 +135,7 @@ App.PreferenceRecordsController = Ember.ArrayController.extend({
                     pRecord.save();
                 });
             });
+
           }
 
       }

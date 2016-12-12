@@ -6,6 +6,7 @@ $font-presentation: 20px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-s
 $font-error: 14px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $font-table-header: 14px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $font-table: 13px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+$font-entity-titles: 15px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $menu-hover-color: #2C7BB2;
 $menu-background: white;
 $border-color: #CCCCCC;
@@ -175,7 +176,7 @@ $border-color: #CCCCCC;
       .entities-title{
 
         font: $font-header;
-        margin-left:20px;
+        margin-left:30px;
         margin-bottom: 10px;
       }
 
@@ -199,6 +200,10 @@ $border-color: #CCCCCC;
                   margin-right:10px;
                 }
             }
+
+            .entities-list-edit{
+              padding: 5px;
+            }
           }
 
           .entities-list-item:hover, .entities-list-item:active, .entities-list-item:visited{
@@ -217,4 +222,55 @@ $border-color: #CCCCCC;
       }
     }
   }
+}
+
+.entity-editor{
+
+    .entity-header{
+      margin-top: 20px;
+      margin-bottom: 30px;
+      display: inline-block;
+
+      #entity-name{
+        width: 250%;
+      }
+
+      #del-entity{
+        float:left;
+      }
+    }
+
+    .entity-attributes{
+
+      display: inline-block;
+      font: $font-entity-titles;
+
+      .primary-key{
+        margin-top:20px;
+      }
+
+      .table-entity-attributes{
+        margin-top:20px;
+        margin-right:100px;
+        font: $font-table;
+
+        .attribute-header{
+
+        }
+
+        .attribute-row{
+
+          th{
+            font-weight: normal;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+
+    .entity-relationships{
+      margin-top: 20px;
+      font: $font-entity-titles;
+
+    }
 }

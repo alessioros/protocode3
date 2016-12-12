@@ -4,6 +4,8 @@ App.EntityRelationship = DS.Model.extend({
     destination: DS.attr('string'),
     type: DS.attr('string'),
 
+    entity: DS.belongsTo('entity'),
+
     xmlName: 'relationship',
 
     toXml: function(xmlDoc) {

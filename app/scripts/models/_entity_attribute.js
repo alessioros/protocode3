@@ -3,6 +3,8 @@ App.EntityAttribute = DS.Model.extend({
     name: DS.attr('string'),
     type: DS.attr('string'),
 
+    entity: DS.belongsTo('entity'),
+
     xmlName: 'attribute',
 
     toXml: function(xmlDoc) {

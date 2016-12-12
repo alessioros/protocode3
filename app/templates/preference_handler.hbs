@@ -9,12 +9,6 @@
       </div>
       <div class='switch_button'>
         {{#if model}}
-          {{#link-to 'preference_records'}}
-            <button type="button" class="btn btn-info" id="edbutton" >
-              Edit records
-              <i class="fa fa-pencil-square-o" id="but_icon" aria-hidden="true"></i>
-            </button>
-          {{/link-to}}
             <button type="button" class="btn btn-danger" id="edbutton" {{action 'disableDP'}}>
               Disable
               <i class="fa fa-trash-o" id="but_icon" aria-hidden="true"></i>
