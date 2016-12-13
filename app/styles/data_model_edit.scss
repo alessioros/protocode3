@@ -10,7 +10,7 @@ $font-entity-titles: 15px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-
 $menu-hover-color: #2C7BB2;
 $menu-background: white;
 $border-color: #CCCCCC;
-
+$table-header-background: #258CB9;
 /*============ SIDEBAR ============*/
 
 .sidebar {
@@ -103,7 +103,7 @@ $border-color: #CCCCCC;
 
   .switch_button {
     float: right;
-    margin-right: 20px;
+    margin-right: 30px;
 
     #edbutton {
       min-width: 150px;
@@ -119,13 +119,16 @@ $border-color: #CCCCCC;
 
 .table-container{
 
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 35px;
+    padding-right: 35px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 
-    #record_header th {
+    .record_header th {
       font: $font-table-header;
-      font-weight: bold;
-      background-color: #b7daf2;
+      color: white;
+      font-weight: normal;
+      background-color: $table-header-background;
       vertical-align: middle;
       text-align: center;
     }
@@ -146,6 +149,10 @@ $border-color: #CCCCCC;
       visibility: visible;
     }
 
+    .record_row:hover td{
+
+    }
+
     #rec_controls {
       color: #ff4444;
       font: $font-error;
@@ -153,6 +160,10 @@ $border-color: #CCCCCC;
 
       .error-message{
         margin-right:5px;
+      }
+
+      #button-rec{
+        margin-left: 5px;
       }
     }
 }
@@ -219,10 +230,13 @@ $border-color: #CCCCCC;
             text-decoration: none;
           }
 
-          #button-add{
-            margin-left:30px;
-          }
+
       }
+    }
+
+    #button-add{
+      margin-left: 150px;
+
     }
   }
 }
@@ -231,7 +245,6 @@ $border-color: #CCCCCC;
 
     .entity-header{
       margin-top: 20px;
-      margin-bottom: 20px;
       display: inline-block;
 
       #entity-name{
@@ -256,9 +269,14 @@ $border-color: #CCCCCC;
         margin-top:10px;
         margin-right:100px;
         font: $font-table;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
 
         #attribute-header th{
           vertical-align: middle;
+          color: white;
+          font-weight: normal;
+          background-color: $table-header-background;
         }
 
         .attribute-row td{
@@ -285,8 +303,18 @@ $border-color: #CCCCCC;
           .error-message{
             margin-right:5px;
           }
+
+
         }
 
+        #button-att-rem{
+          margin-left: 5px;
+        }
+
+        #button-add-attribute{
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
       }
     }
 

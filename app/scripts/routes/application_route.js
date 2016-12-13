@@ -364,7 +364,7 @@ App.ApplicationRoute = Ember.Route.extend({
         nameImg: 'watch_voice_message.png',
         type: 'watchVoiceMessage'
       }).save();
-      
+
       this.refresh();
 
     },

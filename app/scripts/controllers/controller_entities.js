@@ -57,7 +57,7 @@ App.EntitiesController = Ember.ArrayController.extend(App.Saveable, {
             this.set('isCreating', false);
             this.set('entityName','newName');
             this.set('entityPrimaryKey','newPrimaryKey');
-            
+            this.transitionToRoute('entities');
           }
       }
 

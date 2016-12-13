@@ -14,6 +14,7 @@
       </button>
     </div>
   </div>
+  <hr>
   <div class='entity-attributes'>
     <div class='attributes-title'>Attributes:</div>
     <div class='primary-key'>
@@ -22,8 +23,8 @@
         {{input value=primaryKey class="form-control input-sm" placeholder="primaryKey" type="text" focus-out="acceptChanges" insert-newline="acceptChanges"}}
       </div>
     </div>
-    <div class='table-entity-attributes'>
-      <table class='table table-hover'>
+    <div class='panel table-entity-attributes'>
+      <table class='table table-bordered table-hover'>
           <thead>
             <tr id='attribute-header'>
               <th class='col-md-1'>#</th>
@@ -62,14 +63,14 @@
                       <button type="button" class="btn btn-default btn-xs" {{action "createAttribute"}}>
                           <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
                       </button>
-                      <button type="button" class="btn btn-default btn-xs" {{action "setCreatingAttribute" false}}>
-                          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                      <button type="button" class="btn btn-default btn-xs" id='button-att-rem' {{action "setCreatingAttribute" false}}>
+                          <i class="fa fa-times" aria-hidden="true"></i>
                       </button>
                   </span>
               {{else}}
                 <span class='error-message'>invalid name</span>
-                <button type="button" class="btn btn-default btn-xs" {{action "setCreatingAttribute" false}}>
-                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                <button type="button" class="btn btn-danger btn-xs" {{action "setCreatingAttribute" false}}>
+                  <i class="fa fa-times" aria-hidden="true"></i>
                 </button>
               {{/if}}
             </td>
@@ -81,8 +82,8 @@
               <td class='col-md-4'></td>
               <td class='col-md-3' id='rec_controls'>
                 <div class="btn-group">
-                  <button type="button" class="btn btn-default btn-xs" {{action "setCreatingAttribute" true}}>
-                      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                  <button type="button" class="btn btn-default btn-xs" id="button-add-attribute" {{action "setCreatingAttribute" true}}>
+                      <i class="fa fa-plus" aria-hidden="true"></i>
                   </button>
                 </div>
               </td>
@@ -155,7 +156,7 @@
               <td class='col-md-2' id='rec_controls'>
                 <div class="btn-group">
                   <button type="button" class="btn btn-default btn-xs" {{action "setCreatingRelationship" true}}>
-                      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                      <i class="fa fa-plus" aria-hidden="true"></i>
                   </button>
                 </div>
               </td>
