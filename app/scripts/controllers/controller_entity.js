@@ -2,28 +2,55 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
 
   isCreatingAttribute: false,
   isCreatingRelationship: false,
+  isAttributeValid: true,
 
   attributeName: 'newAttribute',
   attributeType: 'string',
+  relationshipName: 'newRelationship',
+  relationshipDestination: 'string',
+  relationshipType: 'oneToMany',
   types: ['string','int','float','Double','Date','boolean'],
 
-  isNameValid: function(name){
+  isNameValid: function(){
+
+    var self = this;
+    var name = this.get('attributeName');
 
     var entity = this.get('model');
+    var primary = entity.get('primaryKey');
 
-    if(this.store.find('entityAttribute', { name: name, entity: entity })){
+    if(name === primary){
+      return false;
+    }
+    
+    self.set('isAttributeValid', true);
 
-        return false;
+    this.store.all('entityAttribute').some(
+      function(attribute){
+
+        if(attribute.get('name') === name){
+          if(attribute.get('entity') === entity){
+
+            self.set('isAttributeValid', false);
+            return false;
+          }
+        }
+      }
+    );
+
+    if(!this.get('isAttributeValid')){
+
+      return false;
 
     }else if(name === ''){
 
-        return false;
-    }else{
+      return false;
 
+    }else{
       return true;
     }
 
-  },
+  }.property('attributeName'),
 
   actions: {
 

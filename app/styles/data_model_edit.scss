@@ -3,7 +3,7 @@ $font-title: 20px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $font-menu: 16px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $font-header: 16px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $font-presentation: 20px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
-$font-error: 14px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+$font-error: 13px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $font-table-header: 14px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $font-table: 13px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $font-entity-titles: 15px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
@@ -36,22 +36,18 @@ $border-color: #CCCCCC;
       padding: 10px 10px 10px 50px;
       font: $font-menu;
 
-      a:active {
-        background-color: $menu-hover-color;
-        color: $menu-background;
-      }
-
       .sideicon {
         padding-right: 30px;
         float: right;
       }
     }
 
-    .sideitem:hover {
-      background-color: $menu-hover-color;
-      color: $menu-background;
+    a{
+      text-decoration: none;
+      color: $menu-hover-color;
 
-      a {
+      .sideitem:hover {
+        background-color: $menu-hover-color;
         color: $menu-background;
       }
     }
@@ -123,18 +119,22 @@ $border-color: #CCCCCC;
 
 .table-container{
 
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
 
     #record_header th {
       font: $font-table-header;
       font-weight: bold;
       background-color: #b7daf2;
+      vertical-align: middle;
+      text-align: center;
     }
 
-    .record_row th {
+    .record_row td {
       font: $font-table;
       font-weight: normal;
+      vertical-align: middle;
+      text-align: center;
     }
 
     #del_record_button {
@@ -147,10 +147,13 @@ $border-color: #CCCCCC;
     }
 
     #rec_controls {
-      text-align: center;
-      vertical-align: middle;
       color: #ff4444;
       font: $font-error;
+      text-align: center;
+
+      .error-message{
+        margin-right:5px;
+      }
     }
 }
 
@@ -228,7 +231,7 @@ $border-color: #CCCCCC;
 
     .entity-header{
       margin-top: 20px;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       display: inline-block;
 
       #entity-name{
@@ -246,31 +249,73 @@ $border-color: #CCCCCC;
       font: $font-entity-titles;
 
       .primary-key{
-        margin-top:20px;
+        margin-top:10px;
       }
 
       .table-entity-attributes{
-        margin-top:20px;
+        margin-top:10px;
         margin-right:100px;
         font: $font-table;
 
-        .attribute-header{
+        #attribute-header th{
+          vertical-align: middle;
+        }
+
+        .attribute-row td{
+            vertical-align: middle;
 
         }
 
-        .attribute-row{
+        #del_record_button{
+          visibility: hidden;
+        }
 
-          th{
-            font-weight: normal;
-            vertical-align: middle;
+        .attribute-row:hover{
+
+          #del_record_button{
+            visibility: visible;
           }
         }
+
+        #rec_controls {
+          color: #ff4444;
+          font: $font-error;
+          text-align: center;
+
+          .error-message{
+            margin-right:5px;
+          }
+        }
+
       }
     }
 
     .entity-relationships{
-      margin-top: 20px;
+      margin-top: 0px;
       font: $font-entity-titles;
 
+      .table-entity-relationships{
+        margin-top:0px;
+        margin-right:100px;
+        font: $font-table;
+
+        #relationship-header th{
+          vertical-align: middle;
+        }
+
+        .relationship-row td{
+            vertical-align: middle;
+        }
+
+        #rec_controls {
+          color: #ff4444;
+          font: $font-error;
+          text-align: center;
+
+          .error-message{
+            margin-right:5px;
+          }
+        }
+      }
     }
 }

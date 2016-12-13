@@ -25,64 +25,67 @@
     <div class='table-entity-attributes'>
       <table class='table table-hover'>
           <thead>
-            <tr id='attribute_header'>
+            <tr id='attribute-header'>
               <th class='col-md-1'>#</th>
-              <th class='col-md-3'>Name</th>
-              <th class='col-md-3'>Type</th>
-              <th class='col-md-2'></th>
+              <th class='col-md-4'>Name</th>
+              <th class='col-md-4'>Type</th>
+              <th class='col-md-3'></th>
             </tr>
           </thead>
           <tbody>
             {{#each item in model.entityAttributes }}
-            <tr class='attribute_row'>
-              <th class='col-md-1'>{{_view.contentIndex}}</th>
-              <th class='col-md-3'>{{item.name}}</th>
-              <th class='col-md-3'>{{item.type}}</th>
-              <th class='col-md-2' id='rec_controls'>
-                <button type="button" class="btn btn-default btn-sm" id='del_record_button' {{action "deleteAttribute" item.id }}>
+            <tr class='attribute-row'>
+              <td class='col-md-1'>{{_view.contentIndex}}</td>
+              <td class='col-md-4'>{{item.name}}</td>
+              <td class='col-md-4'>{{item.type}}</td>
+              <td class='col-md-3' id='rec_controls'>
+                <button type="button" class="btn btn-default btn-xs" id='del_record_button' {{action "deleteAttribute" item.id }}>
                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                 </button>
-              </th>
+              </td>
             </tr>
             {{/each}}
             {{#if isCreatingAttribute}}
-            <tr id='record_row'>
-              <th class='col-md-1'>{{_view.contentIndex}}</th>
-              <th class='col-md-3'>{{focus-input value=attributeName class="form-control input-sm"}}</th>
-              <th class='col-md-3'>
+            <tr class='attribute-row'>
+              <td class='col-md-1'>{{_view.contentIndex}}</td>
+              <td class='col-md-4'>{{focus-input value=attributeName class="form-control input-sm"}}</td>
+              <td class='col-md-4'>
                 {{view Ember.Select
                   content=types
                   class="form-control input-sm"
                   value=attributeType
                 }}
-              </th>
-              <th class='col-md-2' id='rec_controls'>
-              {{#if isNameValid}}
+              </td>
+              <td class='col-md-3' id='rec_controls'>
+              {{#if isNameValid }}
                   <span class="input-group-btn">
-                      <button type="button" class="btn btn-default btn-sm" {{action "createAttribute"}}>
+                      <button type="button" class="btn btn-default btn-xs" {{action "createAttribute"}}>
                           <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
                       </button>
-                      <button type="button" class="btn btn-default btn-sm" {{action "setCreatingAttribute" false}}>
+                      <button type="button" class="btn btn-default btn-xs" {{action "setCreatingAttribute" false}}>
                           <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                       </button>
                   </span>
               {{else}}
-                invalid name
+                <span class='error-message'>invalid name</span>
+                <button type="button" class="btn btn-default btn-xs" {{action "setCreatingAttribute" false}}>
+                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
               {{/if}}
-              </th>
+            </td>
             </tr>
             {{/if}}
             <tr>
-              <th class='col-md-1'></th>
-              <th class='col-md-3'></th>
-              <th class='col-md-3'></th>
-              <th class='col-md-2' id='rec_controls'>
+              <td class='col-md-1'></td>
+              <td class='col-md-4'></td>
+              <td class='col-md-4'></td>
+              <td class='col-md-3' id='rec_controls'>
                 <div class="btn-group">
-                  <button type="button" class="btn btn-default btn-sm" {{action "setCreatingAttribute" true}}>
+                  <button type="button" class="btn btn-default btn-xs" {{action "setCreatingAttribute" true}}>
                       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                   </button>
                 </div>
-              </th>
+              </td>
             </tr>
           </tbody>
       </table>
@@ -90,7 +93,76 @@
   </div>
   <div class='entity-relationships'>
     <div class='relationships-title'>Relationships:</div>
-    {{outlet}}
+    <div class='table-entity-relationships'>
+      <table class='table table-hover'>
+          <thead>
+            <tr id='relationship-header'>
+              <th class='col-md-1'>#</th>
+              <th class='col-md-3'>Name</th>
+              <th class='col-md-3'>Type</th>
+              <th class='col-md-2'></th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each item in model.entityRelationships }}
+            <tr class='relationship-row'>
+              <td class='col-md-1'>{{_view.contentIndex}}</td>
+              <td class='col-md-3'>{{item.name}}</td>
+              <td class='col-md-3'>{{item.type}}</td>
+              <td class='col-md-2' id='rec_controls'>
+                <button type="button" class="btn btn-default btn-xs" id='del_record_button' {{action "deleteAttribute" item.id }}>
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                </button>
+              </td>
+            </tr>
+            {{/each}}
+            {{#if isCreatingRelationship}}
+            <tr class='relationship-row'>
+              <td class='col-md-1'>{{_view.contentIndex}}</td>
+              <td class='col-md-3'>{{focus-input value=relationshipName class="form-control input-sm"}}</td>
+              <td class='col-md-3'>
+                {{view Ember.Select
+                  content=types
+                  class="form-control input-sm"
+                  value=relationshipType
+                }}
+              </td>
+              <td class='col-md-2' id='rec_controls'>
+              {{#if isNameValid }}
+                  <span class="input-group-btn">
+                      <button type="button" class="btn btn-default btn-xs" {{action "createAttribute"}}>
+                          <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+                      </button>
+                      <button type="button" class="btn btn-default btn-xs" {{action "setCreatingRelationship" false}}>
+                          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                      </button>
+                  </span>
+              {{else}}
+                <span class='error-message'>invalid name</span>
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default btn-xs" {{action "setCreatingRelationship" false}}>
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                  </button>
+                </span>
+              {{/if}}
+            </td>
+            </tr>
+            {{/if}}
+            <tr>
+              <td class='col-md-1'></td>
+              <td class='col-md-3'></td>
+              <td class='col-md-3'></td>
+              <td class='col-md-2' id='rec_controls'>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default btn-xs" {{action "setCreatingRelationship" true}}>
+                      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+      </table>
+    </div>
   </div>
 </div>
 {{/if}}
