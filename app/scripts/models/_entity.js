@@ -6,7 +6,7 @@ App.Entity = DS.Model.extend({
 
     entityAttributes: DS.hasMany('entityAttribute', {async: true}),
 
-    entityRelationships: DS.hasMany('entityRelationship'),
+    entityRelationships: DS.hasMany('entityRelationship', {async: true}),
 
     databaseHandler:    DS.belongsTo('databaseHandler'),
 
@@ -21,6 +21,33 @@ App.Entity = DS.Model.extend({
       entity.setAttribute('name', self.get('name'));
 
       entity.setAttribute('primaryKey', self.get('primaryKey'));
+
+      var entityAttributes = self.get('entityAttributes');
+      var entityRelationships = self.get('entityRelationships');
+
+      // retrieve async values
+      /*Promise.all(entityAttributes.map(function(item_attributes) {
+
+          return item_attributes.toXml(xmlDoc);
+
+      })).then(
+        function(values_attributes){
+
+          Promise.all(entityRelationships.map(function(item_relationships) {
+              return item_relationships.toXml(xmlDoc);
+          })).then(function(values_relationships) {
+
+              values_attributes.map(function(value) {
+                  entity.appendChild(value);
+              })
+
+              values_relationships.map(function(value) {
+                  entity.appendChild(value);
+              })
+
+              resolve(xmlDoc);
+          });
+      });*/
 
       self.get('entityAttributes').map(function(item) {
           entity.appendChild(item.toXml(xmlDoc));

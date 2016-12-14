@@ -7,9 +7,15 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
   attributeName: 'newAttribute',
   attributeType: 'string',
   relationshipName: 'newRelationship',
-  relationshipDestination: 'string',
-  relationshipType: 'oneToMany',
+  relationshipDestination: '',
+  relationshipType: '1 : N',
   types: ['string','int','float','Double','Date','boolean'],
+  relTypes: ['1 : 1','1 : N','N : N'],
+
+  init () {
+    this._super();
+
+  },
 
   isNameValid: function(){
 
@@ -22,7 +28,7 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
     if(name === primary){
       return false;
     }
-    
+
     self.set('isAttributeValid', true);
 
     this.store.all('entityAttribute').some(
@@ -113,10 +119,42 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
             }).save().then(
               function(attribute){
 
-              attribute.set('entity', entity);
-              entity.get('entityAttributes').addObject(attribute);
+                entity.get('entityAttributes').addObject(attribute);
+                entity.save();
+                attribute.save();
+            });
+      });
+
+      this.set('isCreatingAttribute', false);
+      this.set('attributeName','newAttribute');
+      this.set('attributeType','string');
+
+    },
+
+    createRelationship: function(){
+
+      var self = this;
+      var name = this.get('relationshipName');
+      var destination = this.get('relationshipDestination');
+      var type = this.get('relationshipType');
+      var entity = this.get('model');
+      var entityName = entity.get('name');
+
+      this.store.find('entity', entityName).then(
+        function(entity){
+            self.store.createRecord('entityRelationship', {
+
+              name: name,
+              destination: destination,
+              type: type,
+              entity: entity
+
+            }).save().then(
+              function(relationship){
+
+              entity.get('entityRelationships').addObject(relationship);
               entity.save();
-              attribute.save();
+              relationship.save();
 
             });
       });
@@ -124,6 +162,26 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
       this.set('isCreatingAttribute', false);
       this.set('attributeName','newAttribute');
       this.set('attributeType','string');
+
+    },
+
+    deleteRelationship: function(key){
+
+      var self = this
+      var entity = this.get('model');
+      var entityName = entity.get('name');
+
+      this.store.find('entity', entityName).then(
+        function(entity){
+          self.store.find('entityRelationship', key).then(
+            function(relationship){
+
+              relationship.deleteRecord();
+              entity.get('entityRelationships').removeObject(relationship);
+              entity.save();
+              relationship.save();
+          });
+      });
 
     },
 

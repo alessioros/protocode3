@@ -15,7 +15,7 @@ App.Application = DS.Model.extend({
                 watchController.deleteRecord();
                 watchController.save();
             });
-        });
+        });dsa
 
         this.get('viewControllers').forEach(function(viewController) {
             Ember.run.once(this, function() {

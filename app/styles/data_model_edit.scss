@@ -241,6 +241,8 @@ $table-header-background: #258CB9;
   }
 }
 
+/*============ ENTITIES ============*/
+
 .entity-editor{
 
     .entity-header{
@@ -271,12 +273,14 @@ $table-header-background: #258CB9;
         font: $font-table;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
+        text-align: center;
 
         #attribute-header th{
           vertical-align: middle;
           color: white;
           font-weight: normal;
           background-color: $table-header-background;
+          text-align: center;
         }
 
         .attribute-row td{
@@ -323,16 +327,36 @@ $table-header-background: #258CB9;
       font: $font-entity-titles;
 
       .table-entity-relationships{
-        margin-top:0px;
+        margin-top:10px;
         margin-right:100px;
         font: $font-table;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        text-align: center;
 
         #relationship-header th{
+          font: $font-table-header;
+          color: white;
+          font-weight: normal;
+          background-color: $table-header-background;
           vertical-align: middle;
+          text-align: center;
         }
 
         .relationship-row td{
             vertical-align: middle;
+
+            input{
+              margin-left: auto;
+              margin-right: auto;
+              width: 90%;
+            }
+
+            select{
+              margin-left: auto;
+              margin-right: auto;
+              width: 90%;
+            }
         }
 
         #rec_controls {

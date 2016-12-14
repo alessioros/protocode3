@@ -10,13 +10,29 @@ App.DatabaseHandler = DS.Model.extend({
 
           var self = this;
 
-          var elem = xmlDoc.createElement(self.get('xmlName'));
+          var dbHandler = xmlDoc.createElement(self.get('xmlName'));
 
-          this.get('entities').map(function(item) {
-              elem.appendChild(item.toXml(xmlDoc));
+          var entities = self.get('entities');
+
+          /*Promise.all(entities.map(function(item_entities) {
+
+              return item_entities.toXml(xmlDoc);
+
+          })).then(function(values_entities){
+
+            values_entities.map(function(value) {
+                elem.appendChild(value);
+            })
+
+            resolve(xmlDoc);
+          });*/
+
+          this.get('entities').map(
+            function(entity) {
+              dbHandler.appendChild(entity.toXml(xmlDoc));
           });
 
-          return elem;
+          return dbHandler
       }
 
 
