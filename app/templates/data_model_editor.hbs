@@ -1,38 +1,67 @@
 <div class="sidebar col-md-3">
-  <div class="sidetitle">Storage options</div><hr>
-  <ul class="sidemenu">
+  <div class="side-title">Storage options</div>
+  <hr>
+  <ul class="side-menu">
     {{#if model.prefHandler}}
-    {{#link-to 'preference_records'}}
-    <li class="sideitem">
-      Default preferences
-      <span class="sideicon fa fa-cogs"></span>
-    </li>
-    {{/link-to}}
+      {{#link-to 'preference_records'}}
+        <li class="side-item">
+          Default preferences
+          <span class="side-icon fa fa-cogs"></span>
+        </li>
+      {{/link-to}}
     {{else}}
-    {{#link-to 'preference_handler'}}
-    <li class="sideitem">
-      Default preferences
-      <span class="sideicon fa fa-cogs"></span>
-    </li>
-    {{/link-to}}
+      {{#link-to 'preference_handler'}}
+        <li class="sideiconitem">
+          Default preferences
+          <span class="side-icon fa fa-cogs"></span>
+        </li>
+      {{/link-to}}
     {{/if}}
     {{#if model.databaseHandler}}
-    {{#link-to 'entities'}}
-    <li class="sideitem">
-      SQLite Database
-      <span class="sideicon fa fa-database" aria-hidden="true"></span>
-    </li>
-    {{/link-to}}
+      {{#link-to 'entities'}}
+        <li class="side-item">
+          SQLite Database
+          <span class="side-icon fa fa-database" aria-hidden="true"></span>
+        </li>
+      {{/link-to}}
     {{else}}
-    {{#link-to 'database_handler'}}
-    <li class="sideitem">
-      SQLite Database
-      <span class="sideicon fa fa-database" aria-hidden="true"></span>
-    </li>
-    {{/link-to}}
+      {{#link-to 'database_handler'}}
+        <li class="side-item">
+          SQLite Database
+          <span class="side-icon fa fa-database" aria-hidden="true"></span>
+        </li>
+      {{/link-to}}
     {{/if}}
-    <li class="sideitem">File storage<span class="sideicon fa fa-file-text-o"></span></li>
-    <li class="sideitem">Cloud storage<span class="sideicon fa fa-cloud"></span></li>
+    {{#if model.filestorageHandler}}
+      {{#link-to ''}}
+        <li class="side-item">
+          File storage
+          <span class="side-icon fa fa-file-text-o"></span>
+        </li>
+      {{/link-to}}
+    {{else}}
+      {{#link-to ''}}
+        <li class="side-item">
+          File storage
+          <span class="side-icon fa fa-file-text-o"></span>
+        </li>
+      {{/link-to}}
+    {{/if}}
+    {{#if model.cloudHandler}}
+      {{#link-to ''}}
+        <li class="side-item">
+          Cloud Database
+          <span class="side-icon fa fa-cloud"></span>
+        </li>
+      {{/link-to}}
+    {{else}}
+      {{#link-to ''}}
+        <li class="side-item">
+          Cloud Database
+          <span class="side-icon fa fa-cloud"></span>
+        </li>
+      {{/link-to}}
+    {{/if}}
   </ul>
 </div>
 <div class="col-md-9">

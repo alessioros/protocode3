@@ -1,16 +1,25 @@
-/*============ SIDEBAR ============*/
-$font-title: 20px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
-$font-menu: 16px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
-$font-header: 16px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+/*============ VARIABLES ============*/
+
+$font-title-sidebar: 20px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+$font-menu-item: 16px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+
 $font-presentation: 20px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+
+$font-section-header: 16px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+$font-header-button: 13px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+
+$font-header: 14px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+
 $font-error: 13px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $font-table-header: 13px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $font-table: 13px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
-$font-entity-titles: 16px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+
 $menu-hover-color: #2C7BB2;
 $menu-background: white;
 $border-color: #CCCCCC;
 $table-header-background: #258CB9;
+
+$storage-selection-min-height: 700px;
 
 /*============ SIDEBAR ============*/
 
@@ -18,24 +27,23 @@ $table-header-background: #258CB9;
   background-color: $menu-background;
   color: $menu-hover-color;
   border: 1px solid $border-color;
-  padding: 15px 0 5px;
+  padding: 15px 0px 15px 0px;
   border-radius: 5px;
-  font: $font-title;
 
-  .sidetitle {
-    margin-left: 20px;
-    margin-bottom: 20px;
+  .side-title {
+    margin: 20px auto 20px 30px;
+    font: $font-title-sidebar;
   }
 
-  .sidemenu {
-    padding: 0;
+  .side-menu {
+    padding: 0px;
     list-style-type: none;
 
-    .sideitem {
+    .side-item {
       padding: 10px 10px 10px 50px;
-      font: $font-menu;
+      font: $font-menu-item;
 
-      .sideicon {
+      .side-icon {
         padding-right: 30px;
         float: right;
       }
@@ -45,7 +53,7 @@ $table-header-background: #258CB9;
       text-decoration: none;
       color: $menu-hover-color;
 
-      .sideitem:hover {
+      .side-item:hover {
         background-color: $menu-hover-color;
         color: $menu-background;
       }
@@ -60,9 +68,8 @@ $table-header-background: #258CB9;
   border: 1px solid $border-color;
   border-radius: 5px;
   padding: 0;
-  min-height: 700px;
-  margin-left: 10px;
-  margin-right: 10px;
+  min-height: $storage-selection-min-height;
+  margin: 0px 10px 0px 10px;
   overflow: auto;
 
   .col-md-12{
@@ -70,359 +77,108 @@ $table-header-background: #258CB9;
   }
 }
 
-.data_presentation {
+/*============ DATA MODEL INDEX ============*/
+
+.data-presentation {
   display: block;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  font: $font-presentation;
+  margin: 40px auto 40px auto;
   text-align: center;
+
+  .data-presentation-title{
+    font: $font-presentation;
+    margin-bottom: 20px;
+  }
+
+  .col-md-3 .span{
+    width: 100%;
+  }
 }
 
-/*============ PREFERENCES HEADER ============*/
+/*============ SECTION HEADER ============*/
 
-.df_header {
-  margin-top: 10px;
+.section-header {
+  margin: 10px 0px 0px 0px;
   padding: 10px;
   display: inline-block;
   width: 100%;
 
-  .df_title {
-    font: $font-header;
+  .section-header-title {
+    font: $font-section-header;
     float: left;
     margin-top: 5px;
     margin-left: 35px;
     min-width: 150px;
   }
 
-  hr #header_hr{
-    padding: 0;
-    margin: 0;
-  }
-
-  .switch_button {
+  .switch-button {
     float: right;
     margin-right: 30px;
 
-    #edbutton {
+    .en-di-button {
       min-width: 150px;
+      font: $font-header-button;
     }
 
-    #but_icon {
-      margin-left: 10px;
-    }
-  }
-}
-
-/*============ DATABASE HEADER ============*/
-
-.db_header {
-  margin-top: 10px;
-  padding: 0px;
-  display: inline-block;
-  width: 100%;
-
-  .db_title {
-    font: $font-header;
-    float: left;
-    margin-top: 5px;
-    margin-left: 35px;
-    min-width: 150px;
-  }
-
-  .switch_button {
-    float: right;
-    margin-right: 30px;
-
-    #edbutton {
-      min-width: 150px;
-    }
-
-    #but_icon {
-      margin-left: 10px;
+    .but-icon {
+      margin-left: 15px;
     }
   }
+
 }
 
-#header_hr{
-  padding: 0;
-  margin: 0;
-  margin-bottom: 20px;
-  margin-top: 5px;
+.section-header-hr{
+  margin: 0px;
 }
-/*============ DEFAULT PREFERENCES ============*/
+
+/*============ TABLE STYLE ============*/
 
 .table-container{
-
-  padding-left: 35px;
-  padding-right: 35px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 
-  .record_header th {
+  .table-header th {
     font: $font-table-header;
-    color: white;
     font-weight: normal;
+    color: white;
     background-color: $table-header-background;
     vertical-align: middle;
     text-align: center;
   }
 
-  .record_row td {
+  .table-row td {
     font: $font-table;
     font-weight: normal;
     vertical-align: middle;
     text-align: center;
   }
 
-  #del_record_button {
+  #del-row-button {
     visibility: hidden;
     background-color: #ffffff;
   }
 
-  .record_row:hover #del_record_button {
+  .table-row:hover #del-row-button {
     visibility: visible;
   }
 
-  #rec_controls {
-    color: #ff4444;
-    font: $font-error;
-    text-align: center;
+  .row-controls {
 
     .error-message{
-      margin-right:5px;
+      margin-right: 5px;
+      color: #ff4444;
+      font: $font-error;
     }
 
-    #button-rec{
+    #rem-row-button{
       margin-left: 5px;
     }
   }
 }
 
-/*============ SQLITE DATABASE ============*/
+/*============ DEFAULT PREFERENCES ============*/
 
-.database_editor{
-  padding: 0;
-  margin-top: -20px;
+.table-preferences-container{
 
-  .col-md-3{
-    padding: 0;
+  padding: 20px 35px 10px 35px;
 
-    .entity-panel{
-      border-right: 2px solid $border-color;
-      border-top-width: 0;
-      border-left-width: 0;
-      border-bottom-width: 0;
-      background: white;
-      width: 100%;
-      min-height: 600px;
-      padding-top: 20px;
-
-      .entities-title{
-
-        font: $font-header;
-        margin-left:30px;
-        margin-bottom: 10px;
-      }
-
-      .entities-list{
-
-        list-style: none;
-        padding: 0;
-
-        a{
-          color: $menu-hover-color;
-          text-decoration: none;
-
-          .entities-list-item{
-
-            padding:10px;
-            padding-left:30px;
-            border-bottom: 1px solid $border-color;
-            background: $menu-background;
-
-            i{
-              margin-right:10px;
-            }
-          }
-
-          .entities-list-edit{
-            padding: 5px;
-          }
-        }
-
-        .entities-list-item:hover, .entities-list-item:active, .entities-list-item:visited{
-
-          background: $menu-hover-color;
-        }
-
-        a .entities-list-item:hover, a .entities-list-item:active, a .entities-list-item:visited{
-          color: $menu-background;
-          text-decoration: none;
-        }
-      }
-    }
-
-    #button-add{
-      margin-left: 150px;
-    }
-  }
-}
-
-/*============ ENTITIES ============*/
-
-.entity-editor{
-
-  .entity-header{
-    margin-top: 20px;
-    display: inline-block;
-
-    #entity-name{
-      width: 250%;
-    }
-
-    #del-entity{
-      float:left;
-    }
-  }
-
-  .entity-attributes{
-
-    display: inline-block;
-
-    .attributes-title{
-      font: $font-entity-titles;
-      font-weight: bold;
-      margin-left: 5px;
-    }
-
-    .primary-key{
-      margin-top:10px;
-    }
-
-    .table-entity-attributes{
-      margin-top:10px;
-      margin-right:100px;
-      font: $font-table;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-      text-align: center;
-
-      #attribute-header th{
-        font: $font-table-header;
-        vertical-align: middle;
-        color: white;
-        font-weight: normal;
-        background-color: $table-header-background;
-        text-align: center;
-      }
-
-      .attribute-row td{
-        vertical-align: middle;
-      }
-
-      #del_record_button{
-        visibility: hidden;
-      }
-
-      .attribute-row:hover{
-
-        #del_record_button{
-          visibility: visible;
-        }
-      }
-
-      #rec_controls {
-        color: #ff4444;
-        font: $font-error;
-        text-align: center;
-
-        .error-message{
-          margin-right:5px;
-        }
-
-        #button-add-attribute{
-          margin-top: 5px;
-          margin-bottom: 5px;
-        }
-
-        #button-att-rem{
-          margin-left: 5px;
-        }
-      }
-    }
-  }
-
-  .entity-relationships{
-    margin-top: 0px;
-
-    .relationships-title{
-      font: $font-entity-titles;
-      font-weight: bold;
-      margin-left: 5px;
-    }
-
-    .table-entity-relationships{
-      margin-top:10px;
-      margin-right:100px;
-      font: $font-table;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-      text-align: center;
-
-      #relationship-header th{
-        font: $font-table-header;
-        color: white;
-        font-weight: normal;
-        background-color: $table-header-background;
-        vertical-align: middle;
-        text-align: center;
-      }
-
-      .relationship-row td{
-        vertical-align: middle;
-
-        input{
-          margin-left: auto;
-          margin-right: auto;
-          width: 90%;
-        }
-
-        select{
-          margin-left: auto;
-          margin-right: auto;
-          width: 90%;
-        }
-      }
-
-      #del_record_button{
-        visibility: hidden;
-      }
-
-      .relationship-row:hover{
-
-        #del_record_button{
-          visibility: visible;
-        }
-      }
-
-      #rec_controls {
-        color: #ff4444;
-        font: $font-error;
-        text-align: center;
-
-        .error-message{
-          margin-right:5px;
-        }
-
-        #button-add-relationship{
-          margin-top: 5px;
-          margin-bottom: 5px;
-        }
-
-        #button-rel-rem{
-          margin-left: 5px;
-        }
-      }
-    }
-  }
 }
