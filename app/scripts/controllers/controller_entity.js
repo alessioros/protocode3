@@ -3,6 +3,7 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
   isCreatingAttribute: false,
   isCreatingRelationship: false,
   isAttributeValid: true,
+  isRelationshipValid: true,
 
   attributeName: 'newAttribute',
   attributeType: 'string',
@@ -12,10 +13,58 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
   types: ['string','int','float','Double','Date','boolean'],
   relTypes: ['1 : 1','1 : N','N : N'],
 
-  init () {
-    this._super();
+  isDestinationValid: function(){
 
-  },
+    var destination = this.get('relationshipDestination');
+
+    if(!destination){
+
+      return false;
+
+    }else if(destination === ''){
+
+      return false;
+    }
+
+    return true;
+
+  }.property('relationshipDestination'),
+
+  isRelNameValid: function(){
+
+    var self = this;
+    var name = this.get('relationshipName');
+
+    var entity = this.get('model');
+
+    self.set('isRelationshipValid', true);
+
+    this.store.all('entityRelationship').some(
+      function(relationship){
+
+        if(relationship.get('name') === name){
+          if(relationship.get('entity') === entity){
+
+            self.set('isRelationshipValid', false);
+            return false;
+          }
+        }
+      }
+    );
+
+    if(!this.get('isRelationshipValid')){
+
+      return false;
+
+    }else if(name === ''){
+
+      return false;
+
+    }else{
+      return true;
+    }
+
+  }.property('relationshipName'),
 
   isNameValid: function(){
 
@@ -94,10 +143,20 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
 
     setCreatingAttribute: function(value){
       this.set('isCreatingAttribute',value);
+      if(value === false){
+        this.set('attributeName','newAttribute');
+        this.set('attributeType','string');
+      }
     },
 
     setCreatingRelationship: function(value){
       this.set('isCreatingRelationship',value);
+
+      if(value === false){
+        this.set('relationshipName','newRelationship');
+        this.set('relationshipDestination','');
+        this.set('relationshipType','1 : N');
+      }
     },
 
     createAttribute: function(){
@@ -159,9 +218,10 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
             });
       });
 
-      this.set('isCreatingAttribute', false);
-      this.set('attributeName','newAttribute');
-      this.set('attributeType','string');
+      this.set('isCreatingRelationship', false);
+      this.set('relationshipName','newRelationship');
+      this.set('relationshipDestination','');
+      this.set('relationshipType','1 : N');
 
     },
 

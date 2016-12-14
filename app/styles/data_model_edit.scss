@@ -4,21 +4,20 @@ $font-menu: 16px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $font-header: 16px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $font-presentation: 20px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $font-error: 13px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
-$font-table-header: 14px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+$font-table-header: 13px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $font-table: 13px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
-$font-entity-titles: 15px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+$font-entity-titles: 16px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $menu-hover-color: #2C7BB2;
 $menu-background: white;
 $border-color: #CCCCCC;
 $table-header-background: #258CB9;
+
 /*============ SIDEBAR ============*/
 
 .sidebar {
   background-color: $menu-background;
   color: $menu-hover-color;
-  border-style: solid;
-  border-color: $border-color;
-  border-width: 1px;
+  border: 1px solid $border-color;
   padding: 15px 0 5px;
   border-radius: 5px;
   font: $font-title;
@@ -58,14 +57,13 @@ $table-header-background: #258CB9;
 
 .storage-selection {
   background-color: $menu-background;
-  border-style: solid;
-  border-color: $border-color;
-  border-width: 1px;
+  border: 1px solid $border-color;
   border-radius: 5px;
   padding: 0;
   min-height: 700px;
   margin-left: 10px;
   margin-right: 10px;
+  overflow: auto;
 
   .col-md-12{
     padding: 0;
@@ -80,10 +78,10 @@ $table-header-background: #258CB9;
   text-align: center;
 }
 
-/*============ STORAGE HEADER ============*/
+/*============ PREFERENCES HEADER ============*/
 
 .df_header {
-  margin-top: 20px;
+  margin-top: 10px;
   padding: 10px;
   display: inline-block;
   width: 100%;
@@ -115,57 +113,89 @@ $table-header-background: #258CB9;
   }
 }
 
+/*============ DATABASE HEADER ============*/
+
+.db_header {
+  margin-top: 10px;
+  padding: 0px;
+  display: inline-block;
+  width: 100%;
+
+  .db_title {
+    font: $font-header;
+    float: left;
+    margin-top: 5px;
+    margin-left: 35px;
+    min-width: 150px;
+  }
+
+  .switch_button {
+    float: right;
+    margin-right: 30px;
+
+    #edbutton {
+      min-width: 150px;
+    }
+
+    #but_icon {
+      margin-left: 10px;
+    }
+  }
+}
+
+#header_hr{
+  padding: 0;
+  margin: 0;
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
 /*============ DEFAULT PREFERENCES ============*/
 
 .table-container{
 
-    padding-left: 35px;
-    padding-right: 35px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+  padding-left: 35px;
+  padding-right: 35px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 
-    .record_header th {
-      font: $font-table-header;
-      color: white;
-      font-weight: normal;
-      background-color: $table-header-background;
-      vertical-align: middle;
-      text-align: center;
+  .record_header th {
+    font: $font-table-header;
+    color: white;
+    font-weight: normal;
+    background-color: $table-header-background;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  .record_row td {
+    font: $font-table;
+    font-weight: normal;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  #del_record_button {
+    visibility: hidden;
+    background-color: #ffffff;
+  }
+
+  .record_row:hover #del_record_button {
+    visibility: visible;
+  }
+
+  #rec_controls {
+    color: #ff4444;
+    font: $font-error;
+    text-align: center;
+
+    .error-message{
+      margin-right:5px;
     }
 
-    .record_row td {
-      font: $font-table;
-      font-weight: normal;
-      vertical-align: middle;
-      text-align: center;
+    #button-rec{
+      margin-left: 5px;
     }
-
-    #del_record_button {
-      visibility: hidden;
-      background-color: #ffffff;
-    }
-
-    .record_row:hover #del_record_button {
-      visibility: visible;
-    }
-
-    .record_row:hover td{
-
-    }
-
-    #rec_controls {
-      color: #ff4444;
-      font: $font-error;
-      text-align: center;
-
-      .error-message{
-        margin-right:5px;
-      }
-
-      #button-rec{
-        margin-left: 5px;
-      }
-    }
+  }
 }
 
 /*============ SQLITE DATABASE ============*/
@@ -196,47 +226,44 @@ $table-header-background: #258CB9;
 
       .entities-list{
 
-          list-style: none;
-          padding: 0;
+        list-style: none;
+        padding: 0;
 
-          a{
-            color: $menu-hover-color;
-            text-decoration: none;
+        a{
+          color: $menu-hover-color;
+          text-decoration: none;
 
-            .entities-list-item{
+          .entities-list-item{
 
-                padding:10px;
-                padding-left:30px;
-                border-bottom: 1px solid $border-color;
-                background: $menu-background;
+            padding:10px;
+            padding-left:30px;
+            border-bottom: 1px solid $border-color;
+            background: $menu-background;
 
-                i{
-                  margin-right:10px;
-                }
-            }
-
-            .entities-list-edit{
-              padding: 5px;
+            i{
+              margin-right:10px;
             }
           }
 
-          .entities-list-item:hover, .entities-list-item:active, .entities-list-item:visited{
-
-              background: $menu-hover-color;
+          .entities-list-edit{
+            padding: 5px;
           }
+        }
 
-          a .entities-list-item:hover, a .entities-list-item:active, a .entities-list-item:visited{
-            color: $menu-background;
-            text-decoration: none;
-          }
+        .entities-list-item:hover, .entities-list-item:active, .entities-list-item:visited{
 
+          background: $menu-hover-color;
+        }
 
+        a .entities-list-item:hover, a .entities-list-item:active, a .entities-list-item:visited{
+          color: $menu-background;
+          text-decoration: none;
+        }
       }
     }
 
     #button-add{
       margin-left: 150px;
-
     }
   }
 }
@@ -245,129 +272,157 @@ $table-header-background: #258CB9;
 
 .entity-editor{
 
-    .entity-header{
-      margin-top: 20px;
-      display: inline-block;
+  .entity-header{
+    margin-top: 20px;
+    display: inline-block;
 
-      #entity-name{
-        width: 250%;
-      }
-
-      #del-entity{
-        float:left;
-      }
+    #entity-name{
+      width: 250%;
     }
 
-    .entity-attributes{
+    #del-entity{
+      float:left;
+    }
+  }
 
-      display: inline-block;
+  .entity-attributes{
+
+    display: inline-block;
+
+    .attributes-title{
       font: $font-entity-titles;
+      font-weight: bold;
+      margin-left: 5px;
+    }
 
-      .primary-key{
-        margin-top:10px;
+    .primary-key{
+      margin-top:10px;
+    }
+
+    .table-entity-attributes{
+      margin-top:10px;
+      margin-right:100px;
+      font: $font-table;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      text-align: center;
+
+      #attribute-header th{
+        font: $font-table-header;
+        vertical-align: middle;
+        color: white;
+        font-weight: normal;
+        background-color: $table-header-background;
+        text-align: center;
       }
 
-      .table-entity-attributes{
-        margin-top:10px;
-        margin-right:100px;
-        font: $font-table;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        text-align: center;
+      .attribute-row td{
+        vertical-align: middle;
+      }
 
-        #attribute-header th{
-          vertical-align: middle;
-          color: white;
-          font-weight: normal;
-          background-color: $table-header-background;
-          text-align: center;
-        }
+      #del_record_button{
+        visibility: hidden;
+      }
 
-        .attribute-row td{
-            vertical-align: middle;
-
-        }
+      .attribute-row:hover{
 
         #del_record_button{
-          visibility: hidden;
+          visibility: visible;
         }
+      }
 
-        .attribute-row:hover{
+      #rec_controls {
+        color: #ff4444;
+        font: $font-error;
+        text-align: center;
 
-          #del_record_button{
-            visibility: visible;
-          }
-        }
-
-        #rec_controls {
-          color: #ff4444;
-          font: $font-error;
-          text-align: center;
-
-          .error-message{
-            margin-right:5px;
-          }
-
-
-        }
-
-        #button-att-rem{
-          margin-left: 5px;
+        .error-message{
+          margin-right:5px;
         }
 
         #button-add-attribute{
           margin-top: 5px;
           margin-bottom: 5px;
         }
+
+        #button-att-rem{
+          margin-left: 5px;
+        }
       }
     }
+  }
 
-    .entity-relationships{
-      margin-top: 0px;
+  .entity-relationships{
+    margin-top: 0px;
+
+    .relationships-title{
       font: $font-entity-titles;
+      font-weight: bold;
+      margin-left: 5px;
+    }
 
-      .table-entity-relationships{
-        margin-top:10px;
-        margin-right:100px;
-        font: $font-table;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
+    .table-entity-relationships{
+      margin-top:10px;
+      margin-right:100px;
+      font: $font-table;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      text-align: center;
+
+      #relationship-header th{
+        font: $font-table-header;
+        color: white;
+        font-weight: normal;
+        background-color: $table-header-background;
+        vertical-align: middle;
+        text-align: center;
+      }
+
+      .relationship-row td{
+        vertical-align: middle;
+
+        input{
+          margin-left: auto;
+          margin-right: auto;
+          width: 90%;
+        }
+
+        select{
+          margin-left: auto;
+          margin-right: auto;
+          width: 90%;
+        }
+      }
+
+      #del_record_button{
+        visibility: hidden;
+      }
+
+      .relationship-row:hover{
+
+        #del_record_button{
+          visibility: visible;
+        }
+      }
+
+      #rec_controls {
+        color: #ff4444;
+        font: $font-error;
         text-align: center;
 
-        #relationship-header th{
-          font: $font-table-header;
-          color: white;
-          font-weight: normal;
-          background-color: $table-header-background;
-          vertical-align: middle;
-          text-align: center;
+        .error-message{
+          margin-right:5px;
         }
 
-        .relationship-row td{
-            vertical-align: middle;
-
-            input{
-              margin-left: auto;
-              margin-right: auto;
-              width: 90%;
-            }
-
-            select{
-              margin-left: auto;
-              margin-right: auto;
-              width: 90%;
-            }
+        #button-add-relationship{
+          margin-top: 5px;
+          margin-bottom: 5px;
         }
 
-        #rec_controls {
-          color: #ff4444;
-          font: $font-error;
-          text-align: center;
-
-          .error-message{
-            margin-right:5px;
-          }
+        #button-rel-rem{
+          margin-left: 5px;
         }
       }
     }
+  }
 }

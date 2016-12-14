@@ -61,7 +61,7 @@
               {{#if isNameValid }}
                   <span class="input-group-btn">
                       <button type="button" class="btn btn-default btn-xs" {{action "createAttribute"}}>
-                          <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+                          <i class="fa fa-floppy-o" aria-hidden="true"></i>
                       </button>
                       <button type="button" class="btn btn-default btn-xs" id='button-att-rem' {{action "setCreatingAttribute" false}}>
                           <i class="fa fa-times" aria-hidden="true"></i>
@@ -101,8 +101,8 @@
               <th class='col-md-1'>#</th>
               <th class='col-md-3'>Name</th>
               <th class='col-md-3'>Destination</th>
-              <th class='col-md-3'>Type</th>
-              <th class='col-md-2'></th>
+              <th class='col-md-2'>Type</th>
+              <th class='col-md-3'></th>
             </tr>
           </thead>
           <tbody>
@@ -111,8 +111,8 @@
               <td class='col-md-1'>{{_view.contentIndex}}</td>
               <td class='col-md-3'>{{item.name}}</td>
               <td class='col-md-3'>{{item.destination}}</td>
-              <td class='col-md-3'>{{item.type}}</td>
-              <td class='col-md-2' id='rec_controls'>
+              <td class='col-md-2'>{{item.type}}</td>
+              <td class='col-md-3' id='rec_controls'>
                 <button type="button" class="btn btn-default btn-xs" id='del_record_button' {{action "deleteRelationship" item.id }}>
                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                 </button>
@@ -130,22 +130,36 @@
                   value=relationshipDestination
                 }}
               </td>
-              <td class='col-md-3'>
+              <td class='col-md-2'>
                 {{view Ember.Select
                   content=relTypes
                   class="form-control input-sm"
                   value=relationshipType
                 }}
               </td>
-              <td class='col-md-2' id='rec_controls'>
-                <span class="input-group-btn">
-                    <button type="button" class="btn btn-default btn-xs" {{action "createRelationship"}}>
-                        <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+              <td class='col-md-3' id='rec_controls'>
+                {{#if isRelNameValid }}
+                  {{#if isDestinationValid }}
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default btn-xs" {{action "createRelationship"}}>
+                            <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="btn btn-default btn-xs" id='button-rel-rem' {{action "setCreatingRelationship" false}}>
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </button>
+                    </span>
+                  {{else}}
+                    <span class='error-message'>set destination</span>
+                    <button type="button" class="btn btn-danger btn-xs" {{action "setCreatingRelationship" false}}>
+                      <i class="fa fa-times" aria-hidden="true"></i>
                     </button>
-                    <button type="button" class="btn btn-default btn-xs" {{action "setCreatingRelationship" false}}>
-                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    </button>
-                </span>
+                  {{/if}}
+                {{else}}
+                  <span class='error-message'>invalid name</span>
+                  <button type="button" class="btn btn-danger btn-xs" {{action "setCreatingRelationship" false}}>
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                  </button>
+                {{/if}}
               </td>
             </tr>
             {{/if}}
@@ -153,10 +167,10 @@
               <td class='col-md-1'></td>
               <td class='col-md-3'></td>
               <td class='col-md-3'></td>
-              <td class='col-md-3'></td>
-              <td class='col-md-2' id='rec_controls'>
+              <td class='col-md-2'></td>
+              <td class='col-md-3' id='rec_controls'>
                 <div class="btn-group">
-                  <button type="button" class="btn btn-default btn-xs" {{action "setCreatingRelationship" true}}>
+                  <button type="button" class="btn btn-default btn-xs" id="button-add-relationship" {{action "setCreatingRelationship" true}}>
                       <i class="fa fa-plus" aria-hidden="true"></i>
                   </button>
                 </div>
