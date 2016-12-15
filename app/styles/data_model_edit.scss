@@ -20,6 +20,7 @@ $border-color: #CCCCCC;
 $table-header-background: #258CB9;
 
 $storage-selection-min-height: 700px;
+$items-sidebar-minheight: 600px;
 
 /*============ SIDEBAR ============*/
 
@@ -175,10 +176,60 @@ $storage-selection-min-height: 700px;
   }
 }
 
-/*============ DEFAULT PREFERENCES ============*/
+/*============ SIDEBAR ENTITIES / CLOUD_OBJECTS ============*/
 
-.table-preferences-container{
+.items-sidebar{
+  padding: 0px;
 
-  padding: 20px 35px 10px 35px;
+  .items-panel{
+    border-right: 2px solid $border-color;
+    background: white;
+    width: 100%;
+    min-height: $items-sidebar-minheight;
+    padding-top: 20px;
 
+    .items-title{
+      font: $font-header;
+      margin-left:30px;
+      margin-bottom: 10px;
+    }
+
+    .items-list{
+      list-style: none;
+      padding: 0;
+
+      a{
+        color: $menu-hover-color;
+        text-decoration: none;
+
+        .items-list-item{
+          padding:10px;
+          padding-left:30px;
+          border-bottom: 1px solid $border-color;
+          background: $menu-background;
+
+          i{
+            margin-right:10px;
+          }
+        }
+
+        .items-list-edit{
+          padding: 5px;
+        }
+      }
+
+      .items-list-item:hover{
+        background: $menu-hover-color;
+      }
+
+      a .items-list-item:hover{
+        color: $menu-background;
+        text-decoration: none;
+      }
+    }
+  }
+
+  #button-add{
+    margin-left: 150px;
+  }
 }

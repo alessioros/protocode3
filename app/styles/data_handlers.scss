@@ -1,0 +1,59 @@
+/*============ SQLITE DATABASE ============*/
+
+$font-header: 14px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+$font-entity-titles: 16px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+
+$menu-hover-color: #2C7BB2;
+$menu-background: white;
+$border-color: #CCCCCC;
+$table-header-background: #258CB9;
+
+/*============ DEFAULT PREFERENCES ============*/
+
+.table-preferences-container{
+
+  padding: 20px 35px 10px 35px;
+
+}
+
+/*============ ENTITY EDITOR ============*/
+
+.entity-editor{
+
+  .entity-header{
+    margin-top: 20px;
+    display: inline-block;
+
+    #entity-name{
+      width: 250%;
+    }
+
+    #del-entity{
+      float:left;
+    }
+  }
+
+  .entity-property{
+
+    .entity-property-title{
+      font: $font-entity-titles;
+      font-weight: bold;
+      margin-left: 5px;
+    }
+
+    .primary-key{
+      margin-top:10px;
+    }
+
+    .table-entity-properties{
+      margin-top:10px;
+      margin-right:100px;
+
+      #button-add-property{
+        display: block;
+        margin: auto;
+      }
+
+    }
+  }
+}

@@ -1,26 +1,26 @@
-<div class='col-md-3'>
-  <div class="entity-panel">
-    <div class='entities-title'>ENTITIES</div>
+<div class='col-md-3 items-sidebar'>
+  <div class="items-panel">
+    <div class='items-title'>ENTITIES</div>
     <hr>
-    <ul class="entities-list">
+    <ul class="items-list">
         {{#each item in controller item-controller="entitiesController" }}
           {{#link-to "entity" item}}
-            <li class="entities-list-item">
-              <i class="fa fa-etsy"></i>{{item.name}}
+            <li class="items-list-item">
+              <i class="fa fa-table"></i>{{item.name}}
             </li>
           {{/link-to}}
         {{/each}}
         {{#if isCreating}}
-          <li class="entities-list-edit">
+          <li class="items-list-edit">
               <div class='col-md-1'></div>
               <div class="input-group col-md-10">
                   {{focus-input value=entityName class="form-control input-sm"}}
                   <span class="input-group-btn">
                       <button type="button" class="btn btn-default btn-sm" {{action "createEntity"}}>
-                          <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+                          <span class="fa fa-floppy-o" aria-hidden="true"></span>
                       </button>
                       <button type="button" class="btn btn-default btn-sm" {{action "setCreating" false}}>
-                          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                          <span class="fa fa-times" aria-hidden="true"></span>
                       </button>
                   </span>
               </div>

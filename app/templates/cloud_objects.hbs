@@ -1,17 +1,17 @@
-<div class='col-md-3'>
-  <div class="entity-panel">
-    <div class='entities-title'>OBJECTS</div>
+<div class='col-md-3 items-sidebar'>
+  <div class="items-panel">
+    <div class='items-title'>OBJECTS</div>
     <hr>
-    <ul class="entities-list">
+    <ul class="items-list">
         {{#each item in controller item-controller="cloudObjectsController" }}
           {{#link-to "cloud_object" item}}
-            <li class="entities-list-item">
-              <i class="fa fa-etsy"></i>{{item.name}}
+            <li class="items-list-item">
+              <i class="fa fa-dot-circle-o"></i>{{item.name}}
             </li>
           {{/link-to}}
         {{/each}}
         {{#if isCreating}}
-          <li class="entities-list-edit">
+          <li class="items-list-edit">
               <div class='col-md-1'></div>
               <div class="input-group col-md-10">
                   {{focus-input value=objectName class="form-control input-sm"}}

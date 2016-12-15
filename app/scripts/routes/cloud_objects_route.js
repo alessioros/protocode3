@@ -11,5 +11,16 @@ App.CloudObjectsRoute = Ember.Route.extend({
         return cloudHandler.get('cloudObjects');
       }
     );
+  },
+
+  actions: {
+
+    refreshModel: function(){
+      this.refresh();
+    },
+
+    redirectToObject: function(){
+      this.transitionTo('cloud_object', this.modelFor('cloud_objects').get('lastObject'));
+    }
   }
 });

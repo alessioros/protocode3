@@ -11,5 +11,16 @@ App.EntitiesRoute = Ember.Route.extend({
         return databaseHandler.get('entities');
       }
     );
+  },
+
+  actions: {
+
+    refreshModel: function(){
+      this.refresh();
+    },
+
+    redirectToEntity: function(){
+      this.transitionTo('entity', this.modelFor('entities').get('lastObject'));
+    }
   }
 });

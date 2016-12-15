@@ -2,6 +2,7 @@ App.ObjectAttribute = DS.Model.extend({
 
     name: DS.attr('string'),
     type: DS.attr('string'),
+    object: DS.attr('string'),
 
     cloudObject: DS.belongsTo('cloudObject'),
 
@@ -9,11 +10,14 @@ App.ObjectAttribute = DS.Model.extend({
 
     toXml: function(xmlDoc) {
 
-      var self = this;
-      var objAttribute = xmlDoc.createElement(self.get('xmlName'));
+      var objAttribute = xmlDoc.createElement(this.get('xmlName'));
 
-      objAttribute.setAttribute('name', self.get('name'));
-      objAttribute.setAttribute('type', self.get('type'));
+      objAttribute.setAttribute('name', this.get('name'));
+      objAttribute.setAttribute('type', this.get('type'));
+
+      if(!(this.get('object') === '')){
+          objAttribute.setAttribute('object', this.get('object'));
+      }
 
       return objAttribute;
     }

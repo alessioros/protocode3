@@ -260,5 +260,5 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
                             });
                           });
                         }
-                      }
-                    });
+      }
+});

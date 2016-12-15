@@ -19,7 +19,7 @@ App.EntitiesController = Ember.ArrayController.extend(App.Saveable, {
 
     }else if(name.indexOf(' ') >= 0){
       return false;
-      
+
     }else{
       return true;
 
@@ -61,7 +61,12 @@ App.EntitiesController = Ember.ArrayController.extend(App.Saveable, {
             this.set('isCreating', false);
             this.set('entityName','newName');
             this.set('entityPrimaryKey','newPrimaryKey');
-            this.transitionToRoute('entities');
+            this.send('refreshModel');
+
+            Ember.run.later(
+              function(){
+                self.send('redirectToEntity');
+            }, 100);
           }
         }
 

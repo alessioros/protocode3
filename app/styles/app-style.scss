@@ -106,9 +106,19 @@ body,
 #view-controllers-panel {
   border-top-left-radius: 0px;
 }
+
 #watch-controllers-panel {
   border-top-right-radius: 0px;
 }
+
+.editor-panel-left{
+  padding-left: 30px;
+}
+
+.editor-panel-right{
+  padding-right: 30px;
+}
+
 
 .spacer {
   margin-top: 15px;
