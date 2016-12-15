@@ -8,16 +8,5 @@ App.WatchControllersRoute = Ember.Route.extend({
       return this.store.find('application', 'newAppId').then(function(app) {
         return app.get('watchControllers');
       });
-  },
-
-  actions: {
-
-    refreshModel: function(){
-      this.refresh();
-    },
-
-    redirectToWatchController: function(){
-      this.transitionTo('watchController', this.modelFor('watchControllers').get('lastObject'));
-    }
   }
 });

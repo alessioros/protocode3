@@ -33,13 +33,6 @@ App.ViewControllersController = Ember.ArrayController.extend({
 
             this.set('newNameViewController', 'newView');
             this.set('isCreating', false);
-            this.send('refreshModel');
-
-            Ember.run.later(function(){
-              self.send('redirectToViewController');
-            }, 100);
         }
-
     }
-
 });

@@ -33,14 +33,7 @@ App.WatchControllersController = Ember.ArrayController.extend({
 
             this.set('newNameWatchController', 'newView');
             this.set('isCreating', false);
-            this.send('refreshModel');
-
-            Ember.run.later(function(){
-              self.send('redirectToWatchController');
-            }, 100);
 
         }
-
     }
-
 });

@@ -8,16 +8,5 @@ App.ViewControllersRoute = Ember.Route.extend({
       return this.store.find('application', 'newAppId').then(function(app) {
         return app.get('viewControllers');
       });
-  },
-
-  actions: {
-
-    refreshModel: function(){
-      this.refresh();
-    },
-
-    redirectToViewController: function(){
-      this.transitionTo('viewController', this.modelFor('viewControllers').get('lastObject'));
-    }
   }
 });
