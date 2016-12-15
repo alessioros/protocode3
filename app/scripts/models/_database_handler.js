@@ -4,7 +4,7 @@ App.DatabaseHandler = DS.Model.extend({
 
       entities:     DS.hasMany('entity', {async: true}),
 
-      xmlName: 'DBHandler',
+      xmlName: 'databaseHandler',
 
       toXml: function(xmlDoc) {
 

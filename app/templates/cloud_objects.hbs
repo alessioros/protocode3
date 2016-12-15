@@ -1,0 +1,42 @@
+<div class='col-md-3'>
+  <div class="entity-panel">
+    <div class='entities-title'>OBJECTS</div>
+    <hr>
+    <ul class="entities-list">
+        {{#each item in controller item-controller="cloudObjectsController" }}
+          {{#link-to "cloud_object" item}}
+            <li class="entities-list-item">
+              <i class="fa fa-etsy"></i>{{item.name}}
+            </li>
+          {{/link-to}}
+        {{/each}}
+        {{#if isCreating}}
+          <li class="entities-list-edit">
+              <div class='col-md-1'></div>
+              <div class="input-group col-md-10">
+                  {{focus-input value=objectName class="form-control input-sm"}}
+                  <span class="input-group-btn">
+                      <button type="button" class="btn btn-default btn-sm" {{action "createCloudObject"}}>
+                          <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+                      </button>
+                      <button type="button" class="btn btn-default btn-sm" {{action "setCreating" false}}>
+                          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                      </button>
+                  </span>
+              </div>
+              <div class='col-md-1'></div>
+          </li>
+        {{/if}}
+    </ul>
+    <div class="panel-footer">
+        <div class="btn-group">
+            <button type="button" id="button-add" class="btn btn-default btn-sm" {{action "setCreating" true}}>
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+  </div>
+</div>
+<div class='col-md-9'>
+  {{outlet}}
+</div>

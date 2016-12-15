@@ -127,6 +127,13 @@ App.Router.map(function() {
                 }, function() {});
             });
         });
+        this.resource('cloud_handler', function() {
+            this.resource('cloud_objects', function() {
+                this.resource('cloud_object', {
+                  path: '/cloud_object/:cloud_object_id'
+                }, function() {});
+            });
+        });
     });
 
     this.resource('uiPhoneControls');

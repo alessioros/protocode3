@@ -1,15 +1,15 @@
 App.DataHandler = DS.Model.extend({
 
-    application:      DS.belongsTo('application'),
+    application: DS.belongsTo('application'),
 
-    prefHandler:      DS.belongsTo('prefHandler'),
+    prefHandler: DS.belongsTo('prefHandler'),
 
-    databaseHandler:  DS.belongsTo('databaseHandler'),
+    databaseHandler: DS.belongsTo('databaseHandler'),
+
+    cloudHandler: DS.belongsTo('cloudHandler'),
     /*
 
-    filesHandler: belongsTo('filesHandler'),
-
-    cloudHandler: belongsTo('cloudHandler'),
+    filesHandler: DS.belongsTo('filesHandler'),
 
     */
     xmlName: 'dataHandler',
@@ -18,6 +18,7 @@ App.DataHandler = DS.Model.extend({
 
       var prefHandler = this.get('prefHandler');
       var databaseHandler = this.get('databaseHandler');
+      var cloudHandler = this.get('cloudHandler');
 
       var dataHandler = xmlDoc.createElement(this.get('xmlName'));
 
@@ -27,6 +28,10 @@ App.DataHandler = DS.Model.extend({
 
       if(databaseHandler){
         dataHandler.appendChild(databaseHandler.toXml(xmlDoc));
+      }
+
+      if(cloudHandler){
+        dataHandler.appendChild(cloudHandler.toXml(xmlDoc));
       }
 
       return dataHandler;
