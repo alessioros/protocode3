@@ -50,6 +50,12 @@ App.DatabaseHandlerRoute = Ember.Route.extend({
                 );
                 dbHandler.deleteRecord();
                 dbHandler.save();
+
+                self.store.find('dataHandler','dH1').then(
+                  function(dataHandler){
+                    dataHandler.set('databaseHandler', null);
+                    dataHandler.save();
+                  });
               }
             );
 

@@ -46,8 +46,15 @@ App.PreferenceHandlerRoute = Ember.Route.extend({
                     });
                   }
                 );
+
                 prefHandler.deleteRecord();
                 prefHandler.save();
+
+                self.store.find('dataHandler','dH1').then(
+                  function(dataHandler){
+                    dataHandler.set('prefHandler', null);
+                    dataHandler.save();
+                  });
               }
             );
 

@@ -34,6 +34,7 @@ App.ApplicationRoute = Ember.Route.extend({
             self.store.findAll(model).then(function (array) {
               array.forEach(function (data) {
                 Ember.run.once(self, function () {
+
                   data.deleteRecord();
                   data.save();
                 });
@@ -42,7 +43,7 @@ App.ApplicationRoute = Ember.Route.extend({
           });
         });
 
-        this.transitionTo('/');
+        this.transitionTo('application');
         this.get('controller').set('model', null);
       }
     },
