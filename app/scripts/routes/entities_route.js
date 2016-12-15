@@ -1,12 +1,15 @@
+/*
+templates/entities.hbs
+*/
 App.EntitiesRoute = Ember.Route.extend({
 
-      model: function(){
+  model: function(){
 
-          return this.store.find('databaseHandler','dbH1').then(
-            function(databaseHandler){
+    return this.store.find('databaseHandler','dbH1').then(
+      function(databaseHandler){
 
-              return databaseHandler.get('entities');
-            }
-          );
+        return databaseHandler.get('entities');
       }
+    );
+  }
 });

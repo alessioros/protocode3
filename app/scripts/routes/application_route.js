@@ -1,51 +1,53 @@
+/*
+templates/application.hbs
+*/
 App.ApplicationRoute = Ember.Route.extend({
   model: function () {
-      return this.store.findAll('application').then(function(dataArray){
 
-          return dataArray.objectAt(0);
-      });
+    return this.store.findAll('application').then(
+      function(dataArray){
+        return dataArray.objectAt(0);
+    });
   },
 
   actions: {
 
     deleteApp: function () {
 
-        if (confirm('Are you sure to delete?')) {
-            var self = this;
+      if (confirm('Are you sure to delete?')) {
+        var self = this;
 
-            var models = [
-              'application',
-              'container',
-              'smartphone',
-              'smartwatch',
-              'dataHandler',
-              'menu',
-              'menuItem',
-              'uiPhoneControlTemplate',
-              'uiWatchControlTemplate'
-            ];
+        var models = [
+          'application',
+          'container',
+          'smartphone',
+          'smartwatch',
+          'dataHandler',
+          'menu',
+          'menuItem',
+          'uiPhoneControlTemplate',
+          'uiWatchControlTemplate'
+        ];
 
-            models.map(function (model) {
-              Ember.run.once(self, function () {
-                self.store.findAll(model).then(function (array) {
-                  array.forEach(function (data) {
-                    Ember.run.once(self, function () {
-                      data.deleteRecord();
-                      data.save();
-                    });
-                  });
+        models.map(function (model) {
+          Ember.run.once(self, function () {
+            self.store.findAll(model).then(function (array) {
+              array.forEach(function (data) {
+                Ember.run.once(self, function () {
+                  data.deleteRecord();
+                  data.save();
                 });
               });
             });
+          });
+        });
 
-            this.transitionTo('/');
-            this.get('controller').set('model', null);
-            this.refresh();
-        }
-
+        this.transitionTo('/');
+        this.get('controller').set('model', null);
+      }
     },
 
-    createApp: function () {
+    createApp: function (model) {
       var self = this;
 
       this.store.createRecord('smartphone', {
@@ -63,17 +65,17 @@ App.ApplicationRoute = Ember.Route.extend({
         cssWidth: 414,
         cssHeight: 736
       }).save().then(function (smartphone) {
-          self.store.createRecord('smartwatch', {
-            name: 'AppleWatch',
-            label: 'WatchOS (156x195) Apple Watch 42mm',
-            platform: 'watchos',
-            viewTop: 22,
-            viewBottom: 195,
-            screenWidth: 156,
-            screenHeight: 195,
-            cssWidth: 156,
-            cssHeight: 195
-          }).save().then(
+        self.store.createRecord('smartwatch', {
+          name: 'AppleWatch',
+          label: 'WatchOS (156x195) Apple Watch 42mm',
+          platform: 'watchos',
+          viewTop: 22,
+          viewBottom: 195,
+          screenWidth: 156,
+          screenHeight: 195,
+          cssWidth: 156,
+          cssHeight: 195
+        }).save().then(
           function (smartwatch) {
             self.store.createRecord('menu').save().then(
               function (newMenu) {
@@ -365,14 +367,12 @@ App.ApplicationRoute = Ember.Route.extend({
         type: 'watchVoiceMessage'
       }).save();
 
-      this.refresh();
-
+      window.location.reload(true);
     },
 
     setupController: function(controller, model) {
-        this._super(controller, model);
-        controller.set('model',model);
+      this._super(controller, model);
+      controller.set('model',model);
     }
-
   }
 });

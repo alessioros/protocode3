@@ -1,143 +1,153 @@
+/*
+templates/preference_records.hbs
+*/
 App.PreferenceRecordsController = Ember.ArrayController.extend({
 
-      isCreating: false,
-      keyPreferenceRecord: 'newKey',
-      valuePreferenceRecord: 'newStringValue',
-      typePreferenceRecord: 'string',
-      types: ['string','boolean','int','float'],
-      booleanOptions: ['true','false'],
+  isCreating: false,
+  keyPreferenceRecord: 'newKey',
+  valuePreferenceRecord: 'newStringValue',
+  typePreferenceRecord: 'string',
+  types: ['string','boolean','int','long','float','double'],
+  booleanOptions: ['true','false'],
 
-      isBooleanRec: function(){
+  // sets the default value accordingly to the record type,
+  // returns true if the type is boolean
+  isBooleanRec: function(){
 
-        if(this.get('typePreferenceRecord') === 'boolean'){
+    var recordType = this.get('typePreferenceRecord');
 
-          this.set('valuePreferenceRecord','false');
-          return true;
-        }
+    if(recordType === 'boolean'){
+      this.set('valuePreferenceRecord','false');
+      return true;
 
-        if(this.get('typePreferenceRecord') === 'string'){
+    }else if(recordType === 'string'){
+      this.set('valuePreferenceRecord','newStringValue');
+      return false;
 
-          this.set('valuePreferenceRecord','newStringValue');
-          return false;
-        }
+    }else if(recordType === 'int'){
+      this.set('valuePreferenceRecord','0');
+      return false;
 
-        if(this.get('typePreferenceRecord') === 'int'){
+    }else if(recordType === 'long'){
+      this.set('valuePreferenceRecord','0');
+      return false;
 
-          this.set('valuePreferenceRecord','0');
-          return false;
-        }
+    }else if(recordType === 'float'){
+      this.set('valuePreferenceRecord','0.0');
+      return false;
 
-        if(this.get('typePreferenceRecord') === 'float'){
+    }else if(recordType === 'double'){
+      this.set('valuePreferenceRecord','0.0');
+      return false;
 
-          this.set('valuePreferenceRecord','0.0');
-          return false;
-        }
+    }else if(recordType === 'string'){
+      this.set('valuePreferenceRecord','newStringValue');
+      return false;
 
-        if(this.get('typePreferenceRecord') === 'string'){
+    }else{
+      return false;
+    }
+  }.property('typePreferenceRecord'),
 
-          this.set('valuePreferenceRecord','newStringValue');
-          return false;
-        }
+  // checks if the default value matches record type
+  isValueValid: function(){
 
-      }.property('typePreferenceRecord'),
+    var intReg = new RegExp('^[-+]?[0-9]*$');
+    var floatReg = new RegExp('^[-+]?[0-9]*\.?[0-9]+$');
+    var recordType = this.get('typePreferenceRecord');
+    var recordValue = this.get('valuePreferenceRecord');
 
-      isValueValid: function(){
+    if(recordType === 'int'){
+      return recordValue.match(intReg);
 
-        var intReg = new RegExp('^[-+]?[0-9]*$');
-        var floatReg = new RegExp('^[-+]?[0-9]*\.?[0-9]+$');
+    }else if(recordType === 'long'){
+      return recordValue.match(intReg);
 
-        if(this.get('typePreferenceRecord') === 'int'){
+    }else if(recordType === 'float'){
+      return recordValue.match(floatReg);
 
-          return this.get('valuePreferenceRecord').match(intReg);
-        }
+    }else if(recordType === 'double'){
+      return recordValue.match(floatReg);
 
-        if(this.get('typePreferenceRecord') === 'float'){
+    }else{
+      return true;
+    }
+  }.property('valuePreferenceRecord'),
 
-          return this.get('valuePreferenceRecord').match(floatReg);
-        }
+  // checks if the key already exists and if is a valid value
+  isKeyValid: function(){
 
-        return true;
+    var key = this.get('keyPreferenceRecord');
+    if(this.store.hasRecordForId('prefRecord', key)){
+      return false;
 
-      }.property('valuePreferenceRecord'),
+    }else if(key === ''){
+      return false;
 
-      isKeyValid: function(){
+    }else if(key.indexOf(' ') >= 0){
+      return false;
 
-        var key = this.get('keyPreferenceRecord');
-        if(this.store.hasRecordForId('prefRecord', key)){
+    }else{
+      return true;
+    }
+  }.property('keyPreferenceRecord'),
 
-            return false;
+  actions: {
 
-        }else if(key === ''){
+    setCreating: function(value){
+      this.set('isCreating', value);
+    },
 
-            return false;
-        }else{
+    createPrefRecord: function(){
 
-          return true;
-        }
+      var self = this
+      var key = this.get('keyPreferenceRecord');
+      var value = this.get('valuePreferenceRecord');
+      var type = this.get('typePreferenceRecord');
 
-      }.property('keyPreferenceRecord'),
+      if(!this.store.hasRecordForId('prefRecord', key)){
 
-      actions: {
+        this.store.find('prefHandler','pH1').then(
+          function(prefHandler){
+            self.store.createRecord('prefRecord',{
 
-          setCreating: function(value){
-            this.set('isCreating', value);
-          },
+              id: key,
+              key: key,
+              value: value,
+              type: type,
+              prefHandler: prefHandler
 
-          createPrefRecord: function(){
+            }).save().then(
+              function(prefRecord){
 
-              var self = this
-              var key = this.get('keyPreferenceRecord');
-              var value = this.get('valuePreferenceRecord');
-              var type = this.get('typePreferenceRecord');
-
-              if(!this.store.hasRecordForId('prefRecord', key)){
-
-                this.store.find('prefHandler','pH1').then(
-                  function(prefHandler){
-                    self.store.createRecord('prefRecord',{
-
-                        id: key,
-                        key: key,
-                        value: value,
-                        type: type,
-                        prefHandler: prefHandler
-                    }).save().then(
-                      function(prefRecord){
-
-                        prefHandler.get('prefRecords').addObject(prefRecord);
-                        prefHandler.save();
-                        prefRecord.save();
-
-                    });
-                });
-
-                this.set('isCreating', false);
-                this.set('keyPreferenceRecord','newKey');
-                this.set('valuePreferenceRecord','newStringValue');
-                this.set('typePreferenceRecord','string');
-
-              }
-
-          },
-
-          deletePRecord: function(key){
-
-            var self = this
-
-            this.store.find('prefHandler','pH1').then(
-              function(prefHandler){
-                self.store.find('prefRecord', key).then(
-                  function(pRecord){
-
-                    pRecord.deleteRecord();
-                    prefHandler.get('prefRecords').removeObject(pRecord);
-                    prefHandler.save();
-                    pRecord.save();
-                });
+                prefHandler.get('prefRecords').addObject(prefRecord);
+                prefHandler.save();
+                prefRecord.save();
+              });
             });
 
+            this.set('isCreating', false);
+            this.set('keyPreferenceRecord','newKey');
+            this.set('valuePreferenceRecord','newStringValue');
+            this.set('typePreferenceRecord','string');
           }
+        },
 
+        deletePRecord: function(key){
+
+          var self = this
+
+          this.store.find('prefHandler','pH1').then(
+            function(prefHandler){
+              self.store.find('prefRecord', key).then(
+                function(pRecord){
+
+                  pRecord.deleteRecord();
+                  prefHandler.get('prefRecords').removeObject(pRecord);
+                  prefHandler.save();
+                  pRecord.save();
+                });
+            });
       }
-
-});
+    }
+  });

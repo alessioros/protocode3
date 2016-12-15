@@ -1,25 +1,25 @@
 <div class='col-md-12'>
   <div class='section-header'>
-      <div class='section-header-title'>
-        {{#if model}}
-            Default preferences enabled
-        {{else}}
-            Enable the default preferences in your app
-        {{/if}}
-      </div>
-      <div class='switch-button'>
-        {{#if model}}
-            <button type="button" class="btn btn-danger" id='en-di-button' {{action 'disableDP'}}>
-              Disable
-              <i class="fa fa-trash-o" id="but-icon" aria-hidden="true"></i>
-            </button>
-        {{else}}
-            <button type="button" class="btn btn-success" id="en-di-button" {{action 'enableDP'}}>
-              Enable
-              <i class="fa fa-floppy-o" id="but-icon" aria-hidden="true"></i>
-            </button>
-        {{/if}}
-      </div>
+    <div class='section-header-title'>
+      {{#if model}}
+        Default preferences enabled
+      {{else}}
+        Enable the default preferences in your app
+      {{/if}}
+    </div>
+    <div class='switch-button'>
+      {{#if model}}
+        <button type="button" class="btn btn-danger" id='en-di-button' {{action 'disableDP'}}>
+          Disable
+          <i class="fa fa-trash-o" id="but-icon" aria-hidden="true"></i>
+        </button>
+      {{else}}
+        <button type="button" class="btn btn-success" id="en-di-button" {{action 'enableDP'}}>
+          Enable
+          <i class="fa fa-floppy-o" id="but-icon" aria-hidden="true"></i>
+        </button>
+      {{/if}}
+    </div>
   </div>
   <hr class='section-header-hr'>
 </div>

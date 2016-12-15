@@ -11,9 +11,13 @@ App.PrefHandler = DS.Model.extend({
           var self = this;
           var elem = xmlDoc.createElement(self.get('xmlName'));
 
-          this.get('prefRecords').map(function(item) {
-              elem.appendChild(item.toXml(xmlDoc));
-          });
+          this.get('prefRecords').then(
+            function(records){
+              records.map(
+                function(item) {
+                  elem.appendChild(item.toXml(xmlDoc));
+                });
+            });
 
           return elem;
       }

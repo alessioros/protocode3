@@ -18,7 +18,4 @@ App.EntityAttribute = DS.Model.extend({
 
       return entityAttribute;
     }
-
-
-
 });

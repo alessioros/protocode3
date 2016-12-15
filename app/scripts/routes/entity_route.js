@@ -1,28 +1,25 @@
+/*
+templates/entity.hbs
+*/
 App.EntityRoute = Ember.Route.extend({
 
   model: function(params) {
 
-      return this.store.find('entity', params.entity_id);
+    return this.store.find('entity', params.entity_id);
   },
 
   setupController: function(controller, model) {
-      this._super(controller, model);
-      controller.set('model', model);
+    this._super(controller, model);
+    controller.set('model', model);
+    var otherEntities = [];
 
-      var otherEntities = [];
-
-      this.store.findAll('entity').then(
-        function(entities){
-
-          entities.forEach(function(entity){
-            otherEntities.addObject(entity.get('name'));
-            /*if(!(entity.get('name') === model.get('name'))){
-              otherEntities.addObject(entity.get('name'));
-            }*/
-          });
+    this.store.findAll('entity').then(
+      function(entities){
+        entities.forEach(function(entity){
+          otherEntities.addObject(entity.get('name'));
+        });
       });
 
       controller.set('destinations', otherEntities);
-
-  }
-});
+    }
+  });

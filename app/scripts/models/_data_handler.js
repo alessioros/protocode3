@@ -16,20 +16,20 @@ App.DataHandler = DS.Model.extend({
 
     toXml: function(xmlDoc) {
 
-      var self = this;
-      var elem = xmlDoc.createElement(self.get('xmlName'));
       var prefHandler = this.get('prefHandler');
       var databaseHandler = this.get('databaseHandler');
 
+      var dataHandler = xmlDoc.createElement(this.get('xmlName'));
+
       if(prefHandler){
-        elem.appendChild(prefHandler.toXml(xmlDoc));
+        dataHandler.appendChild(prefHandler.toXml(xmlDoc));
       }
 
       if(databaseHandler){
-        elem.appendChild(databaseHandler.toXml(xmlDoc));
+        dataHandler.appendChild(databaseHandler.toXml(xmlDoc));
       }
 
-      return elem;
+      return dataHandler;
     }
 
 });

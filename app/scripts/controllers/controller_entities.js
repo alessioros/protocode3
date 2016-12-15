@@ -1,57 +1,61 @@
+/*
+  templates/entities.hbs
+*/
 App.EntitiesController = Ember.ArrayController.extend(App.Saveable, {
 
   isCreating: false,
   entityName: 'newName',
   entityPrimaryKey: 'newPrimaryKey',
 
+  // checks if the entity name is valid and doesn't already exists
   isNameValid: function(){
 
     var name = this.get('entityName');
     if(this.store.hasRecordForId('entity', name)){
-
-        return false;
+      return false;
 
     }else if(name === ''){
+      return false;
 
-        return false;
-
+    }else if(name.indexOf(' ') >= 0){
+      return false;
+      
     }else{
-
       return true;
-    }
 
+    }
   }.property('entityName'),
 
   actions: {
 
-      setCreating: function(value){
-        this.set('isCreating', value);
-      },
+    setCreating: function(value){
+      this.set('isCreating', value);
+    },
 
-      createEntity: function(){
+    createEntity: function(){
 
-          var self = this
-          var name = this.get('entityName');
-          var pKey = this.get('entityPrimaryKey');
+      var self = this
+      var name = this.get('entityName');
+      var pKey = this.get('entityPrimaryKey');
 
-          if(!this.store.hasRecordForId('entity', name)){
+      if(!this.store.hasRecordForId('entity', name)){
 
-            this.store.find('databaseHandler','dbH1').then(
-              function(databaseHandler){
-                self.store.createRecord('entity',{
+        this.store.find('databaseHandler','dbH1').then(
+          function(databaseHandler){
+            self.store.createRecord('entity',{
 
-                    id: name,
-                    name: name,
-                    primaryKey: pKey,
-                    databaseHandler: databaseHandler
-                }).save().then(
-                  function(entity){
+              id: name,
+              name: name,
+              primaryKey: pKey,
+              databaseHandler: databaseHandler
 
-                    databaseHandler.get('entities').addObject(entity);
-                    databaseHandler.save();
-                    entity.save();
+            }).save().then(
+              function(entity){
 
-                });
+                databaseHandler.get('entities').addObject(entity);
+                databaseHandler.save();
+                entity.save();
+              });
             });
 
             this.set('isCreating', false);
@@ -59,7 +63,7 @@ App.EntitiesController = Ember.ArrayController.extend(App.Saveable, {
             this.set('entityPrimaryKey','newPrimaryKey');
             this.transitionToRoute('entities');
           }
-      }
+        }
 
-  }
-});
+      }
+    });

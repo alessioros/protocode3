@@ -1,35 +1,37 @@
+/*
+templates/database_handler.hbs
+*/
 App.DatabaseHandlerRoute = Ember.Route.extend({
 
-    model: function(){
+  model: function(){
 
-      return this.store.find('dataHandler','dH1').then(
-        function(dataHandler){
-          return dataHandler.get('databaseHandler');
+    return this.store.find('dataHandler','dH1').then(
+      function(dataHandler){
+        return dataHandler.get('databaseHandler');
 
-        });
+      });
     },
 
     actions: {
 
-        enableDB: function(){
+      enableDB: function(){
 
-            var self = this
-            this.store.createRecord('databaseHandler', {id: 'dbH1'}).save().then(
-              function(dbHandler){
-                  self.store.find('dataHandler','dH1').then(
-                    function(dataHandler){
-                        dataHandler.set('databaseHandler', dbHandler);
-                        dataHandler.save();
-                        dbHandler.save();
-                    });
+        var self = this
+        this.store.createRecord('databaseHandler', {id: 'dbH1'}).save().then(
+          function(dbHandler){
+            self.store.find('dataHandler','dH1').then(
+              function(dataHandler){
+                dataHandler.set('databaseHandler', dbHandler);
+                dataHandler.save();
+                dbHandler.save();
               });
+            });
 
-              this.refresh();
-              this.transitionTo('/data_model_editor/database_handler/entities');
+            this.refresh();
+            this.transitionTo('/data_model_editor/database_handler/entities');
+          },
 
-        },
-
-        disableDB: function(){
+          disableDB: function(){
 
             var self = this
 
@@ -53,8 +55,6 @@ App.DatabaseHandlerRoute = Ember.Route.extend({
 
             this.refresh();
             this.transitionTo('/data_model_editor/database_handler/');
+          }
         }
-
-
-    }
-});
+      });
