@@ -32,15 +32,15 @@
         </li>
       {{/link-to}}
     {{/if}}
-    {{#if model.filestorageHandler}}
-      {{#link-to ''}}
+    {{#if model.storageHandler}}
+      {{#link-to 'storage_records'}}
         <li class="side-item">
           File storage
           <span class="side-icon fa fa-file-text-o"></span>
         </li>
       {{/link-to}}
     {{else}}
-      {{#link-to ''}}
+      {{#link-to 'storage_handler'}}
         <li class="side-item">
           File storage
           <span class="side-icon fa fa-file-text-o"></span>

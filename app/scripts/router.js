@@ -127,6 +127,9 @@ App.Router.map(function() {
                 }, function() {});
             });
         });
+        this.resource('storage_handler', function() {
+            this.resource('storage_records', function(){});
+        });
         this.resource('cloud_handler', function() {
             this.resource('cloud_objects', function() {
                 this.resource('cloud_object', {
