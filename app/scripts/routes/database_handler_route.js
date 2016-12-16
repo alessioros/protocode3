@@ -48,6 +48,27 @@ App.DatabaseHandlerRoute = Ember.Route.extend({
                     });
                   }
                 );
+                self.store.findAll('entityAttribute').then(
+                  function(array){
+                    array.forEach(function (data) {
+                      Ember.run.once(self, function () {
+                        data.deleteRecord();
+                        data.save();
+                      });
+                    });
+                  }
+                );
+
+                self.store.findAll('entityRelationship').then(
+                  function(array){
+                    array.forEach(function (data) {
+                      Ember.run.once(self, function () {
+                        data.deleteRecord();
+                        data.save();
+                      });
+                    });
+                  }
+                );
                 dbHandler.deleteRecord();
                 dbHandler.save();
 

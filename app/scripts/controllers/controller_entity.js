@@ -130,6 +130,18 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
                   });
                 }
               );
+
+              self.store.findAll('entityRelationship', { entity: model}).then(
+                function(array){
+                  array.forEach(function (data) {
+                    Ember.run.once(self, function () {
+                      data.deleteRecord();
+                      data.save();
+                    });
+                  });
+                }
+              );
+
               entity.deleteRecord();
               databaseHandler.get('entities').removeObject(entity);
               databaseHandler.save();

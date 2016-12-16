@@ -23,6 +23,8 @@ App.ApplicationRoute = Ember.Route.extend({
           'smartphone',
           'smartwatch',
           'dataHandler',
+          'entity',
+          'cloudObject',
           'menu',
           'menuItem',
           'uiPhoneControlTemplate',

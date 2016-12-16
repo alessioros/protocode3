@@ -38,7 +38,7 @@ App.CloudHandlerRoute = Ember.Route.extend({
             this.store.find('cloudHandler','cH1').then(
               function(cloudHandler){
 
-                self.store.findAll('cloud_object').then(
+                self.store.findAll('cloudObject').then(
                   function(array){
                     array.forEach(function (data) {
                       Ember.run.once(self, function () {
@@ -48,16 +48,29 @@ App.CloudHandlerRoute = Ember.Route.extend({
                     });
                   }
                 );
+
+                self.store.findAll('objectAttribute').then(
+                  function(array){
+                    array.forEach(function (data) {
+                      Ember.run.once(self, function () {
+                        data.deleteRecord();
+                        data.save();
+                      });
+                    });
+                  }
+                );
+
                 cloudHandler.deleteRecord();
                 cloudHandler.save();
-
-                self.store.find('dataHandler','dH1').then(
-                  function(dataHandler){
-                    dataHandler.set('cloudHandler', null);
-                    dataHandler.save();
-                  });
               }
             );
+            
+            self.store.find('dataHandler','dH1').then(
+              function(dataHandler){
+                dataHandler.set('cloudHandler', null);
+                dataHandler.save();
+              });
+
 
             this.refresh();
             this.transitionTo('/data_model_editor/cloud_handler/');
