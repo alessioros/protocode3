@@ -1,6 +1,6 @@
 /*============ VARIABLES ============*/
 
-$font-title-sidebar: 20px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+$font-title-sidebar: 18px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $font-menu-item: 16px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 
 $font-presentation: 20px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
@@ -14,13 +14,22 @@ $font-error: 13px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $font-table-header: 13px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $font-table: 13px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 
-$menu-hover-color: #2C7BB2;
+$menu-hover-color: #1E88E5;
+$prova: #E3F2FD;
 $menu-background: white;
 $border-color: #CCCCCC;
 $table-header-background: #258CB9;
+$items-header-background: #1565C0;
 
 $storage-selection-min-height: 700px;
-$items-sidebar-minheight: 600px;
+$items-sidebar-minheight: 640px;
+
+$cool-grey-dark: #2F4052;
+$cool-grey: #34495E;
+$cool-green: #1ABC9C;
+$blue-800: #1565C0;
+$blue-600: #1E88E5;
+$indigo-500: #3F51B5;
 
 /*============ SIDEBAR ============*/
 
@@ -28,12 +37,22 @@ $items-sidebar-minheight: 600px;
   background-color: $menu-background;
   color: $menu-hover-color;
   border: 1px solid $border-color;
-  padding: 15px 0px 15px 0px;
+  padding: 0px 0px 15px 0px;
   border-radius: 5px;
+  box-shadow: 1px 1px 2px #CCCCCC;
 
   .side-title {
-    margin: 20px auto 20px 30px;
+    padding: 20px 0px 20px 40px;
     font: $font-title-sidebar;
+    background-color: $blue-800;
+    color: $menu-background;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    display: block;
+  }
+
+  hr{
+    margin: 0px 0px 20px 0px;
   }
 
   .side-menu {
@@ -52,10 +71,10 @@ $items-sidebar-minheight: 600px;
 
     a{
       text-decoration: none;
-      color: $menu-hover-color;
+      color: $blue-600;
 
       .side-item:hover {
-        background-color: $menu-hover-color;
+        background-color: $blue-600;
         color: $menu-background;
       }
     }
@@ -140,7 +159,7 @@ $items-sidebar-minheight: 600px;
   .table-header th {
     font: $font-table-header;
     font-weight: normal;
-    color: white;
+    color: $menu-background;
     background-color: $table-header-background;
     vertical-align: middle;
     text-align: center;
@@ -183,39 +202,47 @@ $items-sidebar-minheight: 600px;
 
   .items-panel{
     border-right: 2px solid $border-color;
-    background: white;
+    background: $menu-background;
     width: 100%;
     min-height: $items-sidebar-minheight;
-    padding-top: 20px;
 
     .items-title{
+      background: $items-header-background;
+      color: $menu-background;
       font: $font-header;
-      margin-left:30px;
-      margin-bottom: 10px;
+      font-weight: bold;
+      padding: 25px 0px 25px 30px;
+    }
+
+    hr{
+      margin-top:0px;
     }
 
     .items-list{
       list-style: none;
-      padding: 0;
+      padding: 0px;
+      margin: 0px;
 
       a{
         color: $menu-hover-color;
         text-decoration: none;
 
         .items-list-item{
-          padding:10px;
+          padding:15px;
           padding-left:30px;
-          border-bottom: 1px solid $border-color;
+          border-top: 1px solid $border-color;
           background: $menu-background;
 
           i{
             margin-right:10px;
           }
         }
+      }
 
-        .items-list-edit{
-          padding: 5px;
-        }
+      .items-list-edit{
+        border-top: 1px solid $border-color;
+        padding: 10px 0px 10px 0px;
+        display: block;
       }
 
       .items-list-item:hover{
@@ -227,9 +254,14 @@ $items-sidebar-minheight: 600px;
         text-decoration: none;
       }
     }
+
+    .panel-buttons{
+      background: $prova;
+    }
   }
 
   #button-add{
     margin-left: 150px;
+    background: $menu-background;
   }
 }
