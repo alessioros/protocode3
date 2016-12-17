@@ -14,15 +14,28 @@ $font-error: 13px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $font-table-header: 13px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $font-table: 13px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 
-$menu-hover-color: #1E88E5;
-$prova: #E3F2FD;
+// menu sidebar
 $menu-background: white;
+$sidebar-header-background: #17232F;
+$sidebar-item-hover-color: #437C97;
+$sidebar-item-active-color: #273C51;
+
+// items
+$items-header-background: #17232F;
+$items-hover-color: #437C97;
+$items-active-color: #273C51;
+$items-panel-footer-background: #E3F2FD;
+
 $border-color: #CCCCCC;
 $table-header-background: #258CB9;
-$items-header-background: #1565C0;
+
 
 $storage-selection-min-height: 700px;
 $items-sidebar-minheight: 640px;
+
+$container-box-shadow: 1px 1px 2px #CCCCCC;
+
+$error-message-color: #ff4444;
 
 $cool-grey-dark: #2F4052;
 $cool-grey: #34495E;
@@ -31,20 +44,21 @@ $blue-800: #1565C0;
 $blue-600: #1E88E5;
 $indigo-500: #3F51B5;
 
+
+
 /*============ SIDEBAR ============*/
 
 .sidebar {
   background-color: $menu-background;
-  color: $menu-hover-color;
   border: 1px solid $border-color;
   padding: 0px 0px 15px 0px;
   border-radius: 5px;
-  box-shadow: 1px 1px 2px #CCCCCC;
+  box-shadow: $container-box-shadow;
 
   .side-title {
     padding: 20px 0px 20px 40px;
     font: $font-title-sidebar;
-    background-color: $blue-800;
+    background-color: $sidebar-header-background;
     color: $menu-background;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
@@ -52,7 +66,7 @@ $indigo-500: #3F51B5;
   }
 
   hr{
-    margin: 0px 0px 20px 0px;
+    margin: 0px 0px 0px 0px;
   }
 
   .side-menu {
@@ -69,12 +83,20 @@ $indigo-500: #3F51B5;
       }
     }
 
+    a.ember-view.active{
+
+      .side-item{
+        background-color: $sidebar-item-active-color;
+        color: $menu-background;
+      }
+    }
+
     a{
       text-decoration: none;
-      color: $blue-600;
+      color: $sidebar-item-hover-color;
 
-      .side-item:hover {
-        background-color: $blue-600;
+      .side-item:hover{
+        background-color: $sidebar-item-hover-color;
         color: $menu-background;
       }
     }
@@ -91,9 +113,14 @@ $indigo-500: #3F51B5;
   min-height: $storage-selection-min-height;
   margin: 0px 10px 0px 10px;
   overflow: auto;
+  box-shadow: $container-box-shadow;
 
   .col-md-12{
     padding: 0;
+  }
+
+  .col-md-9{
+    padding-left: 0;
   }
 }
 
@@ -185,7 +212,7 @@ $indigo-500: #3F51B5;
 
     .error-message{
       margin-right: 5px;
-      color: #ff4444;
+      color: $error-message-color;
       font: $font-error;
     }
 
@@ -199,9 +226,9 @@ $indigo-500: #3F51B5;
 
 .items-sidebar{
   padding: 0px;
+  overflow: auto;
 
   .items-panel{
-    border-right: 2px solid $border-color;
     background: $menu-background;
     width: 100%;
     min-height: $items-sidebar-minheight;
@@ -215,7 +242,7 @@ $indigo-500: #3F51B5;
     }
 
     hr{
-      margin-top:0px;
+      margin: 0px;
     }
 
     .items-list{
@@ -224,7 +251,7 @@ $indigo-500: #3F51B5;
       margin: 0px;
 
       a{
-        color: $menu-hover-color;
+        color: $items-hover-color;
         text-decoration: none;
 
         .items-list-item{
@@ -237,6 +264,11 @@ $indigo-500: #3F51B5;
             margin-right:10px;
           }
         }
+
+        .items-list-item:hover{
+          background: $items-hover-color;
+          color: $menu-background;
+        }
       }
 
       .items-list-edit{
@@ -245,23 +277,21 @@ $indigo-500: #3F51B5;
         display: block;
       }
 
-      .items-list-item:hover{
-        background: $menu-hover-color;
-      }
-
-      a .items-list-item:hover{
+      a.ember-view.active{
         color: $menu-background;
-        text-decoration: none;
+
+        .items-list-item{
+          background: $items-active-color;
+        }
       }
     }
-
     .panel-buttons{
-      background: $prova;
-    }
-  }
+      background: $items-panel-footer-background;
 
-  #button-add{
-    margin-left: 150px;
-    background: $menu-background;
+      #button-add{
+        margin-left: 150px;
+        background: $menu-background;
+      }
+    }
   }
 }

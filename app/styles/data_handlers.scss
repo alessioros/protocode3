@@ -20,6 +20,10 @@ $table-header-background: #258CB9;
 
 .entity-editor{
 
+  border-left: 2px solid #CCC;
+  padding-left: 20px;
+  height: 100%;
+
   .entity-header{
     margin-top: 20px;
     display: inline-block;
