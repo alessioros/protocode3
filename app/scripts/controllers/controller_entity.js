@@ -7,10 +7,23 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
   isCreatingRelationship: false,
   isAttributeValid: true,
   isRelationshipValid: true,
-
-  attributeName: 'newAttribute',
+  attributeName: Ember.computed('attributeCount', function() {
+    if(this.get('attributeCount') !== 0){
+      return  'newAttribute' + this.get('attributeCount');
+    }else{
+      return 'newAttribute';
+    }
+  }),
+  attributeCount: Ember.computed.alias('content.entityAttributes.length'),
   attributeType: 'String',
-  relationshipName: 'newRelationship',
+  relationshipName: Ember.computed('relationshipCount', function() {
+    if(this.get('relationshipCount') !== 0){
+      return  'newRelationship' + this.get('relationshipCount');
+    }else{
+      return 'newRelationship';
+    }
+  }),
+  relationshipCount: Ember.computed.alias('content.entityRelationships.length'),
   relationshipDestination: '',
   relationshipType: '1 : N',
   types: ['String','Integer','Float','Double','Date','Boolean'],
@@ -197,7 +210,6 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
               });
 
               this.set('isCreatingAttribute', false);
-              this.set('attributeName','newAttribute');
               this.set('attributeType','string');
             },
 
@@ -230,7 +242,6 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
                   });
 
                   this.set('isCreatingRelationship', false);
-                  this.set('relationshipName','newRelationship');
                   this.set('relationshipDestination','');
                   this.set('relationshipType','1 : N');
                 },

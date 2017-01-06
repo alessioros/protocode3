@@ -5,8 +5,14 @@ App.CloudObjectController = Ember.ObjectController.extend(App.Saveable, {
 
   isCreatingAttribute: false,
   isAttributeValid: true,
-
-  attributeName: 'newAttribute',
+  attributeName: Ember.computed('attributeCount', function() {
+    if(this.get('attributeCount') !== 0){
+      return  'newAttribute' + this.get('attributeCount');
+    }else{
+      return 'newAttribute';
+    }
+  }),
+  attributeCount: Ember.computed.alias('content.objectAttributes.length'),
   attributeType: 'String',
   attributeObject: '',
   types: ['String','Integer','Float','Double','Boolean','Object','Object list'],
@@ -93,7 +99,6 @@ App.CloudObjectController = Ember.ObjectController.extend(App.Saveable, {
         setCreatingAttribute: function(value){
           this.set('isCreatingAttribute',value);
           if(value === false){
-            this.set('attributeName','newAttribute');
             this.set('attributeType','string');
           }
         },
@@ -126,7 +131,6 @@ App.CloudObjectController = Ember.ObjectController.extend(App.Saveable, {
               });
 
               this.set('isCreatingAttribute', false);
-              this.set('attributeName','newAttribute');
               this.set('attributeType','string');
               this.set('attributeObject','');
             },
