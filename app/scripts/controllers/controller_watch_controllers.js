@@ -4,8 +4,14 @@
 App.WatchControllersController = Ember.ArrayController.extend({
 
     isCreating: false,
-    newNameWatchController: 'newView',
-
+    newNameWatchController: Ember.computed('watchContrCount', function() {
+      if(this.get('watchContrCount') !== 0){
+        return  'newWatchView' + this.get('watchContrCount');
+      }else{
+        return 'newWatchView';
+      }
+    }),
+    watchContrCount: Ember.computed.alias('content.length'),
     needs: ['uiWatchControlTemplates', 'editor'],
 
     actions: {
@@ -31,9 +37,8 @@ App.WatchControllersController = Ember.ArrayController.extend({
                 app.save();
             });
 
-            this.set('newNameWatchController', 'newView');
             this.set('isCreating', false);
-
+            this.send('refreshModel');
         }
     }
 });

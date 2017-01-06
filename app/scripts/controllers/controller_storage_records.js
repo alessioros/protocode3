@@ -4,11 +4,18 @@ templates/storage_records.hbs
 App.StorageRecordsController = Ember.ArrayController.extend({
 
   isCreating: false,
-  nameStorageRecord: 'newname',
+  nameStorageRecord: Ember.computed('recordsCount', function() {
+    if(this.get('recordsCount') !== 0){
+      return  'newFile' + this.get('recordsCount');
+    }else{
+      return 'newFile';
+    }
+  }),
   pathStorageRecord: '/',
   extensionStorageRecord: 'text',
   extensions: ['text','img','other'],
   booleanOptions: ['true','false'],
+  recordsCount: Ember.computed.alias('content.length'),
 
   // checks if the default path matches record extension
   isPathValid: function(){
@@ -88,10 +95,9 @@ App.StorageRecordsController = Ember.ArrayController.extend({
             });
 
             this.set('isCreating', false);
-            this.set('nameStorageRecord','newname');
             this.set('pathStorageRecord','/');
             this.set('extensionStorageRecord','text');
-            this.refresh();
+            this.send('refreshModel');
           }
         },
 

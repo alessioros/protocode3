@@ -10,5 +10,12 @@ App.PreferenceRecordsRoute = Ember.Route.extend({
         return prefHandler.get('prefRecords');
 
       });
+  },
+
+  actions: {
+
+    refreshModel: function(){
+      this.refresh();
     }
-  });
+  }
+});

@@ -4,7 +4,14 @@
 App.CloudObjectsController = Ember.ArrayController.extend(App.Saveable, {
 
   isCreating: false,
-  objectName: 'newObject',
+  objectName: Ember.computed('objectCount', function() {
+    if(this.get('objectCount') !== 0){
+      return  'newObject' + this.get('objectCount');
+    }else{
+      return 'newObject';
+    }
+  }),
+  objectCount: Ember.computed.alias('content.length'),
 
   // checks if the entity name is valid and doesn't already exists
   isNameValid: function(){
@@ -56,7 +63,6 @@ App.CloudObjectsController = Ember.ArrayController.extend(App.Saveable, {
             });
 
             this.set('isCreating', false);
-            this.set('objectName','newObject');
             this.transitionToRoute('cloud_objects');
             this.send('refreshModel');
 

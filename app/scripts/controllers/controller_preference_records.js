@@ -4,11 +4,18 @@ templates/preference_records.hbs
 App.PreferenceRecordsController = Ember.ArrayController.extend({
 
   isCreating: false,
-  keyPreferenceRecord: 'newKey',
+  keyPreferenceRecord: Ember.computed('recordsCount', function() {
+    if(this.get('recordsCount') !== 0){
+      return  'newKey' + this.get('recordsCount');
+    }else{
+      return 'newKey';
+    }
+  }),
   valuePreferenceRecord: 'newStringValue',
   typePreferenceRecord: 'string',
   types: ['string','boolean','int','long','float','double'],
   booleanOptions: ['true','false'],
+  recordsCount: Ember.computed.alias('content.length'),
 
   // sets the default value accordingly to the record type,
   // returns true if the type is boolean
@@ -127,9 +134,9 @@ App.PreferenceRecordsController = Ember.ArrayController.extend({
             });
 
             this.set('isCreating', false);
-            this.set('keyPreferenceRecord','newKey');
             this.set('valuePreferenceRecord','newStringValue');
             this.set('typePreferenceRecord','string');
+            this.send('refreshModel');
           }
         },
 

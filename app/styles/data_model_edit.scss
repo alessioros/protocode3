@@ -16,17 +16,18 @@ $font-table: 13px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 
 // menu sidebar
 $menu-background: white;
-$sidebar-header-background: #17232F;
+$sidebar-header-background: #607D8B; //#437C97; //#258CB9; //#00796B; #273C51; #17232F;
 $sidebar-item-hover-color: #437C97;
-$sidebar-item-active-color: #273C51;
+$sidebar-item-active-color: #009688; //#273C51;
 
 // items
-$items-header-background: #17232F;
-$items-hover-color: #437C97;
-$items-active-color: #273C51;
+$items-title-color: #FFF; //#6BC4FF
+$items-header-background: #607D8B; //#437C97; //#258CB9; //#00796B; //#0E77B8;
+$items-hover-color: #437C97; //#46A4DA;
+$items-active-color: #009688; //#FFC107; #3F51B5; #CC181E;
 $items-panel-footer-background: #E3F2FD;
 
-$border-color: #CCCCCC;
+$border-color: #CCC;
 $table-header-background: #258CB9;
 
 
@@ -227,6 +228,9 @@ $indigo-500: #3F51B5;
 .items-sidebar{
   padding: 0px;
   overflow: auto;
+  border-right: 1px solid $border-color;
+  min-height: 100%;
+  height: 100%;
 
   .items-panel{
     background: $menu-background;
@@ -235,7 +239,7 @@ $indigo-500: #3F51B5;
 
     .items-title{
       background: $items-header-background;
-      color: $menu-background;
+      color: $items-title-color;
       font: $font-header;
       font-weight: bold;
       padding: 25px 0px 25px 30px;

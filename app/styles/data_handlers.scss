@@ -1,12 +1,8 @@
 /*============ SQLITE DATABASE ============*/
 
-$font-header: 14px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 $font-entity-titles: 16px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 
-$menu-hover-color: #2C7BB2;
-$menu-background: white;
 $border-color: #CCCCCC;
-$table-header-background: #258CB9;
 
 /*============ DEFAULT PREFERENCES ============*/
 
@@ -19,8 +15,6 @@ $table-header-background: #258CB9;
 /*============ ENTITY EDITOR ============*/
 
 .entity-editor{
-
-  border-left: 2px solid #CCC;
   padding-left: 20px;
   height: 100%;
 

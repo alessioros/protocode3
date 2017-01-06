@@ -5,7 +5,14 @@ App.ViewControllersController = Ember.ArrayController.extend({
 
     isCreating: false,
     newNameViewController: 'newView',
-
+    newNameViewController: Ember.computed('viewContrCount', function() {
+      if(this.get('viewContrCount') !== 0){
+        return  'newView' + this.get('viewContrCount');
+      }else{
+        return 'newView';
+      }
+    }),
+    viewContrCount: Ember.computed.alias('content.length'),
     needs: ['uiPhoneControlTemplates', 'editor'],
 
     actions: {
@@ -31,8 +38,8 @@ App.ViewControllersController = Ember.ArrayController.extend({
                 app.save();
             });
 
-            this.set('newNameViewController', 'newView');
             this.set('isCreating', false);
+            this.send('refreshModel');
         }
     }
 });

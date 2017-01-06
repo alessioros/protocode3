@@ -10,5 +10,12 @@ App.StorageRecordsRoute = Ember.Route.extend({
         return storageHandler.get('storageRecords');
 
       });
+  },
+  
+  actions: {
+
+    refreshModel: function(){
+      this.refresh();
     }
-  });
+  }
+});
