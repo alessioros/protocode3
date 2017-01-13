@@ -57,24 +57,24 @@ App.EntitiesController = Ember.ArrayController.extend(App.Saveable, {
               databaseHandler: databaseHandler
 
             }).save().then(
-              function(entity){
+            function(entity){
 
-                databaseHandler.get('entities').addObject(entity);
-                databaseHandler.save();
-                entity.save();
-              });
+              databaseHandler.get('entities').addObject(entity);
+              databaseHandler.save();
+              entity.save();
             });
+          });
 
-            this.set('isCreating',false);
-            this.set('entityPrimaryKey','primaryKeyName');
-            this.send('refreshModel');
+        this.set('isCreating',false);
+        this.set('entityPrimaryKey','primaryKeyName');
+        this.send('refreshModel');
 
-            Ember.run.later(
-              function(){
-                self.send('redirectToEntity');
-            }, 100);
-          }
-        }
-
+        Ember.run.later(
+          function(){
+            self.send('redirectToEntity');
+          }, 100);
       }
-    });
+    }
+
+  }
+});

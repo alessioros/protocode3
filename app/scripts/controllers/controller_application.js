@@ -1,4 +1,4 @@
-/*
+  /*
 templates/application.hbs
 */
 App.ApplicationController = Ember.ObjectController.extend(App.Saveable, {
@@ -15,14 +15,13 @@ App.ApplicationController = Ember.ObjectController.extend(App.Saveable, {
           var blob = new Blob(
             [vkbeautify.xml(xmlString)], {
               type: "text/xml;charset=ASCII"
-            }
-          );
+          });
         } else {
           var blob = new Blob(
             [vkbeautify.xml(xmlString)], {
               type: "application/xml;charset=ASCII"
-            }
-          );
+            
+          });
         }
         saveAs(blob, "protocode.xmi");
       });

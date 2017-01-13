@@ -20,6 +20,6 @@ App.EntityRoute = Ember.Route.extend({
         });
       });
 
-      controller.set('destinations', otherEntities);
-    }
-  });
+    controller.set('destinations', otherEntities);
+  }
+});

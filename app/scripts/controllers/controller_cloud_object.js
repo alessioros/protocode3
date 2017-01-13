@@ -37,7 +37,7 @@ App.CloudObjectController = Ember.ObjectController.extend(App.Saveable, {
           }
         }
       }
-    );
+      );
 
     if(!this.get('isAttributeValid')){
       return false;
@@ -84,76 +84,76 @@ App.CloudObjectController = Ember.ObjectController.extend(App.Saveable, {
                     });
                   });
                 }
-              );
+                );
               cloudObject.deleteRecord();
               cloudHandler.get('cloudObjects').removeObject(cloudObject);
               cloudHandler.save();
               cloudObject.save();
 
             });
-          });
+        });
 
-          this.transitionToRoute('cloud_objects');
-        },
+      this.transitionToRoute('cloud_objects');
+    },
 
-        setCreatingAttribute: function(value){
-          this.set('isCreatingAttribute',value);
-          if(value === false){
-            this.set('attributeType','string');
-          }
-        },
-
-        createAttribute: function(){
-
-          var self = this;
-          var name = this.get('attributeName');
-          var type = this.get('attributeType');
-          var object = this.get('attributeObject');
-          var cloudObject = this.get('model');
-          var cloudObjectName = cloudObject.get('name');
-
-          this.store.find('cloudObject', cloudObjectName).then(
-            function(cloudObject){
-              self.store.createRecord('objectAttribute', {
-
-                name: name,
-                type: type,
-                object: object,
-                cloudObject: cloudObject
-
-              }).save().then(
-                function(attribute){
-
-                  cloudObject.get('objectAttributes').addObject(attribute);
-                  cloudObject.save();
-                  attribute.save();
-                });
-              });
-
-              this.set('isCreatingAttribute', false);
-              this.set('attributeType','string');
-              this.set('attributeObject','');
-            },
-
-            deleteAttribute: function(key){
-
-              var self = this
-              var cloudObject = this.get('model');
-              var cloudObjectName = cloudObject.get('name');
-
-              this.store.find('cloudObject', cloudObjectName).then(
-                function(cloudObject){
-                  self.store.find('objectAttribute', key).then(
-                    function(objectAttribute){
-
-                      objectAttribute.deleteRecord();
-                      cloudObject.get('objectAttributes').removeObject(objectAttribute);
-                      cloudObject.save();
-                      objectAttribute.save();
-                    });
-                  });
-
-          }
-
+    setCreatingAttribute: function(value){
+      this.set('isCreatingAttribute',value);
+      if(value === false){
+        this.set('attributeType','string');
       }
+    },
+
+    createAttribute: function(){
+
+      var self = this;
+      var name = this.get('attributeName');
+      var type = this.get('attributeType');
+      var object = this.get('attributeObject');
+      var cloudObject = this.get('model');
+      var cloudObjectName = cloudObject.get('name');
+
+      this.store.find('cloudObject', cloudObjectName).then(
+        function(cloudObject){
+          self.store.createRecord('objectAttribute', {
+
+            name: name,
+            type: type,
+            object: object,
+            cloudObject: cloudObject
+
+          }).save().then(
+          function(attribute){
+
+            cloudObject.get('objectAttributes').addObject(attribute);
+            cloudObject.save();
+            attribute.save();
+          });
+        });
+
+      this.set('isCreatingAttribute', false);
+      this.set('attributeType','string');
+      this.set('attributeObject','');
+    },
+
+    deleteAttribute: function(key){
+
+      var self = this
+      var cloudObject = this.get('model');
+      var cloudObjectName = cloudObject.get('name');
+
+      this.store.find('cloudObject', cloudObjectName).then(
+        function(cloudObject){
+          self.store.find('objectAttribute', key).then(
+            function(objectAttribute){
+
+              objectAttribute.deleteRecord();
+              cloudObject.get('objectAttributes').removeObject(objectAttribute);
+              cloudObject.save();
+              objectAttribute.save();
+            });
+        });
+
+    }
+
+  }
 });

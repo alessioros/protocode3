@@ -18,9 +18,9 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
   attributeType: 'String',
   relationshipName: Ember.computed('relationshipCount', function() {
     if(this.get('relationshipCount') !== 0){
-      return  'newRelationship' + this.get('relationshipCount');
+      return  'newRel' + this.get('relationshipCount');
     }else{
-      return 'newRelationship';
+      return 'newRel';
     }
   }),
   relationshipCount: Ember.computed.alias('content.entityRelationships.length'),
@@ -68,7 +68,7 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
           }
         }
       }
-    );
+      );
 
     if(!this.get('isRelationshipValid')){
       return false;
@@ -107,7 +107,7 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
           }
         }
       }
-    );
+      );
 
     if(!this.get('isAttributeValid')){
       return false;
@@ -142,7 +142,7 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
                     });
                   });
                 }
-              );
+                );
 
               self.store.findAll('entityRelationship', { entity: model}).then(
                 function(array){
@@ -153,7 +153,7 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
                     });
                   });
                 }
-              );
+                );
 
               entity.deleteRecord();
               databaseHandler.get('entities').removeObject(entity);
@@ -161,127 +161,178 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
               entity.save();
 
             });
-          });
+        });
 
-          this.transitionToRoute('entities');
-        },
+      this.transitionToRoute('entities');
+    },
 
-        setCreatingAttribute: function(value){
-          this.set('isCreatingAttribute',value);
-          if(value === false){
-            this.set('attributeName','newAttribute');
-            this.set('attributeType','string');
-          }
-        },
-
-        setCreatingRelationship: function(value){
-          this.set('isCreatingRelationship',value);
-
-          if(value === false){
-            this.set('relationshipName','newRelationship');
-            this.set('relationshipDestination','');
-            this.set('relationshipType','1 : N');
-          }
-        },
-
-        createAttribute: function(){
-
-          var self = this;
-          var name = this.get('attributeName');
-          var type = this.get('attributeType');
-          var entity = this.get('model');
-          var entityName = entity.get('name');
-
-          this.store.find('entity', entityName).then(
-            function(entity){
-              self.store.createRecord('entityAttribute', {
-
-                name: name,
-                type: type,
-                entity: entity
-
-              }).save().then(
-                function(attribute){
-
-                  entity.get('entityAttributes').addObject(attribute);
-                  entity.save();
-                  attribute.save();
-                });
-              });
-
-              this.set('isCreatingAttribute', false);
-              this.set('attributeType','string');
-            },
-
-            createRelationship: function(){
-
-              var self = this;
-              var name = this.get('relationshipName');
-              var destination = this.get('relationshipDestination');
-              var type = this.get('relationshipType');
-              var entity = this.get('model');
-              var entityName = entity.get('name');
-
-              this.store.find('entity', entityName).then(
-                function(entity){
-                  self.store.createRecord('entityRelationship', {
-
-                    name: name,
-                    destination: destination,
-                    type: type,
-                    entity: entity
-
-                  }).save().then(
-                    function(relationship){
-
-                      entity.get('entityRelationships').addObject(relationship);
-                      entity.save();
-                      relationship.save();
-
-                    });
-                  });
-
-                  this.set('isCreatingRelationship', false);
-                  this.set('relationshipDestination','');
-                  this.set('relationshipType','1 : N');
-                },
-
-                deleteRelationship: function(key){
-
-                  var self = this
-                  var entity = this.get('model');
-                  var entityName = entity.get('name');
-
-                  this.store.find('entity', entityName).then(
-                    function(entity){
-                      self.store.find('entityRelationship', key).then(
-                        function(relationship){
-
-                          relationship.deleteRecord();
-                          entity.get('entityRelationships').removeObject(relationship);
-                          entity.save();
-                          relationship.save();
-                        });
-                      });
-                    },
-
-                    deleteAttribute: function(key){
-
-                      var self = this
-                      var entity = this.get('model');
-                      var entityName = entity.get('name');
-
-                      this.store.find('entity', entityName).then(
-                        function(entity){
-                          self.store.find('entityAttribute', key).then(
-                            function(attribute){
-
-                              attribute.deleteRecord();
-                              entity.get('entityAttributes').removeObject(attribute);
-                              entity.save();
-                              attribute.save();
-                            });
-                          });
-                        }
+    setCreatingAttribute: function(value){
+      this.set('isCreatingAttribute',value);
+      if(value === false){
+        this.set('attributeName', 'newAttribute' + this.get('attributeCount'));
+        this.set('attributeType','string');
       }
+    },
+
+    setCreatingRelationship: function(value){
+      this.set('isCreatingRelationship',value);
+
+      if(value === false){
+        this.set('relationshipName', 'newRel' + this.get('relationshipCount'));
+        this.set('relationshipDestination','');
+        this.set('relationshipType','1 : N');
+      }
+    },
+
+    createAttribute: function(){
+
+      var self = this;
+      var name = this.get('attributeName');
+      var type = this.get('attributeType');
+      var entity = this.get('model');
+      var entityName = entity.get('name');
+
+      this.store.find('entity', entityName).then(
+        function(entity){
+          self.store.createRecord('entityAttribute', {
+
+            name: name,
+            type: type,
+            entity: entity
+
+          }).save().then(
+          function(attribute){
+
+            entity.get('entityAttributes').addObject(attribute);
+            entity.save();
+            attribute.save();
+          });
+        });
+      this.set('attributeName', 'newAttribute' + (this.get('attributeCount') + 1));
+      this.set('isCreatingAttribute', false);
+      this.set('attributeType','string');
+    },
+
+    createRelationship: function(){
+
+      var self = this;
+      var name = this.get('relationshipName');
+      var destination = this.get('relationshipDestination');
+      var type = this.get('relationshipType');
+      var entity = this.get('model');
+      var entityName = entity.get('name');
+
+      this.store.find('entity', entityName).then(
+        function(entity){
+          self.store.createRecord('entityRelationship', {
+
+            name: name,
+            destination: destination,
+            type: type,
+            entity: entity
+
+          }).save().then(
+          function(relationship){
+
+            entity.get('entityRelationships').addObject(relationship);
+            entity.save();
+            relationship.save();
+
+          });
+        }
+      );
+
+      var newType = type
+      if(this.get('relationshipType') === '1 : N'){
+        newType = 'N : 1'
+      }
+
+      if(destination !== entityName){
+        this.store.find('entity', destination).then(
+          function(Nentity){
+            self.store.createRecord('entityRelationship', {
+
+              name: name,
+              destination: entityName,
+              type: newType,
+              entity: Nentity
+
+            }).save().then(
+            function(Nrelationship){
+
+              Nentity.get('entityRelationships').addObject(Nrelationship);
+              Nentity.save();
+              Nrelationship.save();
+            });
+          }
+        );
+      }
+      this.set('relationshipName', 'newRel' + (this.get('relationshipCount') + 1));
+      this.set('isCreatingRelationship', false);
+      this.set('relationshipDestination','');
+      this.set('relationshipType','1 : N');
+    },
+
+    deleteRelationship: function(key){
+
+      var self = this
+      var entity = this.get('model');
+      var entityName = entity.get('name');
+
+      this.store.find('entity', entityName).then(
+        function(entity){
+          self.store.find('entityRelationship', key).then(
+            function(relationship){
+
+              var destination = relationship.get('destination');
+              var relName = relationship.get('name');
+              relationship.deleteRecord();
+              entity.get('entityRelationships').removeObject(relationship);
+              entity.save();
+              relationship.save();
+
+              self.store.find('entity', destination).then(
+                function(oppEntity){
+                  
+                  self.store.find('entityRelationship', { destination: entityName }).then(
+                    function(oppRelationships){
+
+                      oppRelationships.forEach( function(item){
+
+                        if(item.get('entity') === oppEntity){
+                          item.deleteRecord();
+                          oppEntity.get('entityRelationships').removeObject(item);
+                          oppEntity.save();
+                          item.save();
+                        }
+                      }, oppRelationships);
+                    });
+                });
+            });
+        }
+      );
+      this.set('relationshipName', 'newRel' + (this.get('relationshipCount') - 1));
+    },
+
+    deleteAttribute: function(key){
+
+      var self = this
+      var entity = this.get('model');
+      var entityName = entity.get('name');
+
+      this.store.find('entity', entityName).then(
+        function(entity){
+          self.store.find('entityAttribute', key).then(
+            function(attribute){
+
+              attribute.deleteRecord();
+              entity.get('entityAttributes').removeObject(attribute);
+              entity.save();
+              attribute.save();
+            });
+        }
+      );
+      this.set('attributeName', 'newAttribute' + (this.get('attributeCount') - 1));
+    }
+  }
 });

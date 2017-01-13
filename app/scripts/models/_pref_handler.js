@@ -4,7 +4,7 @@ App.PrefHandler = DS.Model.extend({
 
       prefRecords:  DS.hasMany('prefRecord', {async: true}),
 
-      xmlName: 'prefHandler',
+      xmlName: 'preferenceHandler',
 
       toXml: function(xmlDoc) {
 

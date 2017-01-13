@@ -20,6 +20,6 @@ App.CloudObjectRoute = Ember.Route.extend({
         });
       });
 
-      controller.set('cloudObjects', otherObjects);
-    }
-  });
+    controller.set('cloudObjects', otherObjects);
+  }
+});

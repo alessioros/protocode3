@@ -86,36 +86,36 @@ App.StorageRecordsController = Ember.ArrayController.extend({
               storageHandler: storageHandler
 
             }).save().then(
-              function(storageRecord){
+            function(storageRecord){
 
-                storageHandler.get('storageRecords').addObject(storageRecord);
-                storageHandler.save();
-                storageRecord.save();
-              });
+              storageHandler.get('storageRecords').addObject(storageRecord);
+              storageHandler.save();
+              storageRecord.save();
             });
+          });
 
-            this.set('isCreating', false);
-            this.set('pathStorageRecord','/');
-            this.set('extensionStorageRecord','text');
-            this.send('refreshModel');
-          }
-        },
-
-        deleteStorageRecord: function(name){
-
-          var self = this
-
-          this.store.find('storageHandler','sH1').then(
-            function(storageHandler){
-              self.store.find('storageRecord', name).then(
-                function(sRecord){
-
-                  sRecord.deleteRecord();
-                  storageHandler.get('storageRecords').removeObject(sRecord);
-                  storageHandler.save();
-                  sRecord.save();
-                });
-            });
+        this.set('isCreating', false);
+        this.set('pathStorageRecord','/');
+        this.set('extensionStorageRecord','text');
+        this.send('refreshModel');
       }
+    },
+
+    deleteStorageRecord: function(name){
+
+      var self = this
+
+      this.store.find('storageHandler','sH1').then(
+        function(storageHandler){
+          self.store.find('storageRecord', name).then(
+            function(sRecord){
+
+              sRecord.deleteRecord();
+              storageHandler.get('storageRecords').removeObject(sRecord);
+              storageHandler.save();
+              sRecord.save();
+            });
+        });
     }
-  });
+  }
+});

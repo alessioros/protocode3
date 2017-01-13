@@ -125,36 +125,36 @@ App.PreferenceRecordsController = Ember.ArrayController.extend({
               prefHandler: prefHandler
 
             }).save().then(
-              function(prefRecord){
+            function(prefRecord){
 
-                prefHandler.get('prefRecords').addObject(prefRecord);
-                prefHandler.save();
-                prefRecord.save();
-              });
+              prefHandler.get('prefRecords').addObject(prefRecord);
+              prefHandler.save();
+              prefRecord.save();
             });
+          });
 
-            this.set('isCreating', false);
-            this.set('valuePreferenceRecord','newStringValue');
-            this.set('typePreferenceRecord','string');
-            this.send('refreshModel');
-          }
-        },
-
-        deletePRecord: function(key){
-
-          var self = this
-
-          this.store.find('prefHandler','pH1').then(
-            function(prefHandler){
-              self.store.find('prefRecord', key).then(
-                function(pRecord){
-
-                  pRecord.deleteRecord();
-                  prefHandler.get('prefRecords').removeObject(pRecord);
-                  prefHandler.save();
-                  pRecord.save();
-                });
-            });
+        this.set('isCreating', false);
+        this.set('valuePreferenceRecord','newStringValue');
+        this.set('typePreferenceRecord','string');
+        this.send('refreshModel');
       }
+    },
+
+    deletePRecord: function(key){
+
+      var self = this
+
+      this.store.find('prefHandler','pH1').then(
+        function(prefHandler){
+          self.store.find('prefRecord', key).then(
+            function(pRecord){
+
+              pRecord.deleteRecord();
+              prefHandler.get('prefRecords').removeObject(pRecord);
+              prefHandler.save();
+              pRecord.save();
+            });
+        });
     }
-  });
+  }
+});

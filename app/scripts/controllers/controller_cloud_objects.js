@@ -54,23 +54,23 @@ App.CloudObjectsController = Ember.ArrayController.extend(App.Saveable, {
               cloudHandler: cloudHandler
 
             }).save().then(
-              function(cloudObject){
+            function(cloudObject){
 
-                cloudHandler.get('cloudObjects').addObject(cloudObject);
-                cloudHandler.save();
-                cloudObject.save();
-              });
+              cloudHandler.get('cloudObjects').addObject(cloudObject);
+              cloudHandler.save();
+              cloudObject.save();
             });
+          });
 
-            this.set('isCreating', false);
-            this.transitionToRoute('cloud_objects');
-            this.send('refreshModel');
+        this.set('isCreating', false);
+        this.transitionToRoute('cloud_objects');
+        this.send('refreshModel');
 
-            Ember.run.later(
-              function(){
-                self.send('redirectToObject');
-            }, 100);
-          }
-        }
+        Ember.run.later(
+          function(){
+            self.send('redirectToObject');
+          }, 100);
+      }
     }
+  }
 });
