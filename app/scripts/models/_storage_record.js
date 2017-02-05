@@ -1,12 +1,12 @@
 App.StorageRecord = DS.Model.extend({
 
-  name:        DS.attr('string'),
-  extension:      DS.attr('string'),
-  path:       DS.attr('string', {defaultValue: 'string'}),
+  name: DS.attr('string'),
+  extension: DS.attr('string'),
+  tempFile: DS.attr('boolean', {defaultValue: false}),  
 
-  storageHandler:    DS.belongsTo('storageHandler'),
+  storageHandler: DS.belongsTo('storageHandler'),
 
-  xmlName:    'storageRecord',
+  xmlName: 'storageRecords',
 
   toXml: function(xmlDoc) {
 
@@ -16,7 +16,7 @@ App.StorageRecord = DS.Model.extend({
 
     record.setAttribute('name', self.get('name'));
     record.setAttribute('extension', self.get('extension'));
-    record.setAttribute('path', self.get('path'));
+    record.setAttribute('tempFile', self.get('tempFile'));
 
     return record;
   }

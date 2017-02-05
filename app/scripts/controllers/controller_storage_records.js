@@ -11,36 +11,11 @@ App.StorageRecordsController = Ember.ArrayController.extend({
       return 'newFile';
     }
   }),
-  pathStorageRecord: '/',
+  tempStorageRecord: false,
   extensionStorageRecord: 'text',
   extensions: ['text','img','other'],
   booleanOptions: ['true','false'],
   recordsCount: Ember.computed.alias('content.length'),
-
-  // checks if the default path matches record extension
-  isPathValid: function(){
-
-    var intReg = new RegExp('^[-+]?[0-9]*$');
-    var floatReg = new RegExp('^[-+]?[0-9]*\.?[0-9]+$');
-    var recordExtension = this.get('extensionStorageRecord');
-    var recordPath = this.get('pathStorageRecord');
-
-    if(recordExtension === 'int'){
-      return recordPath.match(intReg);
-
-    }else if(recordExtension === 'long'){
-      return recordPath.match(intReg);
-
-    }else if(recordExtension === 'float'){
-      return recordPath.match(floatReg);
-
-    }else if(recordExtension === 'double'){
-      return recordPath.match(floatReg);
-
-    }else{
-      return true;
-    }
-  }.property('pathStorageRecord'),
 
   // checks if the name already exists and if is a valid path
   isNameValid: function(){
@@ -70,7 +45,7 @@ App.StorageRecordsController = Ember.ArrayController.extend({
 
       var self = this
       var name = this.get('nameStorageRecord');
-      var path = this.get('pathStorageRecord');
+      var tempFile = this.get('tempStorageRecord');
       var extension = this.get('extensionStorageRecord');
 
       if(!this.store.hasRecordForId('storageRecord', name)){
@@ -81,8 +56,8 @@ App.StorageRecordsController = Ember.ArrayController.extend({
 
               id: name,
               name: name,
-              path: path,
               extension: extension,
+              tempFile: tempFile,
               storageHandler: storageHandler
 
             }).save().then(
@@ -95,7 +70,7 @@ App.StorageRecordsController = Ember.ArrayController.extend({
           });
 
         this.set('isCreating', false);
-        this.set('pathStorageRecord','/');
+        this.set('tempStorageRecord',false);
         this.set('extensionStorageRecord','text');
         this.send('refreshModel');
       }
