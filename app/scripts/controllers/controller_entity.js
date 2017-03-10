@@ -204,8 +204,9 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
           function(attribute){
 
             entity.get('entityAttributes').addObject(attribute);
-            entity.save();
             attribute.save();
+            entity.save();
+            
           });
         });
       this.set('attributeName', 'newAttribute' + (this.get('attributeCount') + 1));

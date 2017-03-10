@@ -18,12 +18,12 @@ App.EditorRoute = Ember.Route.extend({
         return dataArray.objectAt(0);
       }),
 
-      viewControllers: this.store.find('viewController'),
+      /*viewControllers: this.store.find('viewController'),
       watchControllers: this.store.find('watchController'),
-
+      */
       smartphones: this.store.find('smartphone'),
       smartwatches: this.store.find('smartwatch'),
-
+      /*
       menu: this.store.find('menu'),
       menuItems: this.store.find('menuItem'),
 
@@ -67,7 +67,7 @@ App.EditorRoute = Ember.Route.extend({
       watchSliders: this.store.find('watchSlider'),
       watchSwitches: this.store.find('watchSwitch'),
       watchVoiceMessages: this.store.find('watchVoiceMessage'),
-
+*/
     });
   }
 });

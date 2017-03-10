@@ -6,6 +6,13 @@ App.ApplicationController = Ember.ObjectController.extend(App.Saveable, {
   actions: {
 
     generateAppModel: function() {
+
+      console.log(this);
+      console.log(this.get('model'));
+      /*console.log(this.get('model').then(function(model){
+
+        return model.get('application') }));*/
+
       this.get('model').toXml().then(function(model) {
         var xmlString = '<?xml version="1.0" encoding="UTF-8"?>\n' + new XMLSerializer().serializeToString(model.documentElement);
         var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
@@ -23,6 +30,7 @@ App.ApplicationController = Ember.ObjectController.extend(App.Saveable, {
             
           });
         }
+        
         saveAs(blob, "protocode.xmi");
       });
     }
