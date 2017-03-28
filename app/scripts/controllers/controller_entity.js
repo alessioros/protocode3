@@ -262,6 +262,7 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
             function(Nrelationship){
 
               Nentity.get('entityRelationships').addObject(Nrelationship);
+              console.log(Nentity);
               Nentity.save();
               Nrelationship.save();
             });

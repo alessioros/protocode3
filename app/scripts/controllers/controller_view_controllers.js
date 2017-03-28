@@ -17,6 +17,11 @@ App.ViewControllersController = Ember.ArrayController.extend({
 
     actions: {
         setCreating: function(value) {
+            if(this.get('viewContrCount') !== 0){
+                this.set('newNameViewController', 'newView' + this.get('viewContrCount'));
+            }else{
+                this.set('newNameViewController', 'newView');
+            }
             this.set('isCreating', value);
         },
 
@@ -38,6 +43,11 @@ App.ViewControllersController = Ember.ArrayController.extend({
                 app.save();
             });
 
+            if(this.get('viewContrCount') !== 0){
+                this.set('newNameViewController', 'newView' + this.get('viewContrCount'));
+            }else{
+                this.set('newNameViewController', 'newView');
+            }
             this.set('isCreating', false);
             this.send('refreshModel');
         }

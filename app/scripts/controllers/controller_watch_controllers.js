@@ -16,6 +16,11 @@ App.WatchControllersController = Ember.ArrayController.extend({
 
     actions: {
         setCreating: function(value) {
+            if(this.get('viewContrCount') !== 0){
+                this.set('newNameViewController', 'newWatchView' + this.get('viewContrCount'));
+            }else{
+                this.set('newNameViewController', 'newWatchView');
+            }
             this.set('isCreating', value);
         },
 
@@ -37,6 +42,11 @@ App.WatchControllersController = Ember.ArrayController.extend({
                 app.save();
             });
 
+            if(this.get('viewContrCount') !== 0){
+                this.set('newNameViewController', 'newWatchView' + this.get('viewContrCount'));
+            }else{
+                this.set('newNameViewController', 'newWatchView');
+            }
             this.set('isCreating', false);
             this.send('refreshModel');
         }
