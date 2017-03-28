@@ -1,45 +1,45 @@
 /*
-  templates/control_list_view/index.hbs
-*/
+ templates/control_list_view/index.hbs
+ */
 App.ControlListViewIndexController = App.UiPhoneControlController.extend(App.ClickListenable, {
     needs: ['viewControllers'],
 
     isCreating: false,
     newNameListViewCell: 'newListItem',
 
-    simpleList: function(key, value) {
+    simpleList: function (key, value) {
         return this.listType(key, value, 'simple');
     }.property('model.listType'),
 
-    imageList: function(key, value) {
+    imageList: function (key, value) {
         return this.listType(key, value, 'image');
     }.property('model.listType'),
 
-    detailedList: function(key, value) {
+    detailedList: function (key, value) {
         return this.listType(key, value, 'detailed');
     }.property('model.listType'),
 
-    listType: function(key, value, type) {
+    listType: function (key, value, type) {
         // setter
-        if (value != undefined) {
+        if (value !== undefined) {
             this.set('model.listType', type);
             this.get('model').save();
         }
 
         // getter
-        return this.get('model.listType') == type;
+        return this.get('model.listType') === type;
     },
 
     actions: {
-        abortCreation: function() {
+        abortCreation: function () {
             this.set('isCreating', false);
         },
 
-        setCreating: function(value) {
+        setCreating: function (value) {
             this.set('isCreating', value);
         },
 
-        createListViewCell: function() {
+        createListViewCell: function () {
             var name = this.get('newNameListViewCell').trim();
 
             if (!name) {

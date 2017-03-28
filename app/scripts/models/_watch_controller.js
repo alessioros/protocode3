@@ -1,59 +1,57 @@
 App.WatchController = DS.Model.extend({
-	name:            		DS.attr('string'),
-  launcher:         	DS.attr('boolean', {defaultValue: false}),
+    name: DS.attr('string'),
+    launcher: DS.attr('boolean', {defaultValue: false}),
 
-  application:      	DS.belongsTo('application', {inverse: 'watchControllers'}),
+    application: DS.belongsTo('application', {inverse: 'watchControllers'}),
 
-	uiWatchControls:  	DS.hasMany('uiWatchControl', {polymorphic: true, async: true}),
+    uiWatchControls: DS.hasMany('uiWatchControl', {polymorphic: true, async: true}),
 
-  xmlName:        	'watchControllers',
+    xmlName: 'watchControllers',
 
-  deleteRecord: function () {
-    var self = this;
+    deleteRecord: function () {
+        var self = this;
 
-    this.get('uiWatchControls').then(function (uiWatchControls) {
-      uiWatchControls.forEach(function (uiWatchControl) {
-        Ember.run.once(self, function () {
-          uiWatchControl.deleteRecord();
-          uiWatchControl.save();
+        this.get('uiWatchControls').then(function (uiWatchControls) {
+            uiWatchControls.forEach(function (uiWatchControl) {
+                Ember.run.once(self, function () {
+                    uiWatchControl.deleteRecord();
+                    uiWatchControl.save();
+                });
+            });
         });
-      });
-    });
 
-    this._super();
-  },
+        this._super();
+    },
 
-  toXml: function(xmlDoc) {
-    var self = this;
+    toXml: function (xmlDoc) {
+        var self = this;
 
-    var promise = new Promise(function (resolve, reject) {
-      var watchController = xmlDoc.createElement(self.get('xmlName'));
-      watchController.setAttribute('name', self.get('name'));
-      watchController.setAttribute('launcher', self.get('launcher'));
+        return new Promise(function (resolve) {
+            var watchController = xmlDoc.createElement(self.get('xmlName'));
+            watchController.setAttribute('name', self.get('name'));
+            watchController.setAttribute('launcher', self.get('launcher'));
 
-			self.get('uiWatchControls').then(function (uiWatchControls) {
+            self.get('uiWatchControls').then(function (uiWatchControls) {
 
-        Promise.all(uiWatchControls.map(function (uiWatchControl) {
-          return uiWatchControl.toXml(xmlDoc);
-        })).then(function (uiWatchControlXmls) {
+                Promise.all(uiWatchControls.map(function (uiWatchControl) {
+                    return uiWatchControl.toXml(xmlDoc);
+                })).then(function (uiWatchControlXmls) {
 
-          uiWatchControlXmls.map(function (xml) {
+                    uiWatchControlXmls.map(function (xml) {
 
-            watchController.appendChild(xml);
+                        watchController.appendChild(xml);
 
-          });
+                    });
 
-          resolve(watchController);
+                    resolve(watchController);
 
+                });
+            });
         });
-      });
-    });
+    },
 
-    return promise;
-  },
-
-  getRefPath: function(path) {
-    return '//@' + this.get('xmlName') + '[name=\'' + this.get('name') + '\']' + path;
-  }
+    getRefPath: function (path) {
+        return '//@' + this.get('xmlName') + '[name=\'' + this.get('name') + '\']' + path;
+    }
 
 });

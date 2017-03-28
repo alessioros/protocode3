@@ -5,10 +5,10 @@ App.Navigable = Ember.Mixin.create({
     if (arguments.length > 1) {
 
       // Delete
-      if (value == null) {
+      if (value === null) {
         
         var navigation = this.get('navigation');
-        if (navigation != null) {
+        if (navigation !== null) {
           navigation.destroyRecord();
           this.set('navigation', null);
           this.get('model').save();
@@ -19,7 +19,7 @@ App.Navigable = Ember.Mixin.create({
 
         var navigation = this.get('navigation');
 
-        if (navigation == null) {
+        if (navigation === null) {
           navigation = this.store.createRecord('navigation', {destination: value});
           navigation.save();
 

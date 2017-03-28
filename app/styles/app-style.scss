@@ -88,7 +88,7 @@ body,
 
 .list-group-item {
     border-top : none;
-    margin-bottom : 0px;
+    margin-bottom : 0;
     border-bottom: 1px solid #ddd;
 }
 
@@ -104,11 +104,11 @@ body,
 }
 
 #view-controllers-panel {
-  border-top-left-radius: 0px;
+  border-top-left-radius: 0;
 }
 
 #watch-controllers-panel {
-  border-top-right-radius: 0px;
+  border-top-right-radius: 0;
 }
 
 .spacer {
@@ -132,9 +132,8 @@ body,
 .control-ui-watch-picker {
   height: 50px;
   width: 50px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
+    background: no-repeat center center;
+    background-size: contain;
   transition: transform 0.5s;
   -webkit-transition: transform 0.5s;
 }
@@ -150,14 +149,13 @@ body,
 /*============ SMARTPHONE VIEW ============*/
 
 .smartphone-view {
-  margin: 0px auto;
+  margin: 0 auto;
   -moz-transform-origin: 0 0;
   -webkit-transform-origin: 0 0;
   transition: transform 0.3s ease-out;
   transition: -webkit-transform 0.3s ease-out;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 100%;
+    background: no-repeat center center;
+    background-size: 100%;
   //Dimensione immagine dispositivo originale
   width: 500px;
   height: 1000px;
@@ -185,14 +183,13 @@ body,
 /*============ SMARTWATCH VIEW ============*/
 
 .smartwatch-view {
-  margin: 0px auto;
+  margin: 0 auto;
   -moz-transform-origin: 0 0;
   -webkit-transform-origin: 0 0;
   transition: transform 0.3s ease-out;
   transition: -webkit-transform 0.3s ease-out;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 100%;
+    background: no-repeat center center;
+    background-size: 100%;
   //Dimensione immagine dispositivo originale
   width: 356px;
   height: 500px;

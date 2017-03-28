@@ -1,7 +1,7 @@
 App.WatchClickListener = DS.Model.extend({
     watchNavigation: DS.belongsTo('watchNavigation'),
 
-    deleteRecord: function() {
+    deleteRecord: function () {
         var watchNavigation = this.get('watchNavigation');
 
         if (watchNavigation) {
@@ -12,12 +12,12 @@ App.WatchClickListener = DS.Model.extend({
         this._super();
     },
 
-    toXml: function(xmlDoc) {
+    toXml: function (xmlDoc) {
         var elem = xmlDoc.createElement('watchClickListener');
 
         var watchNavigation = this.get('watchNavigation');
 
-        if (watchNavigation != null) {
+        if (watchNavigation !== null) {
             elem.appendChild(watchNavigation.toXml(xmlDoc));
         }
 

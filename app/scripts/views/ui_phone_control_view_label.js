@@ -14,7 +14,7 @@ App.UiLabelView = Ember.View.extend({
     var screenHeight = this.get('smartphone.screenHeight');
     var coefficient = cssHeight / screenHeight;
 
-  	var style = ""
+  	var style = "";
     style += 'color: '      + this.get('context.textColor') + ";";
     style += 'font-size: '  + this.get('context.textSize')*coefficient + "px;";
   	return style;

@@ -1,9 +1,9 @@
 /*
-  templates/control_XXX/index.hbs
-*/
+ templates/control_XXX/index.hbs
+ */
 App.UiPhoneControlController = Ember.ObjectController.extend(App.Saveable, {
 
-    alignTop: function(key, value, previousValue) {
+    alignTop: function (key, value, previousValue) {
         // setter
         if (arguments.length > 1) {
             return this.handleConstraint(key, value, previousValue);
@@ -13,7 +13,7 @@ App.UiPhoneControlController = Ember.ObjectController.extend(App.Saveable, {
         return this.handleConstraint(key);
     }.property('model.alignTop'),
 
-    alignBottom: function(key, value, previousValue) {
+    alignBottom: function (key, value, previousValue) {
         // setter
         if (arguments.length > 1) {
             return this.handleConstraint(key, value, previousValue);
@@ -23,7 +23,7 @@ App.UiPhoneControlController = Ember.ObjectController.extend(App.Saveable, {
         return this.handleConstraint(key);
     }.property('model.alignBottom'),
 
-    alignStart: function(key, value, previousValue) {
+    alignStart: function (key, value, previousValue) {
         // setter
         if (arguments.length > 1) {
             return this.handleConstraint(key, value, previousValue);
@@ -33,7 +33,7 @@ App.UiPhoneControlController = Ember.ObjectController.extend(App.Saveable, {
         return this.handleConstraint(key);
     }.property('model.alignStart'),
 
-    alignEnd: function(key, value, previousValue) {
+    alignEnd: function (key, value, previousValue) {
         // setter
         if (arguments.length > 1) {
             return this.handleConstraint(key, value, previousValue);
@@ -44,7 +44,7 @@ App.UiPhoneControlController = Ember.ObjectController.extend(App.Saveable, {
     }.property('model.alignEnd'),
 
 
-    above: function(key, value, previousValue) {
+    above: function (key, value, previousValue) {
         // setter
         if (arguments.length > 1) {
             return this.handleConstraint(key, value, previousValue);
@@ -54,7 +54,7 @@ App.UiPhoneControlController = Ember.ObjectController.extend(App.Saveable, {
         return this.handleConstraint(key);
     }.property('model.above'),
 
-    below: function(key, value, previousValue) {
+    below: function (key, value, previousValue) {
         // setter
         if (arguments.length > 1) {
             return this.handleConstraint(key, value, previousValue);
@@ -64,7 +64,7 @@ App.UiPhoneControlController = Ember.ObjectController.extend(App.Saveable, {
         return this.handleConstraint(key);
     }.property('model.below'),
 
-    toStartOf: function(key, value, previousValue) {
+    toStartOf: function (key, value, previousValue) {
         // setter
         if (arguments.length > 1) {
             return this.handleConstraint(key, value, previousValue);
@@ -74,7 +74,7 @@ App.UiPhoneControlController = Ember.ObjectController.extend(App.Saveable, {
         return this.handleConstraint(key);
     }.property('model.toStartOf'),
 
-    toEndOf: function(key, value, previousValue) {
+    toEndOf: function (key, value, previousValue) {
         // setter
         if (arguments.length > 1) {
             return this.handleConstraint(key, value, previousValue);
@@ -85,7 +85,7 @@ App.UiPhoneControlController = Ember.ObjectController.extend(App.Saveable, {
     }.property('model.toEndOf'),
 
 
-    handleConstraint: function(key, value, previousValue) {
+    handleConstraint: function (key, value, previousValue) {
         var model = this.get('model');
 
         // setter
@@ -102,20 +102,18 @@ App.UiPhoneControlController = Ember.ObjectController.extend(App.Saveable, {
         return model.get(key);
     },
 
-    isGoodConstraint: function(model, key, value) {
-        if (value == null) {
+    isGoodConstraint: function (model, key, value) {
+        if (value === null) {
             return true;
         }
 
         var uiPhoneControls = [];
         var uiPhoneControlsToCheck = model.getRelatedUiPhoneControls().concat(value).uniq();
-        var self = this;
 
-
-        while (!($(uiPhoneControls).not(uiPhoneControlsToCheck).length == 0 && $(uiPhoneControlsToCheck).not(uiPhoneControls).length == 0) && !uiPhoneControlsToCheck.contains(model)) {
+        while (!($(uiPhoneControls).not(uiPhoneControlsToCheck).length === 0 && $(uiPhoneControlsToCheck).not(uiPhoneControls).length === 0) && !uiPhoneControlsToCheck.contains(model)) {
             uiPhoneControls = uiPhoneControlsToCheck;
 
-            uiPhoneControlsToCheck = uiPhoneControlsToCheck.reduce(function(results, uiPhoneControl) {
+            uiPhoneControlsToCheck = uiPhoneControlsToCheck.reduce(function (results, uiPhoneControl) {
                 return results.concat(uiPhoneControl.getRelatedUiPhoneControls());
             }, []).uniq();
 
@@ -125,7 +123,7 @@ App.UiPhoneControlController = Ember.ObjectController.extend(App.Saveable, {
     },
 
     actions: {
-        deleteUiPhoneControl: function() {
+        deleteUiPhoneControl: function () {
             var controlToDelete = this.get('model');
 
             if (this.get('parentContainer')) {
@@ -134,7 +132,7 @@ App.UiPhoneControlController = Ember.ObjectController.extend(App.Saveable, {
                 this.get('parentContainer').save();
             } else {
                 var viewController = this.get('viewController');
-                viewController.get('uiPhoneControls').then(function(uiPhoneControls) {
+                viewController.get('uiPhoneControls').then(function (uiPhoneControls) {
                     uiPhoneControls.removeObject(controlToDelete);
                     viewController.save();
                 });

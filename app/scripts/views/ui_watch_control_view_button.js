@@ -7,10 +7,10 @@ App.UiWatchButtonView = Ember.View.extend({
   attributeBindings: ['style'],
 
   style: function() {
-    var isAndroidWear = this.get('controller.controllers.editor.smartwatch.platform') == 'androidwear';
+    var isAndroidWear = this.get('controller.controllers.editor.smartwatch.platform') === 'androidwear';
     var parentWidth = this.get("parentView.context.computedWidth");
     var parentHeight = this.get("parentView.context.computedHeight");
-    var style = ""
+    var style = "";
 
     if(isAndroidWear) {
       style += 'width: ' + (parentWidth - 8) + "px;";

@@ -1,45 +1,45 @@
 /*
-  templates/control_grid_view/index.hbs
-*/
+ templates/control_grid_view/index.hbs
+ */
 App.ControlGridViewIndexController = App.UiPhoneControlController.extend(App.ClickListenable, {
     needs: ['viewControllers'],
 
     isCreating: false,
     newNameGridViewCell: 'newGridCell',
 
-    simpleGrid: function(key, value) {
+    simpleGrid: function (key, value) {
         return this.gridType(key, value, 'simple');
     }.property('model.gridType'),
 
-    imageGrid: function(key, value) {
+    imageGrid: function (key, value) {
         return this.gridType(key, value, 'image');
     }.property('model.gridType'),
 
-    detailedGrid: function(key, value) {
+    detailedGrid: function (key, value) {
         return this.gridType(key, value, 'detailed');
     }.property('model.gridType'),
 
-    gridType: function(key, value, type) {
+    gridType: function (key, value, type) {
         // setter
-        if (value != undefined) {
+        if (value !== undefined) {
             this.set('model.gridType', type);
             this.get('model').save();
         }
 
         // getter
-        return this.get('model.gridType') == type;
+        return this.get('model.gridType') === type;
     },
 
     actions: {
-        abortCreation: function() {
+        abortCreation: function () {
             this.set('isCreating', false);
         },
 
-        setCreating: function(value) {
+        setCreating: function (value) {
             this.set('isCreating', value);
         },
 
-        createGridViewCell: function() {
+        createGridViewCell: function () {
             var name = this.get('newNameGridViewCell').trim();
 
             if (!name) {

@@ -1,9 +1,9 @@
 /*
-  templates/control_watch_XXX/index.hbs
-*/
+ templates/control_watch_XXX/index.hbs
+ */
 App.UiWatchControlController = Ember.ObjectController.extend(App.Saveable, {
 
-    alignTop: function(key, value, previousValue) {
+    alignTop: function (key, value, previousValue) {
         // setter
         if (arguments.length > 1) {
             return this.handleConstraint(key, value, previousValue);
@@ -13,7 +13,7 @@ App.UiWatchControlController = Ember.ObjectController.extend(App.Saveable, {
         return this.handleConstraint(key);
     }.property('model.alignTop'),
 
-    alignBottom: function(key, value, previousValue) {
+    alignBottom: function (key, value, previousValue) {
         // setter
         if (arguments.length > 1) {
             return this.handleConstraint(key, value, previousValue);
@@ -23,7 +23,7 @@ App.UiWatchControlController = Ember.ObjectController.extend(App.Saveable, {
         return this.handleConstraint(key);
     }.property('model.alignBottom'),
 
-    alignStart: function(key, value, previousValue) {
+    alignStart: function (key, value, previousValue) {
         // setter
         if (arguments.length > 1) {
             return this.handleConstraint(key, value, previousValue);
@@ -33,7 +33,7 @@ App.UiWatchControlController = Ember.ObjectController.extend(App.Saveable, {
         return this.handleConstraint(key);
     }.property('model.alignStart'),
 
-    alignEnd: function(key, value, previousValue) {
+    alignEnd: function (key, value, previousValue) {
         // setter
         if (arguments.length > 1) {
             return this.handleConstraint(key, value, previousValue);
@@ -44,7 +44,7 @@ App.UiWatchControlController = Ember.ObjectController.extend(App.Saveable, {
     }.property('model.alignEnd'),
 
 
-    above: function(key, value, previousValue) {
+    above: function (key, value, previousValue) {
         // setter
         if (arguments.length > 1) {
             return this.handleConstraint(key, value, previousValue);
@@ -54,7 +54,7 @@ App.UiWatchControlController = Ember.ObjectController.extend(App.Saveable, {
         return this.handleConstraint(key);
     }.property('model.above'),
 
-    below: function(key, value, previousValue) {
+    below: function (key, value, previousValue) {
         // setter
         if (arguments.length > 1) {
             return this.handleConstraint(key, value, previousValue);
@@ -64,7 +64,7 @@ App.UiWatchControlController = Ember.ObjectController.extend(App.Saveable, {
         return this.handleConstraint(key);
     }.property('model.below'),
 
-    toStartOf: function(key, value, previousValue) {
+    toStartOf: function (key, value, previousValue) {
         // setter
         if (arguments.length > 1) {
             return this.handleConstraint(key, value, previousValue);
@@ -74,7 +74,7 @@ App.UiWatchControlController = Ember.ObjectController.extend(App.Saveable, {
         return this.handleConstraint(key);
     }.property('model.toStartOf'),
 
-    toEndOf: function(key, value, previousValue) {
+    toEndOf: function (key, value, previousValue) {
         // setter
         if (arguments.length > 1) {
             return this.handleConstraint(key, value, previousValue);
@@ -85,7 +85,7 @@ App.UiWatchControlController = Ember.ObjectController.extend(App.Saveable, {
     }.property('model.toEndOf'),
 
 
-    handleConstraint: function(key, value, previousValue) {
+    handleConstraint: function (key, value, previousValue) {
         var model = this.get('model');
 
         // setter
@@ -102,20 +102,18 @@ App.UiWatchControlController = Ember.ObjectController.extend(App.Saveable, {
         return model.get(key);
     },
 
-    isGoodConstraint: function(model, key, value) {
-        if (value == null) {
+    isGoodConstraint: function (model, key, value) {
+        if (value === null) {
             return true;
         }
 
         var uiPhoneControls = [];
         var uiPhoneControlsToCheck = model.getRelatedUiWatchControls().concat(value).uniq();
-        var self = this;
 
-
-        while (!($(uiPhoneControls).not(uiPhoneControlsToCheck).length == 0 && $(uiPhoneControlsToCheck).not(uiPhoneControls).length == 0) && !uiPhoneControlsToCheck.contains(model)) {
+        while (!($(uiPhoneControls).not(uiPhoneControlsToCheck).length === 0 && $(uiPhoneControlsToCheck).not(uiPhoneControls).length === 0) && !uiPhoneControlsToCheck.contains(model)) {
             uiPhoneControls = uiPhoneControlsToCheck;
 
-            uiPhoneControlsToCheck = uiPhoneControlsToCheck.reduce(function(results, uiPhoneControl) {
+            uiPhoneControlsToCheck = uiPhoneControlsToCheck.reduce(function (results, uiPhoneControl) {
                 return results.concat(uiPhoneControl.getRelatedUiWatchControls());
             }, []).uniq();
 
@@ -125,17 +123,17 @@ App.UiWatchControlController = Ember.ObjectController.extend(App.Saveable, {
     },
 
     actions: {
-        deleteUiWatchControl: function() {
+        deleteUiWatchControl: function () {
             var controlToDelete = this.get('model');
 
             var watchController = this.get('watchController');
-            watchController.get('uiWatchControls').then(function(uiWatchControls) {
+            watchController.get('uiWatchControls').then(function (uiWatchControls) {
                 uiWatchControls.removeObject(controlToDelete);
                 watchController.save();
                 //Reset the order attribute
-                uiWatchControls.forEach(function(uiWatchControl, index){
-                  uiWatchControl.set('order', index+1);
-                  uiWatchControl.save();
+                uiWatchControls.forEach(function (uiWatchControl, index) {
+                    uiWatchControl.set('order', index + 1);
+                    uiWatchControl.save();
                 });
             });
 

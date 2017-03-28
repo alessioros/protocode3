@@ -5,7 +5,7 @@ App.SmartphoneScreenView = Ember.View.extend(App.UiDroppable, {
   templateName: 'views/smartphone_screen_view',
 
   style: function() {
-    var style = ""
+    var style = "";
     style += 'background-color: ' + this.get('context.backgroundColor') + ";";
   	return style;
   }.property(

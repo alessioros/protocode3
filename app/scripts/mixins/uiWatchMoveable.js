@@ -21,7 +21,7 @@ App.UiWatchMoveable = Ember.Mixin.create({
       var posX = (event.pageX - parentOffset.left - self.get('offsetMouseX')) / self.get('controller.zoomLevel') * self.get('smartwatch.screenWidth') / self.get('smartwatch.cssWidth');
       var posY = (event.pageY - parentOffset.top - self.get('offsetMouseY')) / self.get('controller.zoomLevel') * self.get('smartwatch.screenHeight') / self.get('smartwatch.cssHeight');
 
-      if (self.get('context.parentContainer') == null) {
+      if (self.get('context.parentContainer') === null) {
         posY -= self.get('smartwatch.viewTop');
       }
 

@@ -5,9 +5,9 @@ App.WatchClickListenable = Ember.Mixin.create({
         if (arguments.length > 1) {
 
             // Delete
-            if (value == null) {
+            if (value === null) {
                 var watchClickListener = this.get('watchClickListener');
-                if (watchClickListener != null) {
+                if (watchClickListener !== null) {
                     //var watchNavigation = watchClickListener.get('watchNavigation');
                     //watchNavigation.deleteRecord();
                     watchClickListener.deleteRecord();
@@ -20,7 +20,7 @@ App.WatchClickListenable = Ember.Mixin.create({
                 var watchClickListener = this.get('watchClickListener');
 
                 // Create new WatchClickListener
-                if (watchClickListener == null) {
+                if (watchClickListener === null) {
                     watchClickListener = this.store.createRecord('watchClickListener');
 
                     var watchNavigation = this.store.createRecord('watchNavigation', {
@@ -38,7 +38,7 @@ App.WatchClickListenable = Ember.Mixin.create({
                 } else {
                     var watchNavigation = watchClickListener.get('watchNavigation');
 
-                    if (watchNavigation == null) {
+                    if (watchNavigation === null) {
                         watchNavigation = this.store.createRecord('watchNavigation', {
                             destination: value
                         });

@@ -1,12 +1,14 @@
 {{#link-to "viewController" model tagName="div" class="expanded-area"}}{{/link-to}}
 
 {{#each uiPhoneControls}}
-  {{view App.UiPhoneControlView}}
+    {{view App.UiPhoneControlView}}
 {{/each}}
 
 <div class="status-bar"></div>
-<div class="action-bar"><div class="bar-content">{{controllers.editor.name}}</div></div>
+<div class="action-bar">
+    <div class="bar-content">{{controllers.editor.name}}</div>
+</div>
 {{#if hasMenu}}
-  {{view App.MenuView}}
+    {{view App.MenuView}}
 {{/if}}
 <div class="command-bar"></div>

@@ -6,11 +6,11 @@ App.UiAudioRecorderView = Ember.View.extend({
   attributeBindings: ['style'],
 
   style: function() {
-    var isAndroid = this.get('controller.controllers.editor.smartphone.platform') == 'android';
+    var isAndroid = this.get('controller.controllers.editor.smartphone.platform') === 'android';
     var parentWidth = this.get("parentView.context.computedWidth");
     var parentHeight = this.get("parentView.context.computedHeight");
 
-    style = '';
+    var style = '';
 
     if(isAndroid) {
       style += 'width: ' + (parentWidth - 8) + "px;";

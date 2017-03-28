@@ -1,4 +1,4 @@
 /*
-  templates/control_edit_text/index.hbs
-*/
+ templates/control_edit_text/index.hbs
+ */
 App.ControlEditTextIndexController = App.UiPhoneControlController.extend();

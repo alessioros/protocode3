@@ -8,17 +8,17 @@ App.ObjectAttribute = DS.Model.extend({
 
     xmlName: 'objectAttributes',
 
-    toXml: function(xmlDoc) {
+    toXml: function (xmlDoc) {
 
-      var objAttribute = xmlDoc.createElement(this.get('xmlName'));
+        var objAttribute = xmlDoc.createElement(this.get('xmlName'));
 
-      objAttribute.setAttribute('name', this.get('name'));
-      objAttribute.setAttribute('type', this.get('type'));
+        objAttribute.setAttribute('name', this.get('name'));
+        objAttribute.setAttribute('type', this.get('type'));
 
-      if(!(this.get('object') === '')){
-          objAttribute.setAttribute('object', this.get('object'));
-      }
+        if (!(this.get('object') === '')) {
+            objAttribute.setAttribute('object', this.get('object'));
+        }
 
-      return objAttribute;
+        return objAttribute;
     }
 });

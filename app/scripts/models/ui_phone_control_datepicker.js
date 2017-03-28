@@ -1,15 +1,15 @@
 App.Datepicker = App.UiPhoneControl.extend({
-  name:       DS.attr('string', {defaultValue: 'Datepicker'}),
+    name: DS.attr('string', {defaultValue: 'Datepicker'}),
 
-  width:      DS.attr('number', {defaultValue: 348}),
-  height:     DS.attr('number', {defaultValue: 365}),
+    width: DS.attr('number', {defaultValue: 348}),
+    height: DS.attr('number', {defaultValue: 365}),
 
-  xmlName:    'datepickers',
+    xmlName: 'datepickers',
 
-  toXml: function(xmlDoc) {
-    var datepicker = xmlDoc.createElement(this.get('xmlName'));
-    this.decorateXml(datepicker);
-    return datepicker;
-  }
+    toXml: function (xmlDoc) {
+        var datepicker = xmlDoc.createElement(this.get('xmlName'));
+        this.decorateXml(datepicker);
+        return datepicker;
+    }
 
 });

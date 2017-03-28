@@ -1,17 +1,17 @@
 /*
-  templates/app_menu/index.hbs
-*/
+ templates/app_menu/index.hbs
+ */
 App.AppMenuIndexController = Ember.ObjectController.extend({
     isCreating: false,
     newNameMenuItem: 'newMenuItem',
     needs: ['viewController'],
 
     actions: {
-        setCreating: function(value) {
+        setCreating: function (value) {
             this.set('isCreating', value);
         },
 
-        createMenuItem: function() {
+        createMenuItem: function () {
             var name = this.get('newNameMenuItem').trim();
 
             if (!name) {

@@ -1,4 +1,4 @@
 /*
-  templates/control_container/index.hbs
-*/
+ templates/control_container/index.hbs
+ */
 App.ControlContainerIndexController = App.UiPhoneControlController.extend();

@@ -1,11 +1,11 @@
 App.AsyncTask = DS.Model.extend({
-    name:           DS.attr('string', {defaultValue: 'asyncTask'}),
+    name: DS.attr('string', {defaultValue: 'asyncTask'}),
 
     viewController: DS.belongsTo('viewController', {inverse: 'asyncTasks'}),
 
-    xmlName:        'asyncTasks',
+    xmlName: 'asyncTasks',
 
-    toXml: function(xmlDoc) {
+    toXml: function (xmlDoc) {
         var elem = xmlDoc.createElement(this.get('xmlName'));
 
         elem.setAttribute('name', this.get('name'));
@@ -13,7 +13,7 @@ App.AsyncTask = DS.Model.extend({
         return elem;
     },
 
-    didCreate: function() {
+    didCreate: function () {
         this.set('name', this.get('id').replace(/[0-9]/g, '') + this.constructor.toString().split(".")[1]);
         this.save();
     }

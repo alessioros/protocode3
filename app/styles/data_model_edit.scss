@@ -52,12 +52,12 @@ $indigo-500: #3F51B5;
 .sidebar {
   background-color: $menu-background;
   border: 1px solid $border-color;
-  padding: 0px 0px 15px 0px;
+  padding: 0 0 15px 0;
   border-radius: 5px;
   box-shadow: $container-box-shadow;
 
   .side-title {
-    padding: 20px 0px 20px 40px;
+    padding: 20px 0 20px 40px;
     font: $font-title-sidebar;
     background-color: $sidebar-header-background;
     color: $menu-background;
@@ -67,11 +67,11 @@ $indigo-500: #3F51B5;
   }
 
   hr{
-    margin: 0px 0px 0px 0px;
+    margin: 0 0 0 0;
   }
 
   .side-menu {
-    padding: 0px;
+    padding: 0;
     list-style-type: none;
 
     .side-item {
@@ -112,7 +112,7 @@ $indigo-500: #3F51B5;
   border-radius: 5px;
   padding: 0;
   min-height: $storage-selection-min-height;
-  margin: 0px 10px 0px 10px;
+  margin: 0 10px 0 10px;
   overflow: auto;
   box-shadow: $container-box-shadow;
 
@@ -145,7 +145,7 @@ $indigo-500: #3F51B5;
 /*============ SECTION HEADER ============*/
 
 .section-header {
-  margin: 10px 0px 0px 0px;
+  margin: 10px 0 0 0;
   padding: 10px;
   display: inline-block;
   width: 100%;
@@ -175,7 +175,7 @@ $indigo-500: #3F51B5;
 }
 
 .section-header-hr{
-  margin: 0px;
+  margin: 0;
 }
 
 /*============ TABLE STYLE ============*/
@@ -226,7 +226,7 @@ $indigo-500: #3F51B5;
 /*============ SIDEBAR ENTITIES / CLOUD_OBJECTS ============*/
 
 .items-sidebar{
-  padding: 0px;
+  padding: 0;
   overflow: auto;
   border-right: 1px solid $border-color;
   min-height: 100%;
@@ -242,26 +242,25 @@ $indigo-500: #3F51B5;
       color: $items-title-color;
       font: $font-header;
       font-weight: bold;
-      padding: 25px 0px 25px 30px;
+      padding: 25px 0 25px 30px;
     }
 
     hr{
-      margin: 0px;
+      margin: 0;
     }
 
     .items-list{
       list-style: none;
-      padding: 0px;
-      margin: 0px;
+      padding: 0;
+      margin: 0;
 
       a{
         color: $items-hover-color;
         text-decoration: none;
 
         .items-list-item{
-          padding:15px;
-          padding-left:30px;
-          border-top: 1px solid $border-color;
+            padding: 15px 15px 15px 30px;
+            border-top: 1px solid $border-color;
           background: $menu-background;
 
           i{
@@ -277,7 +276,7 @@ $indigo-500: #3F51B5;
 
       .items-list-edit{
         border-top: 1px solid $border-color;
-        padding: 10px 0px 10px 0px;
+        padding: 10px 0 10px 0;
         display: block;
       }
 

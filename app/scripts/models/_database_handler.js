@@ -1,23 +1,23 @@
 App.DatabaseHandler = DS.Model.extend({
 
-      dataHandler:  DS.belongsTo('dataHandler'),
+    dataHandler: DS.belongsTo('dataHandler'),
 
-      entities:     DS.hasMany('entity', {async: true}),
+    entities: DS.hasMany('entity', {async: true}),
 
-      xmlName: 'databaseHandler',
+    xmlName: 'databaseHandler',
 
-      toXml: function(xmlDoc) {
+    toXml: function (xmlDoc) {
 
-          var dbHandler = xmlDoc.createElement(this.get('xmlName'));
+        var dbHandler = xmlDoc.createElement(this.get('xmlName'));
 
-          this.get('entities').then(
-            function(items){
-              items.map(
-                function(entity) {
-                  dbHandler.appendChild(entity.toXml(xmlDoc));
-              });
+        this.get('entities').then(
+            function (items) {
+                items.map(
+                    function (entity) {
+                        dbHandler.appendChild(entity.toXml(xmlDoc));
+                    });
             });
 
-          return dbHandler;
-      }
+        return dbHandler;
+    }
 });

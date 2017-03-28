@@ -1,4 +1,4 @@
-@import "font-awesome/scss/font-awesome";
+@import "../bower_components/font-awesome/scss/font-awesome";
 @import "variables";
 
 /*============ IOS ============*/
@@ -49,7 +49,6 @@
   flex: 0 1 auto;
   align-self: auto;
   min-width: 0;
-  min-height: auto;
   font-size: 11px;
   cursor:pointer;
 }
@@ -61,15 +60,11 @@
   flex: 0 1 auto;
   align-self: auto;
   min-width: 0;
-  min-height: auto;
   font-size: 14px;
-  //width: 100%;
   text-align: center;
   padding-bottom: 12px;
   border-bottom: 2px solid #3F51B5;
   cursor:pointer;
-  //overflow: hidden;
-  //margin: 0px 4px;
 }
 
 .app-menu-item.android .control-content {

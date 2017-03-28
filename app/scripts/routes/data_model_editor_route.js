@@ -1,10 +1,10 @@
 /*
-templates/data_model_editor.hbs
-*/
+ templates/data_model_editor.hbs
+ */
 App.DataModelEditorRoute = Ember.Route.extend({
 
-  model: function() {
+    model: function () {
 
-    return this.store.find('dataHandler','dH1');
-  }
+        return this.store.find('dataHandler', 'dH1');
+    }
 });

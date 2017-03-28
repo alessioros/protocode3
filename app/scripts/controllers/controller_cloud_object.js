@@ -1,159 +1,149 @@
 /*
-templates/cloud_object.hbs
-*/
+ templates/cloud_object.hbs
+ */
 App.CloudObjectController = Ember.ObjectController.extend(App.Saveable, {
 
-  isCreatingAttribute: false,
-  isAttributeValid: true,
-  attributeName: Ember.computed('attributeCount', function() {
-    if(this.get('attributeCount') !== 0){
-      return  'newAttribute' + this.get('attributeCount');
-    }else{
-      return 'newAttribute';
-    }
-  }),
-  attributeCount: Ember.computed.alias('content.objectAttributes.length'),
-  attributeType: 'String',
-  attributeObject: '',
-  types: ['String','Integer','Float','Double','Boolean','Object','Object list'],
-
-  // checks if the attribute name is valid and doesn't already exist for this cloudObject
-  isAttNameValid: function(){
-
-    var self = this;
-    var name = this.get('attributeName');
-    var cloudObject = this.get('model');
-
-    self.set('isAttributeValid', true);
-
-    this.store.all('objectAttribute').some(
-      function(attribute){
-
-        if(attribute.get('name') === name){
-          if(attribute.get('cloudObject') === cloudObject){
-
-            self.set('isAttributeValid', false);
-            return false;
-          }
+    isCreatingAttribute: false,
+    isAttributeValid: true,
+    attributeName: Ember.computed('attributeCount', function () {
+        if (this.get('attributeCount') !== 0) {
+            return 'newAttribute' + this.get('attributeCount');
+        } else {
+            return 'newAttribute';
         }
-      }
-      );
+    }),
+    attributeCount: Ember.computed.alias('content.objectAttributes.length'),
+    attributeType: 'String',
+    attributeObject: '',
+    types: ['String', 'Integer', 'Float', 'Double', 'Boolean', 'Object', 'Object list'],
 
-    if(!this.get('isAttributeValid')){
-      return false;
+    // checks if the attribute name is valid and doesn't already exist for this cloudObject
+    isAttNameValid: function () {
 
-    }else if(name === ''){
-      return false;
+        var self = this;
+        var name = this.get('attributeName');
+        var cloudObject = this.get('model');
 
-    }else{
-      return true;
-    }
-  }.property('attributeName'),
+        self.set('isAttributeValid', true);
 
-  isObjectType: function(){
+        this.store.all('objectAttribute').some(
+            function (attribute) {
 
-    var self = this;
-    var type = this.get('attributeType');
+                if (attribute.get('name') === name) {
+                    if (attribute.get('cloudObject') === cloudObject) {
 
-    if(type === 'Object' || type === 'Object list'){
-      return true;
-    }else{
-      return false;
-    }
-  }.property('attributeType'),
-
-  actions: {
-
-    deleteObject: function(name){
-
-      var self = this
-      var model = this.get('model');
-      var name = model.get('name');
-
-      this.store.find('cloudHandler','cH1').then(
-        function(cloudHandler){
-          self.store.find('cloudObject', name).then(
-            function(cloudObject){
-
-              self.store.findAll('objectAttribute', { cloudObject: model}).then(
-                function(array){
-                  array.forEach(function (data) {
-                    Ember.run.once(self, function () {
-                      data.deleteRecord();
-                      data.save();
-                    });
-                  });
+                        self.set('isAttributeValid', false);
+                        return false;
+                    }
                 }
-                );
-              cloudObject.deleteRecord();
-              cloudHandler.get('cloudObjects').removeObject(cloudObject);
-              cloudHandler.save();
-              cloudObject.save();
+            }
+        );
 
-            });
-        });
+        if (!this.get('isAttributeValid')) {
+            return false;
 
-      this.transitionToRoute('cloud_objects');
-    },
+        } else return name !== '';
+    }.property('attributeName'),
 
-    setCreatingAttribute: function(value){
-      this.set('isCreatingAttribute',value);
-      if(value === false){
-        this.set('attributeType','string');
-      }
-    },
+    isObjectType: function () {
 
-    createAttribute: function(){
+        var type = this.get('attributeType');
 
-      var self = this;
-      var name = this.get('attributeName');
-      var type = this.get('attributeType');
-      var object = this.get('attributeObject');
-      var cloudObject = this.get('model');
-      var cloudObjectName = cloudObject.get('name');
+        return type === 'Object' || type === 'Object list';
+    }.property('attributeType'),
 
-      this.store.find('cloudObject', cloudObjectName).then(
-        function(cloudObject){
-          self.store.createRecord('objectAttribute', {
+    actions: {
 
-            name: name,
-            type: type,
-            object: object,
-            cloudObject: cloudObject
+        deleteObject: function (name) {
 
-          }).save().then(
-          function(attribute){
+            var self = this;
+            var model = this.get('model');
+            var name = model.get('name');
 
-            cloudObject.get('objectAttributes').addObject(attribute);
-            cloudObject.save();
-            attribute.save();
-          });
-        });
+            this.store.find('cloudHandler', 'cH1').then(
+                function (cloudHandler) {
+                    self.store.find('cloudObject', name).then(
+                        function (cloudObject) {
 
-      this.set('isCreatingAttribute', false);
-      this.set('attributeType','string');
-      this.set('attributeObject','');
-    },
+                            self.store.findAll('objectAttribute', {cloudObject: model}).then(
+                                function (array) {
+                                    array.forEach(function (data) {
+                                        Ember.run.once(self, function () {
+                                            data.deleteRecord();
+                                            data.save();
+                                        });
+                                    });
+                                }
+                            );
+                            cloudObject.deleteRecord();
+                            cloudHandler.get('cloudObjects').removeObject(cloudObject);
+                            cloudHandler.save();
+                            cloudObject.save();
 
-    deleteAttribute: function(key){
+                        });
+                });
 
-      var self = this
-      var cloudObject = this.get('model');
-      var cloudObjectName = cloudObject.get('name');
+            this.transitionToRoute('cloud_objects');
+        },
 
-      this.store.find('cloudObject', cloudObjectName).then(
-        function(cloudObject){
-          self.store.find('objectAttribute', key).then(
-            function(objectAttribute){
+        setCreatingAttribute: function (value) {
+            this.set('isCreatingAttribute', value);
+            if (value === false) {
+                this.set('attributeType', 'string');
+            }
+        },
 
-              objectAttribute.deleteRecord();
-              cloudObject.get('objectAttributes').removeObject(objectAttribute);
-              cloudObject.save();
-              objectAttribute.save();
-            });
-        });
+        createAttribute: function () {
+
+            var self = this;
+            var name = this.get('attributeName');
+            var type = this.get('attributeType');
+            var object = this.get('attributeObject');
+            var cloudObject = this.get('model');
+            var cloudObjectName = cloudObject.get('name');
+
+            this.store.find('cloudObject', cloudObjectName).then(
+                function (cloudObject) {
+                    self.store.createRecord('objectAttribute', {
+
+                        name: name,
+                        type: type,
+                        object: object,
+                        cloudObject: cloudObject
+
+                    }).save().then(
+                        function (attribute) {
+
+                            cloudObject.get('objectAttributes').addObject(attribute);
+                            cloudObject.save();
+                            attribute.save();
+                        });
+                });
+
+            this.set('isCreatingAttribute', false);
+            this.set('attributeType', 'string');
+            this.set('attributeObject', '');
+        },
+
+        deleteAttribute: function (key) {
+
+            var self = this;
+            var cloudObject = this.get('model');
+            var cloudObjectName = cloudObject.get('name');
+
+            this.store.find('cloudObject', cloudObjectName).then(
+                function (cloudObject) {
+                    self.store.find('objectAttribute', key).then(
+                        function (objectAttribute) {
+
+                            objectAttribute.deleteRecord();
+                            cloudObject.get('objectAttributes').removeObject(objectAttribute);
+                            cloudObject.save();
+                            objectAttribute.save();
+                        });
+                });
+
+        }
 
     }
-
-  }
 });

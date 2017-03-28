@@ -14,9 +14,8 @@
     top: 0;
     left: 0;
     background-size: 100% auto;
-    background-repeat: no-repeat;
-    background-image: url("../img/ui_watch_controls/watchos/status_bar.png");
-	  height: 22px;
+      background: url("../img/ui_watch_controls/watchos/status_bar.png") no-repeat;
+      height: 22px;
   }
 
   /*============ WATCH BUTTONS ============*/
@@ -45,14 +44,14 @@
 	.control-watch-switch .watch-switch-image {
 	  width: 64px;
 	  height:32px;
-		margin : auto 4px auto 0px;
+		margin : auto 4px auto 0;
 	  background: url('../img/ui_watch_controls/watchos/watch_switch_circle.png');
 	}
 
 	.control-watch-switch .watch-switch-title {
 	  width: 100%;
     font: 16px -apple-system-font, ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
-		margin : auto 0px auto 8px;
+		margin : auto 0 auto 8px;
 		overflow : hidden;
 	}
 
@@ -60,7 +59,7 @@
 
   .control-watch-slider .watch-slider-left-row,
   .control-watch-slider .watch-slider-image,
-  .control-watch-slider .watch-slider-right-row, {
+  .control-watch-slider .watch-slider-right-row{
     display:none;
   }
 
@@ -155,9 +154,8 @@
   .control-switch .switch-image {
     width: 51px;
     height:31px;
-    background: url('../img/ui_phone_controls/ios/switch_circle.png');
-    background-size: 100%;
-    background-repeat : no-repeat;
+      background-size: 100%;
+      background: url('../img/ui_phone_controls/ios/switch_circle.png') no-repeat;
   }
 
 
@@ -177,9 +175,8 @@
   .control-slider .slider-image {
     width: 80px;
     height: 40px;
-    background: url('../img/ui_phone_controls/ios/slider_circle.png');
-    background-size: 100%;
-    background-repeat : no-repeat;
+      background-size: 100%;
+      background: url('../img/ui_phone_controls/ios/slider_circle.png') no-repeat;
   }
 
   /*============ WEB VIEW ============*/
@@ -277,7 +274,7 @@
   .control-list-view-cell .list-icon {
     width : 22px;
     height : 22px;
-    margin: 9px 0px;
+    margin: 9px 0;
     background: url("../img/ui_phone_controls/ios/listicon.png");
     background-size : 100%;
     float:right;
@@ -290,7 +287,7 @@
     line-height: 16px;
     font-size: 16px;
     padding: 14px 10px 14px 10px;
-    margin: 0px 0px -44px 0px;
+    margin: 0 0px -44px 0px;
     position: relative;
     top: -44px;
     color: #fff;
@@ -326,8 +323,7 @@
   /*============ MAP ============*/
 
   .control-map {
-    background: url('../img/ui_phone_controls/ios/ios_map.png');
-    background-repeat: round;
+      background: url('../img/ui_phone_controls/ios/ios_map.png') round;
   }
 
   /*============ DATE PICKER============*/
@@ -335,10 +331,9 @@
   .control-datepicker .datepicker-image {
     width: 320px;
     height:216px;
-    background: url('../img/ui_phone_controls/ios/datepicker.png');
-    background-size: 100%;
-    background-repeat: round;
-    margin : auto;
+      background-size: 100%;
+      background: url('../img/ui_phone_controls/ios/datepicker.png') round;
+      margin : auto;
   }
 
   /*============ TIME PICKER ============*/
@@ -346,31 +341,29 @@
   .control-timepicker .timepicker-image {
     width: 320px;
     height:216px;
-    background: url('../img/ui_phone_controls/ios/timepicker.png');
-    background-size: 100%;
-    background-repeat : round;
-    margin : auto;
+      background-size: 100%;
+      background: url('../img/ui_phone_controls/ios/timepicker.png') round;
+      margin : auto;
   }
 
   /*============ CARD VIEW ============*/
 
   .control-card {
     background : rgb(252, 252, 252);
-    border-radius: 0px;
+    border-radius: 0;
   }
 
   .control-card .card-image {
     width : 100%;
     height : 56.25%;
-    background: url('../img/ui_phone_controls/ios/card_image.png');
-    background-size: 100%;
-    background-repeat : no-repeat;
+      background-size: 100%;
+      background: url('../img/ui_phone_controls/ios/card_image.png') no-repeat;
   }
 
 
   .control-card .card-title {
     font-size : 24px;
-    padding : 24px 16px 0px 16px;
+    padding : 24px 16px 0 16px;
     width:100%;
     height:17%;
     margin:0;
@@ -379,7 +372,7 @@
 
   .control-card .card-subtitle {
     font-size : 14px;
-    padding : 16px 16px 0px 16px;
+    padding : 16px 16px 0 16px;
     width:100%;
     height:11%;
     margin:0;

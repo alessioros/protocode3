@@ -1,21 +1,21 @@
 /*
-templates/preference_records.hbs
-*/
+ templates/preference_records.hbs
+ */
 App.PreferenceRecordsRoute = Ember.Route.extend({
 
-  model: function(){
+    model: function () {
 
-    return this.store.find('prefHandler','pH1').then(
-      function(prefHandler){
-        return prefHandler.get('prefRecords');
+        return this.store.find('prefHandler', 'pH1').then(
+            function (prefHandler) {
+                return prefHandler.get('prefRecords');
 
-      });
-  },
+            });
+    },
 
-  actions: {
+    actions: {
 
-    refreshModel: function(){
-      this.refresh();
+        refreshModel: function () {
+            this.refresh();
+        }
     }
-  }
 });

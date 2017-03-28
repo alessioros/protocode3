@@ -21,7 +21,7 @@ App.UiMoveable = Ember.Mixin.create({
       var posX = (event.pageX - parentOffset.left - self.get('offsetMouseX')) / self.get('controller.zoomLevel') * self.get('smartphone.screenWidth') / self.get('smartphone.cssWidth');
       var posY = (event.pageY - parentOffset.top - self.get('offsetMouseY')) / self.get('controller.zoomLevel') * self.get('smartphone.screenHeight') / self.get('smartphone.cssHeight');
 
-      if (self.get('context.parentContainer') == null) {
+      if (self.get('context.parentContainer') === null) {
         posY -= self.get('smartphone.viewTop');
       }
 

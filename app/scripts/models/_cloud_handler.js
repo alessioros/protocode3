@@ -1,23 +1,23 @@
 App.CloudHandler = DS.Model.extend({
 
-      dataHandler:  DS.belongsTo('dataHandler'),
+    dataHandler: DS.belongsTo('dataHandler'),
 
-      cloudObjects:     DS.hasMany('cloudObject', {async: true}),
+    cloudObjects: DS.hasMany('cloudObject', {async: true}),
 
-      xmlName: 'cloudHandler',
+    xmlName: 'cloudHandler',
 
-      toXml: function(xmlDoc) {
+    toXml: function (xmlDoc) {
 
-          var cloudHandler = xmlDoc.createElement(this.get('xmlName'));
+        var cloudHandler = xmlDoc.createElement(this.get('xmlName'));
 
-          this.get('cloudObjects').then(
-            function(items){
-              items.map(
-                function(cloudObject) {
-                  cloudHandler.appendChild(cloudObject.toXml(xmlDoc));
-              });
+        this.get('cloudObjects').then(
+            function (items) {
+                items.map(
+                    function (cloudObject) {
+                        cloudHandler.appendChild(cloudObject.toXml(xmlDoc));
+                    });
             });
 
-          return cloudHandler;
-      }
+        return cloudHandler;
+    }
 });

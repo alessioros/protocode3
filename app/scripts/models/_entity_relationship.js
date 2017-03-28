@@ -8,16 +8,16 @@ App.EntityRelationship = DS.Model.extend({
 
     xmlName: 'entityRelationships',
 
-    toXml: function(xmlDoc) {
+    toXml: function (xmlDoc) {
 
-      var self = this;
+        var self = this;
 
-      var entityRelationship = xmlDoc.createElement(self.get('xmlName'));
+        var entityRelationship = xmlDoc.createElement(self.get('xmlName'));
 
-      entityRelationship.setAttribute('name', self.get('name'));
-      entityRelationship.setAttribute('destination', self.get('destination'));
-      entityRelationship.setAttribute('type', self.get('type'));
+        entityRelationship.setAttribute('name', self.get('name'));
+        entityRelationship.setAttribute('destination', self.get('destination'));
+        entityRelationship.setAttribute('type', self.get('type'));
 
-      return entityRelationship;
+        return entityRelationship;
     }
 });

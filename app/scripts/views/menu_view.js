@@ -12,12 +12,12 @@ App.MenuView = Ember.View.extend({
     var menuItems = this.get('context.menu.menuItems');
     menuItems.forEach(function(menuItem) {
       var menuItemDestination = menuItem.get('navigation.destination.name');
-      if(viewControllerName == menuItemDestination) {
+      if(viewControllerName === menuItemDestination) {
         currentViewControllerIsMenu = true;
       }
     });
 
-    style = "";
+    var style = "";
 
     if(!currentViewControllerIsMenu) {
         style += "display:none";

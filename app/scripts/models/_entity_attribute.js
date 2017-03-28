@@ -7,15 +7,15 @@ App.EntityAttribute = DS.Model.extend({
 
     xmlName: 'entityAttributes',
 
-    toXml: function(xmlDoc) {
+    toXml: function (xmlDoc) {
 
-      var self = this;
+        var self = this;
 
-      var entityAttribute = xmlDoc.createElement(self.get('xmlName'));
+        var entityAttribute = xmlDoc.createElement(self.get('xmlName'));
 
-      entityAttribute.setAttribute('name', self.get('name'));
-      entityAttribute.setAttribute('type', self.get('type'));
+        entityAttribute.setAttribute('name', self.get('name'));
+        entityAttribute.setAttribute('type', self.get('type'));
 
-      return entityAttribute;
+        return entityAttribute;
     }
 });

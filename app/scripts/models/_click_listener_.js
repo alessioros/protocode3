@@ -1,7 +1,7 @@
 App.ClickListener = DS.Model.extend({
     navigation: DS.belongsTo('navigation'),
 
-    deleteRecord: function() {
+    deleteRecord: function () {
         var navigation = this.get('navigation');
 
         if (navigation) {
@@ -12,12 +12,12 @@ App.ClickListener = DS.Model.extend({
         this._super();
     },
 
-    toXml: function(xmlDoc) {
+    toXml: function (xmlDoc) {
         var elem = xmlDoc.createElement('clickListener');
 
         var navigation = this.get('navigation');
 
-        if (navigation != null) {
+        if (navigation !== null) {
             elem.appendChild(navigation.toXml(xmlDoc));
         }
 

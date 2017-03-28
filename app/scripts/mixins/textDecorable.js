@@ -13,13 +13,13 @@ App.TextDecorable = Ember.Mixin.create({
 
   textDecoration: function(key, value, decoration) {
     // setter
-    if (value != undefined) {
+    if (value !== undefined) {
       this.set('model.textDecoration', decoration);
       this.get('model').save();
     }
 
     // getter
-    return this.get('model.textDecoration') == decoration;
+    return this.get('model.textDecoration') === decoration;
   }
   
 });

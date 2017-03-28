@@ -13,13 +13,13 @@ App.TextAlignable = Ember.Mixin.create({
 
   textAlign: function(key, value, alignment) {
     // setter
-    if (value != undefined) {
+    if (value !== undefined) {
       this.set('model.textAlign', alignment);
       this.get('model').save();
     }
 
     // getter
-    return this.get('model.textAlign') == alignment;
+    return this.get('model.textAlign') === alignment;
   }
   
 });

@@ -1,140 +1,178 @@
-App.Router.map(function() {
-    this.resource('editor', function() {
-        this.resource('watchControllers', function() {
+App.Router.map(function () {
+    this.resource('editor', function () {
+        this.resource('watchControllers', function () {
             this.resource('watchController', {
                 path: '/watchController/:watchController_id'
-            }, function() {
+            }, function () {
                 this.resource('dispatchUiWatchControl', {
                     path: '/uiWatchControl/:ui_watch_control_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('controlWatchButton', {
                     path: '/watchButton/:watch_button_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('controlWatchLabel', {
                     path: '/watchLabel/:watch_label_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('controlWatchVoiceMessage', {
                     path: '/watchVoiceMessage/:watch_voice_message_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('controlWatchSwitch', {
                     path: '/watchSwitch/:watch_switch_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('controlWatchSlider', {
                     path: '/watchSlider/:watch_slider_id'
-                }, function() {});
+                }, function () {
+                });
             });
         });
-        this.resource('viewControllers', function() {
+        this.resource('viewControllers', function () {
             this.resource('viewController', {
                 path: '/viewController/:viewController_id'
-            }, function() {
+            }, function () {
                 this.resource('dispatchUiPhoneControl', {
                     path: '/uiPhoneControl/:ui_phone_control_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('controlAudioPlayer', {
                     path: '/audioPlayer/:audioPlayer_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('controlAudioRecorder', {
                     path: '/audioRecorder/:audioRecorder_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('controlButton', {
                     path: '/button/:button_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('controlCard', {
                     path: '/card/:card_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('controlContainer', {
                     path: '/container/:container_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('controlEditText', {
                     path: '/editText/:editText_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('controlGridView', {
                     path: '/gridView/:gridView_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('controlGridViewCell', {
                     path: '/gridViewCell/:gridViewCell_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('controlImageView', {
                     path: '/imageView/:imageView_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('controlLabel', {
                     path: '/label/:label_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('controlListView', {
                     path: '/listView/:listView_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('controlListViewCell', {
                     path: '/listViewCell/:listViewCell_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('controlMap', {
                     path: '/map/:map_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('controlDatepicker', {
                     path: '/datepicker/:datepicker_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('controlTimepicker', {
                     path: '/timepicker/:timepicker_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('controlSwitch', {
                     path: '/switch/:switch_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('controlSlider', {
                     path: '/slider/:slider_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('controlSpinner', {
                     path: '/spinner/:spinner_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('controlPhotocameraController', {
                     path: '/photocameraController/:photocameraController_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('controlVideocameraController', {
                     path: '/videocameraController/:videocameraController_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('controlVideoView', {
                     path: '/videoView/:videoView_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('controlWebView', {
                     path: '/webView/:webView_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('appMenu', {
                     path: '/menu/:menu_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('appMenuItem', {
                     path: '/menuItem/:menu_item_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('asyncTask', {
                     path: '/asyncTask/:async_task_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('alertDialog', {
                     path: '/alertDialog/:alert_dialog_id'
-                }, function() {});
+                }, function () {
+                });
                 this.resource('progressDialog', {
                     path: '/progressDialog/:progress_dialog_id'
-                }, function() {});
+                }, function () {
+                });
             });
         });
     });
 
-    this.resource('data_model_editor', function() {
-        this.resource('preference_handler', function() {
-            this.resource('preference_records', function(){});
-        });
-        this.resource('database_handler', function() {
-            this.resource('entities', function() {
-                this.resource('entity', {
-                  path: '/entity/:entity_id'
-                }, function() {});
+    this.resource('data_model_editor', function () {
+        this.resource('preference_handler', function () {
+            this.resource('preference_records', function () {
             });
         });
-        this.resource('storage_handler', function() {
-            this.resource('storage_records', function(){});
+        this.resource('database_handler', function () {
+            this.resource('entities', function () {
+                this.resource('entity', {
+                    path: '/entity/:entity_id'
+                }, function () {
+                });
+            });
         });
-        this.resource('cloud_handler', function() {
-            this.resource('cloud_objects', function() {
+        this.resource('storage_handler', function () {
+            this.resource('storage_records', function () {
+            });
+        });
+        this.resource('cloud_handler', function () {
+            this.resource('cloud_objects', function () {
                 this.resource('cloud_object', {
-                  path: '/cloud_object/:cloud_object_id'
-                }, function() {});
+                    path: '/cloud_object/:cloud_object_id'
+                }, function () {
+                });
             });
         });
     });

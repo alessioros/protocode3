@@ -1,33 +1,33 @@
 /*
-  templates/control_videocamera_controller/index.hbs
-*/
+ templates/control_videocamera_controller/index.hbs
+ */
 App.ControlVideocameraControllerIndexController = App.UiPhoneControlController.extend({
 
-    allowedVideoViews: function() {
+    allowedVideoViews: function () {
         return this.get('videoViews').filterBy('sourceType.type', 'hardwareFile');
     }.property('videoViews.@each'),
 
-    normalBackType: function(key, value) {
+    normalBackType: function (key, value) {
         return this.backgroundType(key, value, 'normal');
     }.property('model.backgroundType'),
 
-    iconBackType: function(key, value) {
+    iconBackType: function (key, value) {
         return this.backgroundType(key, value, 'icon');
     }.property('model.backgroundType'),
 
-    backgroundType: function(key, value, type) {
+    backgroundType: function (key, value, type) {
         // setter
-        if (value != undefined) {
+        if (value !== undefined) {
             this.set('model.backgroundType', type);
             this.get('model').save();
         }
 
         // getter
-        return this.get('model.backgroundType') == type;
+        return this.get('model.backgroundType') === type;
     },
 
     actions: {
-        acceptChanges: function() {
+        acceptChanges: function () {
             this._super();
 
             if (this.get('model.videoView')) {

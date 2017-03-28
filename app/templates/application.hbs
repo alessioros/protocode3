@@ -30,31 +30,33 @@
         </div>
     </nav>
     {{#if model}}
-    <div class="panel panel-default">
-      <div class="panel-body">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="input-group">
-                <span class="input-group-addon input-sm">Application</span>
-                {{input value=name class="form-control input-sm" placeholder="name" type="text" focus-out="acceptChanges" insert-newline="acceptChanges"}}
-              </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <span class="input-group-addon input-sm">Application</span>
+                            {{input value=name class="form-control input-sm" placeholder="name" type="text"
+                                    focus-out="acceptChanges" insert-newline="acceptChanges"}}
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <span class="input-group-addon input-sm">Company Identifier</span>
+                            {{input value=companyIdentifier class="form-control input-sm" placeholder="companyId"
+                                    type="text" focus-out="acceptChanges" insert-newline="acceptChanges"}}
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="pull-right">
+                            <button class="btn btn-default btn-sm" {{action 'generateAppModel'}}>
+                                <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Model
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-4">
-              <div class="input-group">
-                <span class="input-group-addon input-sm">Company Identifier</span>
-                {{input value=companyIdentifier class="form-control input-sm" placeholder="companyId" type="text" focus-out="acceptChanges" insert-newline="acceptChanges"}}
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="pull-right">
-                <button class="btn btn-default btn-sm" {{action 'generateAppModel'}}>
-                  <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Model
-                </button>
-              </div>
-            </div>
-          </div>
-      </div>
-    </div>
+        </div>
     {{/if}}
     <div class="container-fluid" id="main">
         {{outlet}}

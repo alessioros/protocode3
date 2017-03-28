@@ -1,9 +1,9 @@
 /*
-  templates/control_list_view_cell/index.hbs
-*/
+ templates/control_list_view_cell/index.hbs
+ */
 App.ControlListViewCellIndexController = Ember.ObjectController.extend(App.Saveable, App.Deletable, {
     actions: {
-        delete: function() {
+        delete: function () {
             var cellToDelete = this.get('model');
             var parentView = cellToDelete.get('parentListView');
 

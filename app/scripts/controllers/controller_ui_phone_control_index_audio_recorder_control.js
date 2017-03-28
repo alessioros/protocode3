@@ -1,14 +1,14 @@
 /*
-  templates/control_audio_recorder/index.hbs
-*/
+ templates/control_audio_recorder/index.hbs
+ */
 App.ControlAudioRecorderIndexController = App.UiPhoneControlController.extend({
 
-    allowedAudioPlayers: function() {
+    allowedAudioPlayers: function () {
         return this.get('audioPlayers').filterBy('sourceType.type', 'hardwareFile');
     }.property('audioPlayers.@each'),
 
     actions: {
-        acceptChanges: function() {
+        acceptChanges: function () {
             this._super();
 
             if (this.get('model.audioPlayer')) {

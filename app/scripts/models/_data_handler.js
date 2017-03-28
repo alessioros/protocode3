@@ -9,32 +9,32 @@ App.DataHandler = DS.Model.extend({
 
     xmlName: 'dataHandler',
 
-    toXml: function(xmlDoc) {
+    toXml: function (xmlDoc) {
 
-      var prefHandler = this.get('prefHandler');
-      var databaseHandler = this.get('databaseHandler');
-      var cloudHandler = this.get('cloudHandler');
-      var storageHandler = this.get('storageHandler');
+        var prefHandler = this.get('prefHandler');
+        var databaseHandler = this.get('databaseHandler');
+        var cloudHandler = this.get('cloudHandler');
+        var storageHandler = this.get('storageHandler');
 
-      var dataHandler = xmlDoc.createElement(this.get('xmlName'));
+        var dataHandler = xmlDoc.createElement(this.get('xmlName'));
 
-      if(prefHandler){
-        dataHandler.appendChild(prefHandler.toXml(xmlDoc));
-      }
+        if (prefHandler) {
+            dataHandler.appendChild(prefHandler.toXml(xmlDoc));
+        }
 
-      if(databaseHandler){
-        dataHandler.appendChild(databaseHandler.toXml(xmlDoc));
-      }
+        if (databaseHandler) {
+            dataHandler.appendChild(databaseHandler.toXml(xmlDoc));
+        }
 
-      if(cloudHandler){
-        dataHandler.appendChild(cloudHandler.toXml(xmlDoc));
-      }
+        if (cloudHandler) {
+            dataHandler.appendChild(cloudHandler.toXml(xmlDoc));
+        }
 
-      if(storageHandler){
-        dataHandler.appendChild(storageHandler.toXml(xmlDoc));
-      }
+        if (storageHandler) {
+            dataHandler.appendChild(storageHandler.toXml(xmlDoc));
+        }
 
-      return dataHandler;
+        return dataHandler;
     }
 
 });

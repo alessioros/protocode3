@@ -9,11 +9,11 @@
                             <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
                         </span>
                         {{view Ember.Select
-                          content=smartphones
-                          optionLabelPath='content.label'
-                          optionValuePath="content"
-                          class="form-control input-sm"
-                          value=smartphone
+                               content=smartphones
+                               optionLabelPath='content.label'
+                               optionValuePath="content"
+                               class="form-control input-sm"
+                               value=smartphone
                         }}
                     </div>
                 </div>
@@ -24,13 +24,14 @@
                       <span class="input-group-addon">
                           <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
                       </span>
-                        {{view Ember.Select content=smartwatches optionLabelPath='content.label' optionValuePath="content" class="form-control input-sm" value=smartwatch}}
+                        {{view Ember.Select content=smartwatches optionLabelPath='content.label'
+                               optionValuePath="content" class="form-control input-sm" value=smartwatch}}
                     </div>
                 </div>
             </div>
             <div class="col-md-1"></div>
-            </div>
         </div>
     </div>
+</div>
 </div>
 {{outlet}}

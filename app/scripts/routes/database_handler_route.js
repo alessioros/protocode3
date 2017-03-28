@@ -1,87 +1,87 @@
 /*
-templates/database_handler.hbs
-*/
+ templates/database_handler.hbs
+ */
 App.DatabaseHandlerRoute = Ember.Route.extend({
 
-  model: function(){
+    model: function () {
 
-    return this.store.find('dataHandler','dH1').then(
-      function(dataHandler){
-        
-        return dataHandler.get('databaseHandler');
-      });
-  },
+        return this.store.find('dataHandler', 'dH1').then(
+            function (dataHandler) {
 
-  actions: {
-
-    enableDB: function(){
-
-      var self = this
-      this.store.createRecord('databaseHandler', {id: 'dbH1'}).save().then(
-        function(dbHandler){
-          self.store.find('dataHandler','dH1').then(
-            function(dataHandler){
-              dataHandler.set('databaseHandler', dbHandler);
-              dataHandler.save();
-              dbHandler.save();
+                return dataHandler.get('databaseHandler');
             });
-        });
-
-      this.refresh();
-      this.transitionTo('/data_model_editor/database_handler/entities');
     },
 
-    disableDB: function(){
+    actions: {
 
-      var self = this
+        enableDB: function () {
 
-      this.store.find('databaseHandler','dbH1').then(
-        function(dbHandler){
-
-          self.store.findAll('entity').then(
-            function(array){
-              array.forEach(function (data) {
-                Ember.run.once(self, function () {
-                  data.deleteRecord();
-                  data.save();
+            var self = this;
+            this.store.createRecord('databaseHandler', {id: 'dbH1'}).save().then(
+                function (dbHandler) {
+                    self.store.find('dataHandler', 'dH1').then(
+                        function (dataHandler) {
+                            dataHandler.set('databaseHandler', dbHandler);
+                            dataHandler.save();
+                            dbHandler.save();
+                        });
                 });
-              });
-            }
-            );
-          self.store.findAll('entityAttribute').then(
-            function(array){
-              array.forEach(function (data) {
-                Ember.run.once(self, function () {
-                  data.deleteRecord();
-                  data.save();
-                });
-              });
-            }
+
+            this.refresh();
+            this.transitionTo('/data_model_editor/database_handler/entities');
+        },
+
+        disableDB: function () {
+
+            var self = this;
+
+            this.store.find('databaseHandler', 'dbH1').then(
+                function (dbHandler) {
+
+                    self.store.findAll('entity').then(
+                        function (array) {
+                            array.forEach(function (data) {
+                                Ember.run.once(self, function () {
+                                    data.deleteRecord();
+                                    data.save();
+                                });
+                            });
+                        }
+                    );
+                    self.store.findAll('entityAttribute').then(
+                        function (array) {
+                            array.forEach(function (data) {
+                                Ember.run.once(self, function () {
+                                    data.deleteRecord();
+                                    data.save();
+                                });
+                            });
+                        }
+                    );
+
+                    self.store.findAll('entityRelationship').then(
+                        function (array) {
+                            array.forEach(function (data) {
+                                Ember.run.once(self, function () {
+                                    data.deleteRecord();
+                                    data.save();
+                                });
+                            });
+                        }
+                    );
+                    dbHandler.deleteRecord();
+                    dbHandler.save();
+
+                    self.store.find('dataHandler', 'dH1').then(
+                        function (dataHandler) {
+                            dataHandler.set('databaseHandler', null);
+                            dataHandler.save();
+                        });
+                }
             );
 
-          self.store.findAll('entityRelationship').then(
-            function(array){
-              array.forEach(function (data) {
-                Ember.run.once(self, function () {
-                  data.deleteRecord();
-                  data.save();
-                });
-              });
-            }
-            );
-          dbHandler.deleteRecord();
-          dbHandler.save();
-
-          self.store.find('dataHandler','dH1').then(
-            function(dataHandler){
-              dataHandler.set('databaseHandler', null);
-              dataHandler.save();
-            });
+            this.refresh();
+            this.transitionTo('/data_model_editor/database_handler/');
         }
-        );
-
-      this.refresh();
-      this.transitionTo('/data_model_editor/database_handler/');
     }
-  }
 });
