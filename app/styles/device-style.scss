@@ -1,398 +1,400 @@
 /*============ SMARTWATCHES ============*/
 
 .smartwatch-view.AppleWatch {
-  //Padding per centrare lo schermo
-  //dimensione schermo in pixel = dimensione in dp 136x170
-  padding: 152px 100px 153px 100px;
-  background-image: url("../img/smartwatches/watchos/AppleWatch.png");
+    //Padding per centrare lo schermo
+    //dimensione schermo in pixel = dimensione in dp 136x170
+    padding: 152px 100px 153px 100px;
+    background-image: url("../img/smartwatches/watchos/AppleWatch.png");
 }
 
 .smartwatch-view.Moto360 {
-  //Padding per centrare lo schermo
-  //dimensione schermo in pixel = dimensione in dp 187x187
-  padding: 120px 58px 132px 57px;
-  background-image: url("../img/smartwatches/androidwear/Moto360.png");
+    //Padding per centrare lo schermo
+    //dimensione schermo in pixel = dimensione in dp 187x187
+    padding: 120px 58px 132px 57px;
+    background-image: url("../img/smartwatches/androidwear/Moto360.png");
 }
 
 .smartwatch-view.AsusZenWatch {
-  //Padding per centrare lo schermo
-  //dimensione schermo in pixel = dimensione in dp 187x187
-  padding: 122px 64px 165px 79px;
-  background-image: url("../img/smartwatches/androidwear/AsusZenWatch.png");
+    //Padding per centrare lo schermo
+    //dimensione schermo in pixel = dimensione in dp 187x187
+    padding: 122px 64px 165px 79px;
+    background-image: url("../img/smartwatches/androidwear/AsusZenWatch.png");
 }
 
 .smartwatch-view.AppleWatch .smartwatch-screen-view {
-  background-color: #000000;
+    background-color: #000000;
 }
 
 .smartwatch-view.Moto360 .smartwatch-screen-view {
-  background-color: #000000;
-  border-radius : 135px;
+    background-color: #000000;
+    border-radius: 135px;
 }
 
 .smartwatch-view.AsusZenWatch .smartwatch-screen-view {
-  background-color: #000000;
-  border-radius : 7px;
+    background-color: #000000;
+    border-radius: 7px;
 }
 
 .AsusZenWatch .control-watch-slider .watch-slider-right-row {
-  left : 55%;
-  width: 37%;
+    left: 55%;
+    width: 37%;
 }
+
 .AsusZenWatch .control-watch-slider .watch-slider-left-row {
-  width: 40%;
+    width: 40%;
 }
 
 .Moto360 .control-watch-slider .watch-slider-right-row {
-  left : 54%;
-  width: 38%;
+    left: 54%;
+    width: 38%;
 }
+
 .Moto360 .control-watch-slider .watch-slider-left-row {
-  width: 41%;
+    width: 41%;
 }
 
 /*============ IPHONE 7 PLUS ============*/
 
 .smartphone-view.iPhone7Plus {
-  //Padding per centrare lo schermo
-  //dimensione schermo in pixel = dimensione in dp 414x736
-  padding: 120px 48px 134px 37px;
-  background-image: url("../img/smartphones/ios/iPhone_7plus.png");
+    //Padding per centrare lo schermo
+    //dimensione schermo in pixel = dimensione in dp 414x736
+    padding: 120px 48px 134px 37px;
+    background-image: url("../img/smartphones/ios/iPhone_7plus.png");
 }
 
 .iPhone7Plus {
 
-	.smartphone-screen-view .status-bar {
-	  background-image: url("../img/ui_phone_controls/ios/status_bar6plus.png");
-	  //Altezza status bar in pixel = altezza in points
-	  height: 63px; //+1 border bottom
-	  border-bottom: solid 1px rgb(247,247,247);
-	}
+    .smartphone-screen-view .status-bar {
+        background-image: url("../img/ui_phone_controls/ios/status_bar6plus.png");
+        //Altezza status bar in pixel = altezza in points
+        height: 63px; //+1 border bottom
+        border-bottom: solid 1px rgb(247, 247, 247);
+    }
 
-	.control-grid-view-cell,
-	.control-grid-view-cell .grid-image,
-	.control-grid-view-cell .grid-image-empty {
-	  height: 205px;
-	  width: 205px;
-	}
+    .control-grid-view-cell,
+    .control-grid-view-cell .grid-image,
+    .control-grid-view-cell .grid-image-empty {
+        height: 205px;
+        width: 205px;
+    }
 
-	.control-card .card-buttons {
-	  padding-top : 24px;
-	}
+    .control-card .card-buttons {
+        padding-top: 24px;
+    }
 
 }
 
 /*============ IPHONE 7 ============*/
 
 .smartphone-view.iPhone7 {
-  //Padding per centrare lo schermo
-  //dimensione schermo in pixel = dimensione in dp 375x667
-  padding: 171px 60px 162px 65px;
-  background-image: url("../img/smartphones/ios/iPhone_7.png");
+    //Padding per centrare lo schermo
+    //dimensione schermo in pixel = dimensione in dp 375x667
+    padding: 171px 60px 162px 65px;
+    background-image: url("../img/smartphones/ios/iPhone_7.png");
 }
 
 .iPhone7 {
 
-	.smartphone-screen-view .status-bar {
-	  background-image: url("../img/ui_phone_controls/ios/status_bar7.png");
-	  //Altezza status bar in pixel = altezza in points
-	  height: 64px; //+1 border bottom
-	  border-bottom: solid 1px #ccc;
-	}
+    .smartphone-screen-view .status-bar {
+        background-image: url("../img/ui_phone_controls/ios/status_bar7.png");
+        //Altezza status bar in pixel = altezza in points
+        height: 64px; //+1 border bottom
+        border-bottom: solid 1px #ccc;
+    }
 
-	.control-grid-view-cell,
-	.control-grid-view-cell .grid-image,
-	.control-grid-view-cell .grid-image-empty {
-	  height: 185px;
-	  width: 185px;
-	}
+    .control-grid-view-cell,
+    .control-grid-view-cell .grid-image,
+    .control-grid-view-cell .grid-image-empty {
+        height: 185px;
+        width: 185px;
+    }
 
-	.control-card .card-buttons {
-	  padding-top : 18px;
-	}
+    .control-card .card-buttons {
+        padding-top: 18px;
+    }
 
 }
 
 /*============ IPHONE 6 PLUS ============*/
 
 .smartphone-view.iPhone6Plus {
-  //Padding per centrare lo schermo
-  //dimensione schermo in pixel = dimensione in dp 414x736
-  padding: 130px 43px 134px 43px;
-  background-image: url("../img/smartphones/ios/iPhone_6plus.png");
+    //Padding per centrare lo schermo
+    //dimensione schermo in pixel = dimensione in dp 414x736
+    padding: 130px 43px 134px 43px;
+    background-image: url("../img/smartphones/ios/iPhone_6plus.png");
 }
 
 .iPhone6Plus {
 
-	.smartphone-screen-view .status-bar {
-	  background-image: url("../img/ui_phone_controls/ios/status_bar6plus.png");
-	  //Altezza status bar in pixel = altezza in points
-	  height: 63px; //+1 border bottom
-	  border-bottom: solid 1px rgb(247,247,247);
-	}
+    .smartphone-screen-view .status-bar {
+        background-image: url("../img/ui_phone_controls/ios/status_bar6plus.png");
+        //Altezza status bar in pixel = altezza in points
+        height: 63px; //+1 border bottom
+        border-bottom: solid 1px rgb(247, 247, 247);
+    }
 
-	.control-grid-view-cell,
-	.control-grid-view-cell .grid-image,
-	.control-grid-view-cell .grid-image-empty {
-	  height: 205px;
-	  width: 205px;
-	}
+    .control-grid-view-cell,
+    .control-grid-view-cell .grid-image,
+    .control-grid-view-cell .grid-image-empty {
+        height: 205px;
+        width: 205px;
+    }
 
-	.control-card .card-buttons {
-	  padding-top : 24px;
-	}
+    .control-card .card-buttons {
+        padding-top: 24px;
+    }
 
 }
 
 /*============ IPHONE 6 ============*/
 
 .smartphone-view.iPhone6 {
-  //Padding per centrare lo schermo
-  //dimensione schermo in pixel = dimensione in dp 375x667
-  padding: 171px 60px 162px 65px;
-  background-image: url("../img/smartphones/ios/iPhone_6.png");
+    //Padding per centrare lo schermo
+    //dimensione schermo in pixel = dimensione in dp 375x667
+    padding: 171px 60px 162px 65px;
+    background-image: url("../img/smartphones/ios/iPhone_6.png");
 }
 
 .iPhone6 {
 
-	.smartphone-screen-view .status-bar {
-	  background-image: url("../img/ui_phone_controls/ios/status_bar6.png");
-	  //Altezza status bar in pixel = altezza in points
-	  height: 64px; //+1 border bottom
-	  border-bottom: solid 1px #ccc;
-	}
+    .smartphone-screen-view .status-bar {
+        background-image: url("../img/ui_phone_controls/ios/status_bar6.png");
+        //Altezza status bar in pixel = altezza in points
+        height: 64px; //+1 border bottom
+        border-bottom: solid 1px #ccc;
+    }
 
-	.control-grid-view-cell,
-	.control-grid-view-cell .grid-image,
-	.control-grid-view-cell .grid-image-empty {
-	  height: 185px;
-	  width: 185px;
-	}
+    .control-grid-view-cell,
+    .control-grid-view-cell .grid-image,
+    .control-grid-view-cell .grid-image-empty {
+        height: 185px;
+        width: 185px;
+    }
 
-	.control-card .card-buttons {
-	  padding-top : 18px;
-	}
+    .control-card .card-buttons {
+        padding-top: 18px;
+    }
 
 }
 
 /*============ IPHONE 5 ============*/
 
 .smartphone-view.iPhone5 {
-  //Padding per centrare lo schermo
-  //dimensione schermo in pixel = dimensione in dp 375x667
-  padding: 220px 84px 212px 96px;
-  background-image: url("../img/smartphones/ios/iPhone_5.png");
+    //Padding per centrare lo schermo
+    //dimensione schermo in pixel = dimensione in dp 375x667
+    padding: 220px 84px 212px 96px;
+    background-image: url("../img/smartphones/ios/iPhone_5.png");
 }
 
 .iPhone5 {
 
-	.smartphone-screen-view .status-bar {
-	  background-image: url("../img/ui_phone_controls/ios/status_bar5.png");
-	  //Altezza status bar in pixel = altezza in points
-	  height: 64px; //+1 border bottom
-	  border-bottom: solid 1px #ccc;
-	}
+    .smartphone-screen-view .status-bar {
+        background-image: url("../img/ui_phone_controls/ios/status_bar5.png");
+        //Altezza status bar in pixel = altezza in points
+        height: 64px; //+1 border bottom
+        border-bottom: solid 1px #ccc;
+    }
 
-	.control-grid-view-cell,
-	.control-grid-view-cell .grid-image,
-	.control-grid-view-cell .grid-image-empty {
-	  height: 158px;
-	  width: 158px;
-	}
+    .control-grid-view-cell,
+    .control-grid-view-cell .grid-image,
+    .control-grid-view-cell .grid-image-empty {
+        height: 158px;
+        width: 158px;
+    }
 
-	.control-card .card-buttons {
-	  padding-top : 10px;
-	}
+    .control-card .card-buttons {
+        padding-top: 10px;
+    }
 
 }
 
 /*============ Google Pixel ============*/
 
 .smartphone-view.GooglePixel {
-  //Padding per centrare lo schermo
-  //dimensione schermo in pixel = dimensione in dp 387x641
-  padding: 154px 61px 166px 63px;
-  background-image: url("../img/smartphones/android/google_pixel.png");
+    //Padding per centrare lo schermo
+    //dimensione schermo in pixel = dimensione in dp 387x641
+    padding: 154px 61px 166px 63px;
+    background-image: url("../img/smartphones/android/google_pixel.png");
 }
 
 .GooglePixel {
-  /*
-	.app-menu.android {
-	  top: 33px;
-	}
+    /*
+      .app-menu.android {
+        top: 33px;
+      }
 
-	.app-menu.android:before {
-	  font-size : 22px;
-	  top: 16px;
-	}
+      .app-menu.android:before {
+        font-size : 22px;
+        top: 16px;
+      }
 
-	.app-menu-item.android {
-	  padding: 20px;
-	}
-  */
-	.action-bar {
-	  top: 29px;
-	  height: 64px;
-	  line-height: 64px;
-	}
+      .app-menu-item.android {
+        padding: 20px;
+      }
+    */
+    .action-bar {
+        top: 29px;
+        height: 64px;
+        line-height: 64px;
+    }
 
-	.action-bar .bar-content {
-	  margin-left: 10px;
-	  background-size: auto 93%;
-	  color: #FFFFFF;
-	  font-size: 22px;
-	}
+    .action-bar .bar-content {
+        margin-left: 10px;
+        background-size: auto 93%;
+        color: #FFFFFF;
+        font-size: 22px;
+    }
 
-	.status-bar {
-	  //Altezza status bar in pixel = altezza in points
-	  //411 X 30
-	  height: 30px;
-	  background-image: url("../img/ui_phone_controls/android/status_bar6p.png");
-	}
+    .status-bar {
+        //Altezza status bar in pixel = altezza in points
+        //411 X 30
+        height: 30px;
+        background-image: url("../img/ui_phone_controls/android/status_bar6p.png");
+    }
 
-	.command-bar {
-	  //411 X 55
-	  height: 55px;
-	  background-image: url("../img/ui_phone_controls/android/command_bar_pixel.png");
-	}
+    .command-bar {
+        //411 X 55
+        height: 55px;
+        background-image: url("../img/ui_phone_controls/android/command_bar_pixel.png");
+    }
 
-	.control-grid-view-cell,
-	.control-grid-view-cell .grid-image,
-	.control-grid-view-cell .grid-image-empty {
-	  height: 203px;
-	  width: 203px;
-	}
+    .control-grid-view-cell,
+    .control-grid-view-cell .grid-image,
+    .control-grid-view-cell .grid-image-empty {
+        height: 203px;
+        width: 203px;
+    }
 
-	.control-card .card-image {
-	  height : 222px;
-	}
+    .control-card .card-image {
+        height: 222px;
+    }
 
 }
 
 /*============ NEXUS 6P ============*/
 
 .smartphone-view.Nexus6P {
-  //Padding per centrare lo schermo
-  //dimensione schermo in pixel = dimensione in dp 411x731
-  padding: 135px 45px 134px 44px;
-  background-image: url("../img/smartphones/android/nexus_6p.png");
+    //Padding per centrare lo schermo
+    //dimensione schermo in pixel = dimensione in dp 411x731
+    padding: 135px 45px 134px 44px;
+    background-image: url("../img/smartphones/android/nexus_6p.png");
 }
 
 .Nexus6P {
-  /*
-	.app-menu.android {
-	  top: 33px;
-	}
+    /*
+      .app-menu.android {
+        top: 33px;
+      }
 
-	.app-menu.android:before {
-	  font-size : 22px;
-	  top: 16px;
-	}
+      .app-menu.android:before {
+        font-size : 22px;
+        top: 16px;
+      }
 
-	.app-menu-item.android {
-	  padding: 20px;
-	}
-  */
-	.action-bar {
-	  top: 29px;
-	  height: 64px;
-	  line-height: 64px;
-	}
+      .app-menu-item.android {
+        padding: 20px;
+      }
+    */
+    .action-bar {
+        top: 29px;
+        height: 64px;
+        line-height: 64px;
+    }
 
-	.action-bar .bar-content {
-	  margin-left: 10px;
-	  background-size: auto 93%;
-	  color: #FFFFFF;
-	  font-size: 22px;
-	}
+    .action-bar .bar-content {
+        margin-left: 10px;
+        background-size: auto 93%;
+        color: #FFFFFF;
+        font-size: 22px;
+    }
 
-	.status-bar {
-	  //Altezza status bar in pixel = altezza in points
-	  //411 X 30
-	  height: 30px;
-	  background-image: url("../img/ui_phone_controls/android/status_bar6p.png");
-	}
+    .status-bar {
+        //Altezza status bar in pixel = altezza in points
+        //411 X 30
+        height: 30px;
+        background-image: url("../img/ui_phone_controls/android/status_bar6p.png");
+    }
 
-	.command-bar {
-	  //411 X 55
-	  height: 55px;
-	  background-image: url("../img/ui_phone_controls/android/command_bar6p.png");
-	}
+    .command-bar {
+        //411 X 55
+        height: 55px;
+        background-image: url("../img/ui_phone_controls/android/command_bar6p.png");
+    }
 
-	.control-grid-view-cell,
-	.control-grid-view-cell .grid-image,
-	.control-grid-view-cell .grid-image-empty {
-	  height: 203px;
-	  width: 203px;
-	}
+    .control-grid-view-cell,
+    .control-grid-view-cell .grid-image,
+    .control-grid-view-cell .grid-image-empty {
+        height: 203px;
+        width: 203px;
+    }
 
-	.control-card .card-image {
-	  height : 222px;
-	}
+    .control-card .card-image {
+        height: 222px;
+    }
 
 }
 
 /*============ NEXUS 5 ============*/
 
 .smartphone-view.Nexus5 {
-  //Padding per centrare lo schermo
-  //dimensione schermo in pixel = dimensione in dp 360x640
-  padding: 156px 70px 204px 70px;
-  background-image: url("../img/smartphones/android/nexus_5.png");
+    //Padding per centrare lo schermo
+    //dimensione schermo in pixel = dimensione in dp 360x640
+    padding: 156px 70px 204px 70px;
+    background-image: url("../img/smartphones/android/nexus_5.png");
 }
 
 .Nexus5 {
 
-  /*
-	.app-menu.android {
-	  top: 28px;
-	}
+    /*
+      .app-menu.android {
+        top: 28px;
+      }
 
-	.app-menu.android:before {
-	  font-size : 18px;
-	  top: 14px;
-	}
+      .app-menu.android:before {
+        font-size : 18px;
+        top: 14px;
+      }
 
-	.app-menu-item.android {
-	  padding: 16px;
-	}
-  */
+      .app-menu-item.android {
+        padding: 16px;
+      }
+    */
 
-	.action-bar {
-	  top: 23px;
-	  height: 56px;
-	  line-height: 56px;
-	}
+    .action-bar {
+        top: 23px;
+        height: 56px;
+        line-height: 56px;
+    }
 
-	.action-bar .bar-content {
-	  margin-left: 5px;
-	  background-size: auto 93%;
-	  color: #FFFFFF;
-	  font-size: 18px;
-	}
+    .action-bar .bar-content {
+        margin-left: 5px;
+        background-size: auto 93%;
+        color: #FFFFFF;
+        font-size: 18px;
+    }
 
-	.status-bar {
-	  //Altezza status bar in pixel = altezza in points
-	  //360 X 23
-	  height: 23px;
-	  background-image: url("../img/ui_phone_controls/android/status_bar5.png");
-	}
+    .status-bar {
+        //Altezza status bar in pixel = altezza in points
+        //360 X 23
+        height: 23px;
+        background-image: url("../img/ui_phone_controls/android/status_bar5.png");
+    }
 
-	.command-bar {
-	  //360 X 47
-	  height: 47px;
-	  background-image: url("../img/ui_phone_controls/android/command_bar5.png");
-	}
+    .command-bar {
+        //360 X 47
+        height: 47px;
+        background-image: url("../img/ui_phone_controls/android/command_bar5.png");
+    }
 
-	.control-grid-view-cell,
-	.control-grid-view-cell .grid-image,
-	.control-grid-view-cell .grid-image-empty {
-	  height: 178px;
-	  width: 178px;
-	}
+    .control-grid-view-cell,
+    .control-grid-view-cell .grid-image,
+    .control-grid-view-cell .grid-image-empty {
+        height: 178px;
+        width: 178px;
+    }
 
-	.control-card .card-image {
-	  height : 193px;
-	}
+    .control-card .card-image {
+        height: 193px;
+    }
 
 }

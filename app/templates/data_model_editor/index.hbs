@@ -1,9 +1,31 @@
 <div class='data-presentation'>
     <div class='data-presentation-title'>
-        Select from the sidebar the types of data you want to add to your application
+        Choose the data model for your App
     </div>
-    <div class='col-md-3'><span class="sideicon fa fa-cogs"></span></div>
-    <div class='col-md-3'><span class="sideicon fa fa-database" aria-hidden="true"></span></div>
-    <div class='col-md-3'><span class="sideicon fa fa-file-text-o"></span></div>
-    <div class='col-md-3'><span class="sideicon fa fa-cloud"></span></div>
+    <div class="data-presentation-imgs">
+        <div class='col-md-3 data-img'>
+            {{#link-to 'preference_handler'}}
+                <img src="../../img/model_editor/pref_gear.png"/>
+            {{/link-to}}
+            <span>Preferences</span>
+        </div>
+        <div class='col-md-3 data-img'>
+            {{#link-to 'database_handler'}}
+                <img src="../../img/model_editor/database_gear.png"/>
+            {{/link-to}}
+            <span>SQL DB</span>
+        </div>
+        <div class='col-md-3 data-img'>
+            {{#link-to 'storage_handler'}}
+                <img src="../../img/model_editor/file_doc.png"/>
+            {{/link-to}}
+            <span>Files</span>
+        </div>
+        <div class='col-md-3 data-img'>
+            {{#link-to 'cloud_handler'}}
+                <img src="../../img/model_editor/cloud_db.png"/>
+            {{/link-to}}
+            <span>Cloud DB</span>
+        </div>
+    </div>
 </div>

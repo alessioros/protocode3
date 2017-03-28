@@ -4,67 +4,67 @@
 /*============ IOS ============*/
 
 .app-menu.ios {
-  position: absolute;
-  display: flex;
-  justify-content: space-around;
-  align-content: center;
-  align-items: flex-end;
-  background-color: rgb(247,247,247);
-  width: 100%;
-  //(px = points iphone)
-  height: 48px; // +1 border top
-  border-top: solid 1px rgb(247,247,247);
-  bottom: 0;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    align-items: flex-end;
+    background-color: rgb(247, 247, 247);
+    width: 100%;
+    //(px = points iphone)
+    height: 48px; // +1 border top
+    border-top: solid 1px rgb(247, 247, 247);
+    bottom: 0;
 }
 
 .Nexus6P .app-menu {
-  position: absolute;
-  display: flex;
-  justify-content: space-around;
-  align-content: center;
-  align-items: flex-end;
-  background-color: #3F51B5;
-  width: 100%;
-  //(px = points iphone)
-  height: 48px; // +1 border top
-  top: 93px;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    align-items: flex-end;
+    background-color: #3F51B5;
+    width: 100%;
+    //(px = points iphone)
+    height: 48px; // +1 border top
+    top: 93px;
 }
 
 .Nexus5 .app-menu {
-  position: absolute;
-  display: flex;
-  justify-content: space-around;
-  align-content: center;
-  align-items: flex-end;
-  background-color: #3F51B5;
-  width: 100%;
-  //(px = points iphone)
-  height: 48px; // +1 border top
-  top: 79px;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    align-items: flex-end;
+    background-color: #3F51B5;
+    width: 100%;
+    //(px = points iphone)
+    height: 48px; // +1 border top
+    top: 79px;
 }
 
 .app-menu-item.ios {
-  position: relative;
-  color: $ios-color;
-  flex: 0 1 auto;
-  align-self: auto;
-  min-width: 0;
-  font-size: 11px;
-  cursor:pointer;
+    position: relative;
+    color: $ios-color;
+    flex: 0 1 auto;
+    align-self: auto;
+    min-width: 0;
+    font-size: 11px;
+    cursor: pointer;
 }
 
 .app-menu-item.android {
-  position: relative;
-  color: #ffffff;
-  text-transform : uppercase;
-  flex: 0 1 auto;
-  align-self: auto;
-  min-width: 0;
-  font-size: 14px;
-  text-align: center;
-  padding-bottom: 12px;
-  border-bottom: 2px solid #3F51B5;
-  cursor:pointer;
+    position: relative;
+    color: #ffffff;
+    text-transform: uppercase;
+    flex: 0 1 auto;
+    align-self: auto;
+    min-width: 0;
+    font-size: 14px;
+    text-align: center;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #3F51B5;
+    cursor: pointer;
 }
 
 .app-menu-item.android .control-content {

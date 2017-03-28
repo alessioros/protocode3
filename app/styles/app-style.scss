@@ -1,4 +1,3 @@
-
 /*============ APP STYLE ============*/
 
 html, body {
@@ -6,342 +5,341 @@ html, body {
 }
 
 body {
-  background-color : #f1f1f1;
+    background-color: #f1f1f1;
 }
 
 body,
 .form-control {
-  font: 13px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+    font: 13px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 }
 
 .well {
-  background-color: #ffffff;
+    background-color: #ffffff;
 }
 
-.about-section{
-  font: 16px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+.about-section {
+    font: 16px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 }
 
 .form-group {
-  margin-bottom:5px;
+    margin-bottom: 5px;
 }
 
 .navbar-default .navbar-nav > li > a {
-  cursor: pointer;
-  font-size: 14px;
+    cursor: pointer;
+    font-size: 14px;
 }
 
 .navbar-default .navbar-nav > li > a:focus,
 .navbar-default .navbar-nav > li > a:active,
 .navbar-default .navbar-nav > li > a.active,
 .navbar-default .navbar-nav > li > a.active:hover {
-  color : #ffffff;
-  background-color : #cc181e;
+    color: #ffffff;
+    background-color: #cc181e;
 }
 
 .navbar-default .navbar-nav > li > a:hover {
-  color : #ffffff;
-  background-color : #444444;
+    color: #ffffff;
+    background-color: #444444;
 }
 
 .nav-tabs.nav-justified > li > a,
 .nav-tabs.nav-justified > li > a:hover,
 .nav-tabs.nav-justified > li.active > a,
 .nav-tabs.nav-justified > li.active > a:hover {
-    border-bottom : none !important;
+    border-bottom: none !important;
 }
 
 .nav-tabs.nav-justified > li.active > a:hover {
-    background-color : #ffffff;
+    background-color: #ffffff;
     text-decoration: none;
 }
 
 .nav-tabs.nav-justified > li > a:hover {
-  background-color : transparent;
-  border-color : transparent;
-  text-decoration: underline;
+    background-color: transparent;
+    border-color: transparent;
+    text-decoration: underline;
 }
 
 .panel-default .panel-heading,
 .panel-default .panel-footer {
-  background-color : #ffffff;
-  color : #333333;
+    background-color: #ffffff;
+    color: #333333;
 }
 
 .panel-info {
-  border-color : #ddd;
+    border-color: #ddd;
 }
 
 .panel-info .panel-heading,
 .panel-info .panel-footer {
-  background-color : #cc181e;
-  color : #ffffff;
+    background-color: #cc181e;
+    color: #ffffff;
 }
 
 .panel-info .panel-heading a {
-  color : #333333;
+    color: #333333;
 }
 
 .panel-group .panel-heading {
-    border-bottom : 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
 }
 
 .list-group-item {
-    border-top : none;
-    margin-bottom : 0;
+    border-top: none;
+    margin-bottom: 0;
     border-bottom: 1px solid #ddd;
 }
 
 .tab-pane .list-group-item {
-    margin-bottom : -1px;
-    border-top : 1px solid #ddd;
+    margin-bottom: -1px;
+    border-top: 1px solid #ddd;
 }
 
 .panel-title {
-  font-size : 14px;
-  height: 30px;
-  line-height: 30px;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
 }
 
 #view-controllers-panel {
-  border-top-left-radius: 0;
+    border-top-left-radius: 0;
 }
 
 #watch-controllers-panel {
-  border-top-right-radius: 0;
+    border-top-right-radius: 0;
 }
 
 .spacer {
-  margin-top: 15px;
+    margin-top: 15px;
 }
 
 .navbar-default {
-	//background-image: url("../img/gui/grey/grey.png");
-  background-color : #ffffff;
+    //background-image: url("../img/gui/grey/grey.png");
+    background-color: #ffffff;
 }
 
 .plotted {
-	background-image: url("../img/gui/tiny_grid/tiny_grid.png");
-  overflow: auto;
+    background-image: url("../img/gui/tiny_grid/tiny_grid.png");
+    overflow: auto;
 }
-
 
 /*============ CONTROL PICKER ============*/
 
 .control-ui-picker,
 .control-ui-watch-picker {
-  height: 50px;
-  width: 50px;
+    height: 50px;
+    width: 50px;
     background: no-repeat center center;
     background-size: contain;
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
+    transition: transform 0.5s;
+    -webkit-transition: transform 0.5s;
 }
 
 .control-ui-picker:hover,
 .control-ui-watch-picker:hover {
-  transform: scale(1.2) rotate(10deg);
-  transition: transform 0.1s;
-  -webkit-transform: scale(1.2) rotate(10deg);
-  -webkit-transition: transform 0.1s;
+    transform: scale(1.2) rotate(10deg);
+    transition: transform 0.1s;
+    -webkit-transform: scale(1.2) rotate(10deg);
+    -webkit-transition: transform 0.1s;
 }
 
 /*============ SMARTPHONE VIEW ============*/
 
 .smartphone-view {
-  margin: 0 auto;
-  -moz-transform-origin: 0 0;
-  -webkit-transform-origin: 0 0;
-  transition: transform 0.3s ease-out;
-  transition: -webkit-transform 0.3s ease-out;
+    margin: 0 auto;
+    -moz-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    transition: transform 0.3s ease-out;
+    transition: -webkit-transform 0.3s ease-out;
     background: no-repeat center center;
     background-size: 100%;
-  //Dimensione immagine dispositivo originale
-  width: 500px;
-  height: 1000px;
+    //Dimensione immagine dispositivo originale
+    width: 500px;
+    height: 1000px;
 }
 
 .smartphone-view .smartphone-screen-view {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  height: 100%;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 .smartphone-view .smartphone-screen-view .expanded-area {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .smartphone-view .smartphone-screen-view.dragging-over {
-  box-shadow: 0 0 5px 5px #cc181e;
+    box-shadow: 0 0 5px 5px #cc181e;
 }
 
 /*============ SMARTWATCH VIEW ============*/
 
 .smartwatch-view {
-  margin: 0 auto;
-  -moz-transform-origin: 0 0;
-  -webkit-transform-origin: 0 0;
-  transition: transform 0.3s ease-out;
-  transition: -webkit-transform 0.3s ease-out;
+    margin: 0 auto;
+    -moz-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    transition: transform 0.3s ease-out;
+    transition: -webkit-transform 0.3s ease-out;
     background: no-repeat center center;
     background-size: 100%;
-  //Dimensione immagine dispositivo originale
-  width: 356px;
-  height: 500px;
+    //Dimensione immagine dispositivo originale
+    width: 356px;
+    height: 500px;
 }
 
 .smartwatch-view .smartwatch-screen-view {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  height: 100%;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 .smartwatch-view .smartwatch-screen-view .expanded-area {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .smartwatch-view .smartwatch-screen-view.dragging-over {
-  box-shadow: 0 0 5px 5px #cc181e;
+    box-shadow: 0 0 5px 5px #cc181e;
 }
 
 /*============ INNER CONTROL ============*/
 
 .inner-control {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .inner-control.active {
-  //border: dashed 1px #007aff;
-  border: dashed 1px #cc181e;
-  border-radius: 3px;
+    //border: dashed 1px #007aff;
+    border: dashed 1px #cc181e;
+    border-radius: 3px;
 }
 
 /*============ UI CONTROL ============*/
 
 .ui-phone-control {
-  position: absolute;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
+    position: absolute;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
 }
 
 .ui-phone-control:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .ui-phone-control.is-moving {
-  z-index: 999;
-  cursor: move;
+    z-index: 999;
+    cursor: move;
 }
 
 .ui-phone-control .expanded {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 /*============ UI WATCH CONTROL ============*/
 
 .ui-watch-control {
-  position: absolute;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
+    position: absolute;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
 }
 
 .ui-watch-control:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .ui-watch-control.is-moving {
-  z-index: 999;
-  cursor: move;
+    z-index: 999;
+    cursor: move;
 }
 
 .ui-watch-control .expanded {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 /*============ BUTTON ============*/
 
 .control-button {
-  display: flex;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
 }
 
 /*============ WATCH BUTTON ============*/
 
 .control-watch-button {
-  display: flex;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
 }
 
 /*============ WATCH VOICE MESSAGE ============*/
 
 .control-watch-voice-message {
-  display: flex;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
 }
 
 /*============ LABEL ============*/
 
 .control-label {
-  display: flex;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
 }
 
 .control-label.right {
-  justify-content: flex-end;
+    justify-content: flex-end;
 }
 
 .control-label.center {
-  justify-content: center;
+    justify-content: center;
 }
 
 .control-label.left {
-  justify-content: flex-start;
+    justify-content: flex-start;
 }
 
 /*============ WATCH LABEL ============*/
 
 .control-watch-label {
-  display: flex;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
-  color : #ffffff;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
 }
 
 .control-watch-label.right {
-  justify-content: flex-end;
+    justify-content: flex-end;
 }
 
 .control-watch-label.center {
-  justify-content: center;
+    justify-content: center;
 }
 
 .control-watch-label.left {
-  justify-content: flex-start;
+    justify-content: flex-start;
 }
 
 /*============ EDIT TEXT ============*/
@@ -349,164 +347,162 @@ body,
 /*============ SWITCH ============*/
 
 .control-switch .control-content {
-  height: 100%;
-  display: flex;
+    height: 100%;
+    display: flex;
 }
 
 .control-switch .switch-image {
-  margin : auto;
+    margin: auto;
 }
 
 /*============ WATCH SWITCH ============*/
 
 .control-watch-switch .control-content {
-  height: 100%;
-  display: flex;
-  color : #fff;
+    height: 100%;
+    display: flex;
+    color: #fff;
 }
 
 .control-watch-switch .watch-switch-image,
 .control-watch-switch .watch-switch-title {
-  margin : auto;
+    margin: auto;
 }
-
 
 /*============ SLIDER ============*/
 
 .control-slider .control-content {
-  height: 100%;
-  display: flex;
-  align-content: center;
-  align-items: center;
+    height: 100%;
+    display: flex;
+    align-content: center;
+    align-items: center;
 }
 
 .control-slider .slider-left-row,
 .control-slider .slider-right-row {
-  position : absolute;
-  top:50%;
-  height: 2px;
+    position: absolute;
+    top: 50%;
+    height: 2px;
 }
 
 .control-slider .slider-image {
-  margin : auto;
+    margin: auto;
 }
 
 /*============ WATCH SLIDER ============*/
 
 .control-watch-slider .control-content {
-  height: 100%;
-  display: flex;
-  align-content: center;
-  align-items: center;
-  color : #fff;
+    height: 100%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    color: #fff;
 }
-
 
 /*============ WEB VIEW ============*/
 
 .control-web-view {
-  display: flex;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
 }
 
 /*============ IMAGE VIEW ============*/
 
 .control-image-view {
-  display: flex;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
 }
 
 /*============ VIDEO VIEW ============*/
 
 .control-video-view {
-  display: flex;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
 }
 
 /*============ AUDIO PLAYER ============*/
 
 .control-audio-player-view .control-content {
-  display: flex;
-  align-content: center;
-  align-items: center;
-  width: 192px;
-  margin:auto;
-  height: 100%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    width: 192px;
+    margin: auto;
+    height: 100%;
 }
 
 .control-audio-player-view .control-content .control-button {
-  height:56px;
-  width:56px;
-  margin: 4px;
-  border-radius: 30px;
+    height: 56px;
+    width: 56px;
+    margin: 4px;
+    border-radius: 30px;
 }
 
 .control-audio-player-view .control-content .control-button span {
-  margin:auto;
+    margin: auto;
 }
 
 /*============ LIST VIEW ============*/
 
 .control-list-view {
-  overflow-y: hidden;
+    overflow-y: hidden;
 }
 
 .control-list-view:hover {
-  box-shadow: 0 0 0 1px #ccc;
-  border-radius: 5px;
+    box-shadow: 0 0 0 1px #ccc;
+    border-radius: 5px;
 }
 
 .control-list-view-cell {
-  position: relative;
+    position: relative;
 }
 
 .control-list-view-cell .control-content {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 /*============ GRID VIEW ============*/
 
 .control-grid-view {
-  overflow-y: hidden;
+    overflow-y: hidden;
 }
 
 .control-grid-view:hover {
-  box-shadow: 0 0 0 1px #ccc;
-  border-radius: 5px;
+    box-shadow: 0 0 0 1px #ccc;
+    border-radius: 5px;
 }
 
 .control-grid-view-cell {
-  position: relative;
-  display: inline-block;
-  text-align: center;
+    position: relative;
+    display: inline-block;
+    text-align: center;
 }
 
 .control-grid-view-cell .control-content {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 /*============ PHOTO CAMERA ============*/
 
 .photocamera_icon {
-  width: 36px;
-  height : 36px;
+    width: 36px;
+    height: 36px;
 }
 
 /*============ VIDEO CAMERA ============*/
 
 .videocamera_icon {
-  width: 36px;
-  height : 36px;
+    width: 36px;
+    height: 36px;
 }
 
 /*============ AUDIO RECORDER ============*/
@@ -516,25 +512,25 @@ body,
 /*============ DATE PICKER============*/
 
 .control-datepicker .control-content {
-  height: 100%;
-  display: flex;
+    height: 100%;
+    display: flex;
 }
 
 /*============ TIME PICKER ============*/
 
 .control-timepicker .control-content {
-  height: 100%;
-  display: flex;
+    height: 100%;
+    display: flex;
 }
 
 /*============ CARD VIEW ============*/
 
 .control-card,
 .control-card .control-content {
-  height : 100%
+    height: 100%
 }
 
 .control-card .card-title,
 .control-card .card-subtitle {
-  overflow : hidden;
+    overflow: hidden;
 }
