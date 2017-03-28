@@ -125,8 +125,12 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
                                 function (array) {
                                     array.forEach(function (data) {
                                         Ember.run.once(self, function () {
-                                            data.deleteRecord();
-                                            data.save();
+                                            try{
+                                                data.deleteRecord();
+                                                data.save();
+                                            }catch(exception){
+                                                console.log("[ ERROR ] "+exception);
+                                            }
                                         });
                                     });
                                 }
@@ -136,18 +140,25 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
                                 function (array) {
                                     array.forEach(function (data) {
                                         Ember.run.once(self, function () {
-                                            data.deleteRecord();
-                                            data.save();
+                                            try{
+                                                data.deleteRecord();
+                                                data.save();
+                                            }catch(exception){
+                                                console.log("[ ERROR ] "+exception);
+                                            }
                                         });
                                     });
                                 }
                             );
 
-                            entity.deleteRecord();
-                            databaseHandler.get('entities').removeObject(entity);
-                            databaseHandler.save();
-                            entity.save();
-
+                            try{
+                                entity.deleteRecord();
+                                databaseHandler.get('entities').removeObject(entity);
+                                databaseHandler.save();
+                                entity.save();
+                            }catch(exception){
+                                console.log("[ ERROR ] "+exception);
+                            }
                         });
                 });
 
@@ -250,7 +261,6 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
                             function (Nrelationship) {
 
                                 Nentity.get('entityRelationships').addObject(Nrelationship);
-                                console.log(Nentity);
                                 Nentity.save();
                                 Nrelationship.save();
                             });
@@ -275,12 +285,16 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
                         function (relationship) {
 
                             var destination = relationship.get('destination');
-                            relationship.deleteRecord();
-                            entity.get('entityRelationships').removeObject(relationship);
-                            entity.save();
-                            relationship.save();
+                            try{
+                                entity.get('entityRelationships').removeObject(relationship);
+                                relationship.deleteRecord();
+                                entity.save();
+                                relationship.save();
+                            }catch(exception){
+                                console.log("[ ERROR ] "+exception);
+                            }
 
-                            self.store.find('entity', destination).then(
+                            /*self.store.find('entity', destination).then(
                                 function (oppEntity) {
 
                                     self.store.find('entityRelationship', {destination: entityName}).then(
@@ -289,14 +303,19 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
                                             oppRelationships.forEach(function (item) {
 
                                                 if (item.get('entity') === oppEntity) {
-                                                    item.deleteRecord();
-                                                    oppEntity.get('entityRelationships').removeObject(item);
-                                                    oppEntity.save();
-                                                    item.save();
+                                                    try{
+                                                        oppEntity.get('entityRelationships').removeObject(item);
+                                                        item.deleteRecord();
+                                                        item.save();
+                                                    }catch(exception){
+                                                        console.log("[ ERROR ] "+exception);
+                                                    }
                                                 }
                                             }, oppRelationships);
                                         });
-                                });
+
+                                    oppEntity.save();
+                                });*/
                         });
                 }
             );
@@ -313,11 +332,14 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
                 function (entity) {
                     self.store.find('entityAttribute', key).then(
                         function (attribute) {
-
-                            attribute.deleteRecord();
-                            entity.get('entityAttributes').removeObject(attribute);
-                            entity.save();
-                            attribute.save();
+                            try{
+                                attribute.deleteRecord();
+                                entity.get('entityAttributes').removeObject(attribute);
+                                entity.save();
+                                attribute.save();
+                            }catch(exception){
+                                console.log("[ ERROR ] "+exception);
+                            }
                         });
                 }
             );

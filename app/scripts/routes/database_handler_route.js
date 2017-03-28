@@ -5,11 +5,16 @@ App.DatabaseHandlerRoute = Ember.Route.extend({
 
     model: function () {
 
-        return this.store.find('dataHandler', 'dH1').then(
-            function (dataHandler) {
+        try {
+            return this.store.find('dataHandler', 'dH1').then(
+                function (dataHandler) {
 
-                return dataHandler.get('databaseHandler');
-            });
+                    return dataHandler.get('databaseHandler');
+                });
+        } catch (exception) {
+            console.log("[ ERROR ] "+exception);
+        }
+
     },
 
     actions: {
@@ -42,8 +47,12 @@ App.DatabaseHandlerRoute = Ember.Route.extend({
                         function (array) {
                             array.forEach(function (data) {
                                 Ember.run.once(self, function () {
-                                    data.deleteRecord();
-                                    data.save();
+                                    try{
+                                        data.deleteRecord();
+                                        data.save();
+                                    }catch(exception){
+                                        console.log("[ ERROR ] "+exception);
+                                    }
                                 });
                             });
                         }
@@ -52,8 +61,12 @@ App.DatabaseHandlerRoute = Ember.Route.extend({
                         function (array) {
                             array.forEach(function (data) {
                                 Ember.run.once(self, function () {
-                                    data.deleteRecord();
-                                    data.save();
+                                    try{
+                                        data.deleteRecord();
+                                        data.save();
+                                    }catch(exception){
+                                        console.log("[ ERROR ] "+exception);
+                                    }
                                 });
                             });
                         }
@@ -63,8 +76,12 @@ App.DatabaseHandlerRoute = Ember.Route.extend({
                         function (array) {
                             array.forEach(function (data) {
                                 Ember.run.once(self, function () {
-                                    data.deleteRecord();
-                                    data.save();
+                                    try{
+                                        data.deleteRecord();
+                                        data.save();
+                                    }catch(exception){
+                                        console.log("[ ERROR ] "+exception);
+                                    }
                                 });
                             });
                         }
