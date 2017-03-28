@@ -5,5 +5,4 @@ dist
 .tmp
 .DS_Store
 app/bower_components
-**/.idea/workspace.xml
-**/.idea/tasks.xml
+.idea
