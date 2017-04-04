@@ -27,7 +27,7 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
     relationshipDestination: '',
     relationshipType: '1 : N',
     types: ['String', 'Integer', 'Float', 'Double', 'Date', 'Boolean'],
-    relTypes: ['1 : 1', '1 : N', 'N : N'],
+    relTypes: ['1 : 1', '1 : N', 'N : 1', 'N : N'],
 
     // checks if the destination entity has been set
     isDestinationValid: function () {
@@ -205,7 +205,6 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
                             entity.get('entityAttributes').addObject(attribute);
                             attribute.save();
                             entity.save();
-
                         });
                 });
             this.set('attributeName', 'newAttribute' + (this.get('attributeCount') + 1));
@@ -237,12 +236,11 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
                             entity.get('entityRelationships').addObject(relationship);
                             entity.save();
                             relationship.save();
-
                         });
                 }
             );
 
-            var newType = type;
+            /*var newType = type;
             if (this.get('relationshipType') === '1 : N') {
                 newType = 'N : 1'
             }
@@ -250,6 +248,9 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
             if (destination !== entityName) {
                 this.store.find('entity', destination).then(
                     function (Nentity) {
+
+                        var attributes = Nentity.get('entityAttributes');
+                        console.log(attributes);
                         self.store.createRecord('entityRelationship', {
 
                             name: name,
@@ -260,13 +261,16 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
                         }).save().then(
                             function (Nrelationship) {
 
+                                var attributes = Nentity.get('entityAttributes');
+                                console.log(attributes);
                                 Nentity.get('entityRelationships').addObject(Nrelationship);
+                                //Nentity.set('entityAttributes', attributes);
                                 Nentity.save();
                                 Nrelationship.save();
                             });
                     }
                 );
-            }
+            }*/
             this.set('relationshipName', 'newRel' + (this.get('relationshipCount') + 1));
             this.set('isCreatingRelationship', false);
             this.set('relationshipDestination', '');
@@ -314,6 +318,7 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
                                             }, oppRelationships);
                                         });
 
+                                    //oppEntity.set('entityAttributes', attributes);
                                     oppEntity.save();
                                 });*/
                         });

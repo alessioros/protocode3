@@ -60,6 +60,7 @@ App.EntitiesController = Ember.ArrayController.extend(App.Saveable, {
                     });
 
                 this.set('isCreating', false);
+                this.set('entityName', 'newEntity');
                 this.set('entityPrimaryKey', 'primaryKeyName');
                 this.send('refreshModel');
 

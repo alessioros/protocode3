@@ -129,6 +129,7 @@ App.PreferenceRecordsController = Ember.ArrayController.extend({
                     });
 
                 this.set('isCreating', false);
+                this.set('keyPreferenceRecord','newKey');
                 this.set('valuePreferenceRecord', 'newStringValue');
                 this.set('typePreferenceRecord', 'string');
                 this.send('refreshModel');

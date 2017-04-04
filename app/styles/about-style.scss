@@ -28,6 +28,11 @@ $font-github-links: 16px "Roboto-Light", ".Helvetica NeueUI", "Helvetica Neue", 
 
     .about-links {
         font: $font-github-title;
+        margin-top: 5%;
+
+        .github-title {
+            margin-left: 7%;
+        }
 
         .github-icon {
             width: 40px;
@@ -38,6 +43,11 @@ $font-github-links: 16px "Roboto-Light", ".Helvetica NeueUI", "Helvetica Neue", 
         a {
             text-decoration: none;
             font: $font-github-links;
+        }
+
+        .github-links {
+            margin-left: -9%;
+            float: left;
         }
     }
 }
