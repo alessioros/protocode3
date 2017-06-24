@@ -27,7 +27,7 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
     relationshipDestination: '',
     relationshipType: '1 : N',
     types: ['String', 'Integer', 'Float', 'Double', 'Date', 'Boolean'],
-    relTypes: ['1 : 1', '1 : N', 'N : 1', 'N : N'],
+    relTypes: ['1 : 1', '1 : N', 'N : 1'],
 
     // checks if the destination entity has been set
     isDestinationValid: function () {
