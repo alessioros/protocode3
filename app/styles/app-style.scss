@@ -25,42 +25,6 @@ body,
     margin-bottom: 5px;
 }
 
-.navbar-default .navbar-nav > li > a {
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.navbar-default .navbar-nav > li > a:focus,
-.navbar-default .navbar-nav > li > a:active,
-.navbar-default .navbar-nav > li > a.active,
-.navbar-default .navbar-nav > li > a.active:hover {
-    color: #ffffff;
-    background-color: #cc181e;
-}
-
-.navbar-default .navbar-nav > li > a:hover {
-    color: #ffffff;
-    background-color: #444444;
-}
-
-.nav-tabs.nav-justified > li > a,
-.nav-tabs.nav-justified > li > a:hover,
-.nav-tabs.nav-justified > li.active > a,
-.nav-tabs.nav-justified > li.active > a:hover {
-    border-bottom: none !important;
-}
-
-.nav-tabs.nav-justified > li.active > a:hover {
-    background-color: #ffffff;
-    text-decoration: none;
-}
-
-.nav-tabs.nav-justified > li > a:hover {
-    background-color: transparent;
-    border-color: transparent;
-    text-decoration: underline;
-}
-
 .panel-default .panel-heading,
 .panel-default .panel-footer {
     background-color: #ffffff;
