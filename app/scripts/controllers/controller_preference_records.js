@@ -4,6 +4,10 @@
 App.PreferenceRecordsController = Ember.ArrayController.extend({
 
     isCreating: false,
+    valuePreferenceRecord: 'newStringValue',
+    typePreferenceRecord: 'string',
+    types: ['string', 'boolean', 'int', 'long', 'float', 'double'],
+    booleanOptions: ['true', 'false'],
     keyPreferenceRecord: Ember.computed('recordsCount', function () {
         if (this.get('recordsCount') !== 0) {
             return 'newKey' + this.get('recordsCount');
@@ -11,10 +15,6 @@ App.PreferenceRecordsController = Ember.ArrayController.extend({
             return 'newKey';
         }
     }),
-    valuePreferenceRecord: 'newStringValue',
-    typePreferenceRecord: 'string',
-    types: ['string', 'boolean', 'int', 'long', 'float', 'double'],
-    booleanOptions: ['true', 'false'],
     recordsCount: Ember.computed.alias('content.length'),
 
     // sets the default value accordingly to the record type,
@@ -136,7 +136,7 @@ App.PreferenceRecordsController = Ember.ArrayController.extend({
             }
         },
 
-        deletePRecord: function (key) {
+        deletePrefRecord: function (key) {
 
             var self = this;
 

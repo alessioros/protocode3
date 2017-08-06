@@ -4,6 +4,10 @@
 App.StorageRecordsController = Ember.ArrayController.extend({
 
     isCreating: false,
+    tempStorageRecord: false,
+    extensionStorageRecord: 'text',
+    extensions: ['text', 'img', 'other'],
+    booleanOptions: ['true', 'false'],
     nameStorageRecord: Ember.computed('recordsCount', function () {
         if (this.get('recordsCount') !== 0) {
             return 'newFile' + this.get('recordsCount');
@@ -11,10 +15,6 @@ App.StorageRecordsController = Ember.ArrayController.extend({
             return 'newFile';
         }
     }),
-    tempStorageRecord: false,
-    extensionStorageRecord: 'text',
-    extensions: ['text', 'img', 'other'],
-    booleanOptions: ['true', 'false'],
     recordsCount: Ember.computed.alias('content.length'),
 
     // checks if the name already exists and if is a valid path

@@ -7,6 +7,11 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
     isCreatingRelationship: false,
     isAttributeValid: true,
     isRelationshipValid: true,
+    attributeType: 'String',
+    relationshipDestination: '',
+    relationshipType: '1 : N',
+    types: ['String', 'Integer', 'Float', 'Double', 'Date', 'Boolean'],
+    relTypes: ['1 : 1', '1 : N', 'N : 1'],
     attributeName: Ember.computed('attributeCount', function () {
         if (this.get('attributeCount') !== 0) {
             return 'newAttribute' + this.get('attributeCount');
@@ -15,7 +20,6 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
         }
     }),
     attributeCount: Ember.computed.alias('content.entityAttributes.length'),
-    attributeType: 'String',
     relationshipName: Ember.computed('relationshipCount', function () {
         if (this.get('relationshipCount') !== 0) {
             return 'newRel' + this.get('relationshipCount');
@@ -24,10 +28,6 @@ App.EntityController = Ember.ObjectController.extend(App.Saveable, {
         }
     }),
     relationshipCount: Ember.computed.alias('content.entityRelationships.length'),
-    relationshipDestination: '',
-    relationshipType: '1 : N',
-    types: ['String', 'Integer', 'Float', 'Double', 'Date', 'Boolean'],
-    relTypes: ['1 : 1', '1 : N', 'N : 1'],
 
     // checks if the destination entity has been set
     isDestinationValid: function () {

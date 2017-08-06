@@ -5,6 +5,10 @@ App.CloudObjectController = Ember.ObjectController.extend(App.Saveable, {
 
     isCreatingAttribute: false,
     isAttributeValid: true,
+    attributeType: 'String',
+    attributeObject: '',
+    types: ['String', 'Integer', 'Float', 'Double', 'Boolean', 'Object', 'Object list'],
+    attributeCount: Ember.computed.alias('content.objectAttributes.length'),
     attributeName: Ember.computed('attributeCount', function () {
         if (this.get('attributeCount') !== 0) {
             return 'newAttribute' + this.get('attributeCount');
@@ -12,10 +16,6 @@ App.CloudObjectController = Ember.ObjectController.extend(App.Saveable, {
             return 'newAttribute';
         }
     }),
-    attributeCount: Ember.computed.alias('content.objectAttributes.length'),
-    attributeType: 'String',
-    attributeObject: '',
-    types: ['String', 'Integer', 'Float', 'Double', 'Boolean', 'Object', 'Object list'],
 
     // checks if the attribute name is valid and doesn't already exist for this cloudObject
     isAttNameValid: function () {

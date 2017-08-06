@@ -4,6 +4,7 @@
 App.EntitiesController = Ember.ArrayController.extend(App.Saveable, {
 
     isCreating: false,
+    entityPrimaryKey: 'primaryKeyName',
     entityName: Ember.computed('entityCount', function () {
         if (this.get('entityCount') !== 0) {
             return 'newEntity' + this.get('entityCount');
@@ -11,7 +12,6 @@ App.EntitiesController = Ember.ArrayController.extend(App.Saveable, {
             return 'newEntity';
         }
     }),
-    entityPrimaryKey: 'primaryKeyName',
     entityCount: Ember.computed.alias('content.length'),
 
     // checks if the entity name is valid and doesn't already exists
