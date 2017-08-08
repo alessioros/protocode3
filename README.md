@@ -52,9 +52,10 @@ In order to deploy the web application we need:
 1. Download this project
 2. Install all node.js dependencies. From the root of the project execute `npm install`
 3. Install all front-end libraries using bower `bower install`
-4. Start the server using grunt `grunt serve`
-5. That's it! Now you have a server with this application up and running on [localhost:9000](http://localhost:9000)
-6. If you want only minified and compressed version of this web application, just execute in the root of the project `grunt build`. Now you have in `/PROJECT_PATH/dist` the web application ready for distribution.
+4. Eventually copy manually the library 'vkBeautify' saved in folder /libraries
+5. Start the server using grunt `grunt serve`
+6. That's it! Now you have a server with this application up and running on [localhost:9000](http://localhost:9000)
+7. If you want only minified and compressed version of this web application, just execute in the root of the project `grunt build`. Now you have in `/PROJECT_PATH/dist` the web application ready for distribution.
 
 ## External Links ##
 * [Protocode v2.0](https://github.com/aldopolimi/protocode/)
