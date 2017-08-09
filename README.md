@@ -45,14 +45,14 @@ In order to deploy the web application we need:
 * [Node.js](http://nodejs.org/)
 * [Ruby](https://www.ruby-lang.org/)
 * [Compass](http://compass-style.org/)
-* [MobileCodeGenerator](https://github.com/aldopolimi/mobilecodegenerator): this app is required to generate both iOS and Android projects from the model exported by Protocode.
+* [MobileCodeGenerator](https://github.com/alessioros/mobilecodegenerator3): this app is required to generate both iOS and Android projects from the model exported by Protocode.
 
 ## Installation ##
 
 1. Download this project
 2. Install all node.js dependencies. From the root of the project execute `npm install`
 3. Install all front-end libraries using bower `bower install`
-4. Eventually copy manually the library 'vkBeautify' saved in folder /libraries
+4. Eventually copy manually the library 'vkBeautify' to app/bower_components saved in folder /libraries
 5. Start the server using grunt `grunt serve`
 6. That's it! Now you have a server with this application up and running on [localhost:9000](http://localhost:9000)
 7. If you want only minified and compressed version of this web application, just execute in the root of the project `grunt build`. Now you have in `/PROJECT_PATH/dist` the web application ready for distribution.
